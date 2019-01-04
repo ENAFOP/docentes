@@ -1,0 +1,8 @@
+Jan 23 16:45:26  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 23 16:48:32  [info] aspirante11 (::1) op.Login
+Jan 23 16:48:41  [info] aspirante12 (::1) op.Login
+Jan 23 16:48:49  [info] aspirante13 (::1) op.Login
+Jan 23 16:51:51  [info] aspirante13 (::1) op.EditUserData?user=aspirante13
+Jan 23 16:54:00  [info] admin (::1) op.Login
+Jan 23 17:49:30  [info] aspirante16 (::1) op.Login
+Jan 23 17:57:37  [info] admin (::1) op.Login

@@ -1,0 +1,7 @@
+Jun 19 10:51:22  [info] admin (190.150.135.17) op.SubstituteUser.php?userid=3&formtoken=ab028e597dea8705db806fc3e26afbb2?userid=3
+Jun 19 15:23:21  [info] admin (190.86.198.42) op.Login
+Jun 19 15:24:23  [info] admin (190.86.198.42) op.SubstituteUser.php?userid=17&formtoken=cd1bfdafe875aed70decc98423fee59e?userid=17
+Jun 19 15:32:23  [info] aspirante10 (190.86.198.42) op.ResetSu
+Jun 19 15:32:37  [info] admin (190.86.198.42) op.Login
+Jun 19 15:50:23  [info] admin (190.86.198.42) op.AddEvent?name=Entrevista segunda fase&from=1529470800&to=1529643599
+Jun 19 15:50:47  [info] admin (190.86.198.42) op.EditEvent?eventid=1&name=Entrevista segunda fase&from=1529902800&to=1529989199

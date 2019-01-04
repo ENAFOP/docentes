@@ -1,0 +1,8 @@
+Jun 05 23:17:13  [info] aspirante43 (190.86.149.249) op.Login
+Jun 05 23:51:22  [error] -- (190.53.144.245) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jun 05 23:51:37  [error] -- (190.53.144.245) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jun 05 23:51:50  [error] -- (190.53.144.245) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jun 05 23:52:13  [info] aspirante43 (190.53.144.245) op.Login
+Jun 05 23:54:27  [error] -- (190.53.144.245) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jun 05 23:54:40  [error] -- (190.53.144.245) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jun 05 23:54:52  [info] admin (190.53.144.245) op.Login

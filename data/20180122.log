@@ -1,0 +1,16 @@
+Jan 22 03:45:49  [info] admin (::1) op.Login
+Jan 22 17:56:38  [info] aspirante9 (::1) op.Login
+Jan 22 18:01:23  [info] admin (::1) op.Login
+Jan 22 18:07:02  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 22 18:07:09  [info] aspirante10 (::1) op.Login
+Jan 22 18:43:16  [info] admin (::1) op.Login
+Jan 22 18:48:18  [info] aspirante11 (::1) op.Login
+Jan 22 20:21:38  [info] aspirante11 (::1) op.EditUserData?user=aspirante11
+Jan 22 20:40:15  [info] admin (::1) op.Login
+Jan 22 20:46:23  [info] aspirante11 (::1) op.Login
+Jan 22 20:51:03  [info] admin (::1) op.Login
+Jan 22 20:51:33  [info] admin (::1) op.Login
+Jan 22 23:21:59  [info] aspirante12 (::1) op.Login
+Jan 22 23:27:31  [info] admin (::1) op.Login
+Jan 22 23:28:16  [info] aspirante13 (::1) op.Login
+Jan 22 23:29:42  [info] admin (::1) op.Login

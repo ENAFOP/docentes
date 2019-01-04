@@ -1,0 +1,11 @@
+feb 12 17:04:19  [info] admin (::1) op.Settings.php&action=savesettings
+feb 12 17:15:10  [info] aspirante31 (::1) op.Login
+feb 12 17:19:07  [info] admin (::1) op.Login
+feb 12 20:54:38  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+feb 12 21:02:09  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+feb 12 21:56:21  [info] aspirante37 (::1) op.Login
+feb 12 22:57:20  [info] admin (::1) op.Login
+feb 12 23:00:11  [info] aspirante38 (::1) op.Login
+feb 12 23:35:56  [info] admin (::1) op.Login
+feb 12 23:47:15  [error] admin (::1) escribirChat UI::exitError error=el mensaje enviado no puede estar vacío. Por favor, ingrese el texto pertinente pagetitle=Mensaje vacío
+feb 12 23:51:47  [info] admin (::1) op.Login

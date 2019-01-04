@@ -1,0 +1,68 @@
+Jan 15 00:04:49  [info] jchepe (::1) op.Login
+Jan 15 00:08:43  [info] jchepe (::1) op.Login
+Jan 15 00:31:55  [info] aspirante1 (::1) op.Login
+Jan 15 01:46:51  [info] jchepe (::1) op.Login
+Jan 15 02:23:30  [info] admin (::1) op.Login
+Jan 15 02:23:56  [info] jchepe (::1) op.Login
+Jan 15 02:27:50  [info] guest (::1) out.ViewFolder.php%3Ffolderid%3D1%26showtree%3D1
+Jan 15 02:28:35  [info] jchepe (::1) op.Login
+Jan 15 02:46:36  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 15 02:49:25  [info] jchepe (::1) op.Login
+Jan 15 02:49:52  [info] jchepe (::1) op.Login
+Jan 15 02:50:36  [info] aspirante2 (::1) op.Login
+Jan 15 03:01:09  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 15 03:01:21  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 15 03:01:38  [info] postulante3 (::1) op.Login
+Jan 15 03:10:15  [info] admin (::1) op.Login
+Jan 15 03:10:33  [info] admin (::1) op.Login
+Jan 15 03:28:20  [info] admin (::1) op.Login
+Jan 15 03:29:13  [info] aspirante4 (::1) op.Login
+Jan 15 03:32:18  [info] admin (::1) op.Login
+Jan 15 03:39:04  [info] aspirante5 (::1) op.Login
+Jan 15 03:43:07  [info] admin (::1) op.Login
+Jan 15 03:49:23  [info] admin (::1) op.Login
+Jan 15 03:55:00  [info] aspirante5 (::1) op.Login
+Jan 15 04:06:37  [info] admin (::1) op.Login
+Jan 15 04:11:03  [info] aspirante5 (::1) op.Login
+Jan 15 04:16:45  [info] aspirante5 (::1) op.Download.php?documentid=193&version=1
+Jan 15 04:22:05  [info] aspirante5 (::1) op.ViewOnline.php?documentid=193&version=1
+Jan 15 04:28:05  [info] aspirante5 (::1) op.UpdateDocument?documentid=193
+Jan 15 04:33:59  [info] admin (::1) op.Login
+Jan 15 04:34:37  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 15 04:34:45  [info] aspirante5 (::1) op.Login
+Jan 15 13:14:25  [info] aspirante2 (::1) op.Login
+Jan 15 13:14:43  [info] admin (::1) op.Login
+Jan 15 13:17:42  [info] admin (::1) op.Login
+Jan 15 13:17:47  [info] guest (::1) out.ViewFolder.php%3Ffolderid%3D1%26showtree%3D1
+Jan 15 13:17:53  [info] admin (::1) op.Login
+Jan 15 13:18:18  [info] admin (::1) op.Login
+Jan 15 13:20:13  [info] aspirante5 (::1) op.Login
+Jan 15 14:02:54  [info] aspirante5 (::1) op.Login
+Jan 15 14:09:33  [info] aspirante2 (::1) op.Login
+Jan 15 14:36:36  [info] admin (::1) op.Login
+Jan 15 14:51:36  [info] admin (::1) op.Login
+Jan 15 14:56:08  [info] aspirante2 (::1) op.Login
+Jan 15 14:56:31  [info] admin (::1) op.Login
+Jan 15 14:57:03  [info] admin (::1) op.Login
+Jan 15 14:59:25  [info] admin (::1) op.Login
+Jan 15 17:10:29  [info] admin (::1) op.Login
+Jan 15 17:18:08  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 15 17:18:18  [info] aspirante5 (::1) op.Login
+Jan 15 17:18:49  [info] aspirante6 (::1) op.Login
+Jan 15 17:29:45  [info] aspirante6 (::1) op.Download.php?documentid=200&version=1
+Jan 15 17:32:40  [info] aspirante6 (::1) op.Login
+Jan 15 17:37:08  [info] admin (::1) op.Login
+Jan 15 17:50:52  [info] aspirante2 (::1) op.Login
+Jan 15 17:52:39  [info] admin (::1) op.Login
+Jan 15 22:13:42  [info] admin (::1) op.Login
+Jan 15 22:30:54  [info] admin (::1) op.SubstituteUser.php?userid=3&formtoken=f9fe345499edea8989c4799da31b937f?userid=3
+Jan 15 22:31:09  [error] aspirante1 (::1) op.SubstituteUser.php?userid=5&formtoken=f9fe345499edea8989c4799da31b937f UI::exitError error=Acceso denegado pagetitle=Administración
+Jan 15 22:31:12  [error] aspirante1 (::1) op.SubstituteUser.php?userid=10&formtoken=f9fe345499edea8989c4799da31b937f UI::exitError error=Acceso denegado pagetitle=Administración
+Jan 15 22:31:15  [error] aspirante1 (::1) op.SubstituteUser.php?userid=4&formtoken=f9fe345499edea8989c4799da31b937f UI::exitError error=Acceso denegado pagetitle=Administración
+Jan 15 22:31:19  [error] aspirante1 (::1) op.SubstituteUser.php?userid=9&formtoken=f9fe345499edea8989c4799da31b937f UI::exitError error=Acceso denegado pagetitle=Administración
+Jan 15 22:31:22  [error] aspirante1 (::1) op.SubstituteUser.php?userid=3&formtoken=f9fe345499edea8989c4799da31b937f UI::exitError error=Acceso denegado pagetitle=Administración
+Jan 15 22:31:33  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Jan 15 22:31:42  [info] aspirante5 (::1) op.Login
+Jan 15 22:47:18  [info] admin (::1) op.Login
+Jan 15 23:05:15  [info] aspirante1 (::1) op.Login
+Jan 15 23:09:51  [info] admin (::1) op.Login
