@@ -1,8 +1,0 @@
-Jan 16 18:28:22  [info] admin (::1) op.Login
-Jan 16 18:28:46  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
-Jan 16 18:28:56  [info] aspirante4 (::1) op.Login
-Jan 16 18:29:36  [info] admin (::1) op.Login
-Jan 16 18:29:56  [info] admin (::1) op.UsrMgr.php&action=removeuser&userid=11
-Jan 16 18:30:14  [info] aspirante5 (::1) op.Login
-Jan 16 18:30:39  [info] admin (::1) op.Login
-Jan 16 18:31:03  [info] aspirante2 (::1) op.Login

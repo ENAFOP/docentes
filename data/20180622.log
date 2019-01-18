@@ -1,3 +1,0 @@
-Jun 22 10:19:52  [info] guest (190.5.135.101) out.ViewFolder.php%3Ffolderid%3D1%26showtree%3D1
-Jun 22 10:20:17  [error] -- (190.5.135.101) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
-Jun 22 10:20:23  [info] admin (190.5.135.101) op.Login

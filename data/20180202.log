@@ -1,9 +1,0 @@
-Feb 02 11:46:22  [info] admin (190.5.135.101) op.Login
-Feb 02 11:47:38  [info] Aurora Cubías (190.5.135.101) op.Login
-Feb 02 15:20:05  [info] admin (179.5.103.39) op.Login
-Feb 02 15:49:52  [info] admin (179.5.103.39) op.Login
-Feb 02 16:47:00  [info] admin (170.0.178.41) op.Login
-Feb 02 16:48:37  [error] -- (170.0.178.41) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
-Feb 02 16:50:56  [info] Aurora Cubías (170.0.178.41) op.Login
-Feb 02 16:56:32  [info] admin (170.0.178.41) op.Login
-Feb 02 23:37:50  [info] admin (170.0.179.36) op.Login
