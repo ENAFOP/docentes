@@ -1,0 +1,8 @@
+Jul 08 13:21:01  [error] -- (190.53.190.176) op.Login UI::exitError error=Nombre de usuario no facilitado.
+ pagetitle=Error de acceso
+Jul 08 13:21:09  [info] admin (190.53.190.176) op.Login
+Jul 08 13:21:41  [info] admin (190.53.190.176) op.Login
+Jul 08 13:21:53  [info] admin (190.53.190.176) op.SubstituteUser.php?userid=30&formtoken=aa5d82f38be95607eb26b3e3df60be60?userid=30
+Jul 08 23:35:10  [info] aspirante22 (190.53.190.176) op.ResetSu
+Jul 08 23:35:26  [error] -- (190.53.190.176) op.Login UI::exitError error=Nombre de usuario no facilitado.
+ pagetitle=Error de acceso

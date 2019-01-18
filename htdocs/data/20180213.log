@@ -1,0 +1,45 @@
+feb 13 00:00:05  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+feb 13 00:00:12  [info] aspirante31 (::1) op.Login
+feb 13 00:00:23  [info] aspirante35 (::1) op.Login
+feb 13 00:00:32  [info] aspirante37 (::1) op.Login
+feb 13 00:08:13  [info] aspirante31 (::1) op.Login
+feb 13 00:08:21  [info] guest (::1) out.ViewFolder.php%3Ffolderid%3D1%26showtree%3D1
+feb 13 00:08:28  [info] aspirante37 (::1) op.Login
+feb 13 00:19:23  [info] aspirante31 (::1) op.Login
+feb 13 00:24:30  [info] aspirante37 (::1) op.Login
+feb 13 00:24:44  [info] admin (::1) op.Login
+feb 13 00:24:51  [info] guest (::1) out.ViewFolder.php%3Ffolderid%3D1%26showtree%3D1
+feb 13 00:25:01  [info] aspirante37 (::1) op.Login
+feb 13 00:25:35  [info] admin (::1) op.Login
+feb 13 00:26:06  [info] aspirante37 (::1) op.Login
+feb 13 01:15:44  [info] admin (::1) op.Login
+feb 13 01:43:53  [info] aspirante31 (::1) op.Login
+feb 13 02:03:58  [info] admin (::1) op.Login
+feb 13 02:07:48  [info] aspirante31 (::1) op.Login
+feb 13 02:26:00  [info] aspirante1 (::1) op.Login
+feb 13 02:26:53  [info] aspirante37 (::1) op.Login
+feb 13 02:27:08  [info] aspirante21 (::1) op.Login
+feb 13 02:31:52  [info] admin (::1) op.Login
+feb 13 02:51:39  [info] aspirante37 (::1) op.Login
+feb 13 02:57:23  [info] admin (::1) op.Login
+feb 13 03:10:28  [info] aspirante37 (::1) op.Login
+feb 13 03:34:14  [info] admin (::1) op.Login
+feb 13 04:58:04  [info] admin (::1) op.ViewOnline.php?documentid=313&version=1
+feb 13 04:59:02  [info] admin (::1) op.ViewOnline.php?documentid=314&version=1
+feb 13 05:03:54  [info] aspirante37 (::1) op.Login
+feb 13 05:07:19  [info] admin (::1) op.Login
+feb 13 05:21:59  [info] aspirante39 (::1) op.Login
+feb 13 05:25:37  [info] guest (::1) out.ViewFolder.php%3Ffolderid%3D1%26showtree%3D1
+feb 13 05:26:13  [info] admin (::1) op.Login
+feb 13 07:18:25  [info] aspirante40 (::1) op.Login
+feb 13 07:21:39  [error] -- (::1) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+feb 13 07:21:48  [info] aspirante40 (::1) op.Login
+feb 13 07:34:03  [info] admin (::1) op.Login
+feb 13 07:34:57  [error] admin (::1) escribirChat UI::exitError error=el mensaje enviado no puede estar vacío. Por favor, ingrese el texto pertinente pagetitle=Mensaje vacío
+feb 13 07:35:33  [info] aspirante37 (::1) op.Login
+feb 13 07:36:51  [info] admin (::1) op.Login
+feb 13 10:10:19  [error] admin (::1) escribirChat UI::exitError error=el mensaje enviado no puede estar vacío. Por favor, ingrese el texto pertinente pagetitle=Mensaje vacío
+feb 13 10:11:10  [info] aspirante37 (::1) op.Login
+feb 13 10:15:46  [info] admin (::1) op.Login
+feb 13 10:16:46  [info] admin (::1) op.Login
+feb 13 10:31:03  [info] admin (::1) op.Download.php?documentid=304&version=1

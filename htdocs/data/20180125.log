@@ -1,0 +1,12 @@
+Jan 25 00:00:42  [info] aspirante19 (::1) op.Login
+Jan 25 00:02:17  [info] admin (::1) op.Login
+Jan 25 00:07:04  [info] aspirante9 (::1) op.Login
+Jan 25 00:07:23  [info] aspirante9 (::1) op.EditUserData?user=aspirante9
+Jan 25 00:07:29  [info] admin (::1) op.Login
+Jan 25 00:08:37  [info] aspirante13 (::1) op.Login
+Jan 25 00:08:46  [info] admin (::1) op.Login
+Jan 25 17:40:35  [info] admin (::1) op.Login
+Jan 25 18:39:31  [info] admin (::1) op.UsrMgr.php&action=removeuser&userid=9
+Jan 25 18:43:25  [info] admin (::1) op.Login
+Jan 25 19:00:31  [info] admin (::1) op.Login
+Jan 25 19:00:49  [info] admin (::1) op.UsrMgr.php&action=removeuser&userid=9

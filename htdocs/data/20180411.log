@@ -1,0 +1,6 @@
+Apr 11 15:19:14  [error] -- (190.5.135.101) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Apr 11 15:24:31  [info] aspirante43 (190.5.135.101) op.Login
+Apr 11 15:59:42  [error] -- (190.5.135.101) op.Login UI::exitError error=Error de acceso. ID de usuario o contraseña incorrectos. pagetitle=Error de acceso
+Apr 11 15:59:46  [info] admin (190.5.135.101) op.Login
+Apr 11 16:00:04  [info] aspirante43 (190.5.135.101) op.Login
+Apr 11 16:29:43  [info] guest (190.5.135.101) out.ViewFolder.php%3Ffolderid%3D1%26showtree%3D1
