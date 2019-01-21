@@ -34,7 +34,7 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 	function __construct($params, $theme='multisis-lte') {
 		$this->theme = $theme;
 		$this->params = $params;
-		$this->imgpath = '/views/'.$theme.'/images/';
+		$this->imgpath = 'views/'.$theme.'/images/';
 		$this->extraheader = array('js'=>'', 'css'=>'');
 		$this->footerjs = array();
 	}
@@ -59,12 +59,12 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 			 * X-Content-Security-Policy is deprecated, Firefox understands
 			 * Content-Security-Policy since version 23+
 			 */
-			$csp_rules = "script-src 'self' 'unsafe-eval';"; // style-src 'self';";
-			foreach (array("X-WebKit-CSP", "X-Content-Security-Policy", "Content-Security-Policy") as $csp) {
-				header($csp . ": " . $csp_rules);
-			}
+			//$csp_rules = "script-src 'self' 'unsafe-eval';"; // style-src 'self';";
+			//$csp_rules = "default-src 'self' 'unsafe-eval';"; // style-src 'self';";
+			//foreach (array("X-WebKit-CSP", "X-Content-Security-Policy", "Content-Security-Policy") as $csp) {
+			//	header($csp . ": " . $csp_rules);
+			//}
 		}
-
 		echo "<!DOCTYPE html>\n";
 		echo "<html lang=\"en\">\n<head>\n";
 		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n";
@@ -84,16 +84,12 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 		echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/select2/css/select2.min.css" rel="stylesheet">'."\n";
 		echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/select2/css/select2-bootstrap.css" rel="stylesheet">'."\n";
 		echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/plugins/jqtree/jqtree.css" rel="stylesheet">'."\n";
-	    echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/jquery-editable/css/jquery-editable.css" rel="stylesheet">'."\n";
-		//echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/bower_components/select2/dist/css/select2.min.css" rel="stylesheet">'."\n";
-		// echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/bower_components/jvectormap/jquery-jvectormap.css" rel="stylesheet">'."\n";
-		//echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/application.css" rel="stylesheet">'."\n";
-		//añadido Por Mario
-		echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/plugins/bootstrap-slider/slider.css" rel="stylesheet">'."\n";
+		//echo '<link href="/styles/'.$this->theme.'/application.css" rel="stylesheet">'."\n";
+
 		echo '<link href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/custom.css" rel="stylesheet">'."\n";
 
 		// Js Scripts
-		echo '<link rel="shortcut icon" href="/styles/'.$this->theme.'/favicon.ico" type="image/x-icon"/>'."\n";
+		echo '<link rel="shortcut icon" href="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/favicon.ico" type="image/x-icon"/>'."\n";
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/plugins/jQuery/jquery-2.2.3.min.js"></script>'."\n";
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/plugins/bootbox/bootbox-4.4.0.min.js"></script>'."\n";
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/passwordstrength/jquery.passwordstrength.js"></script>'."\n";
@@ -102,15 +98,19 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/plugins/noty/layouts/topCenter.js"></script>'."\n";
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/plugins/noty/themes/default.js"></script>'."\n";
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/plugins/jqtree/tree.jquery.js"></script>'."\n";
+		//añadido por Mario:
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/moment.min.js"></script>'."\n";
-		
+
+		echo '<link href="'.$this->params['settings']->_httpRoot.'/styles/'.$this->theme.'/jquery-editable/css/jquery-editable.css" rel="stylesheet">'."\n";
+		echo '<link href="'.$this->params['settings']->_httpRoot.'/styles/'.$this->theme.'/plugins/bootstrap-slider/slider.css" rel="stylesheet">'."\n";
+
 		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/custom/js/validate-logo.js"></script>'."\n";
 
 		//añadido por Mario:
-		//echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/animacionTabs.js"></script>'."\n";	
-		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/validation/jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>'."\n";
+
+		// echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/validation/jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>'."\n";
 		
-		// echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/validation/jquery-validation-1.17.0/dist/additional-methods.js"></script>'."\n";
+
 
 		if($this->extraheader['css'])
 			echo $this->extraheader['css'];
@@ -204,9 +204,7 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 
 	function footNote() { /* {{{ */
 		echo '<footer class="main-footer">';
-		 echo '<div class="row text-right">';
-		 echo '<div class="col-md-10">';
-		    echo '<br>';
+
 		if ($this->params['printdisclaimer']){
 			echo "<div class=\"\">".getMLText("disclaimer")."</div>";
 		}
@@ -214,12 +212,7 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 		if (isset($this->params['footnote']) && strlen((string)$this->params['footnote'])>0) {
 			echo "<div class=\"footnote\"><strong>".(string)$this->params['footnote']."</strong></div>";
 		}
-		echo '</div>';
 
-		 echo '<div class="col-md-2">';
-		 echo "<img src=\"/images/usaid_hoz.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
-		 echo '</div>'; 
-		  echo '</div>'; 
 		echo "</footer>";
 
 
@@ -234,7 +227,6 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
     <p class=\"login-box-msg\"></p>";
 	}
 
-	
 	function endLoginContent(){
 		echo "</div></div>";
 		echo "<script src=\"".$this->params['settings']->_httpRoot."styles/".$this->theme."/bootstrap/js/bootstrap.min.js\"></script>";
@@ -342,7 +334,7 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 		} else {
 			echo "<div class=\"box box-primary box-solid ".$collapsed."\">";
 		}
-		
+
     echo "<div class=\"box-header with-border\">";
 
     echo "<h3 class=\"box-title\">".$title."</h3>";
@@ -352,16 +344,16 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
     } else {
     	echo "<button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\"><i class=\"fa fa-minus\"></i>";
     }
-    
+
     echo "</button>";
     echo "</div>";
     echo "</div>";
     if ($collapsed != "") {
-    	echo "<div class=\"box-body\" style=\"display:none;\">";	
+    	echo "<div class=\"box-body\" style=\"display:none;\">";
     } else {
     	echo "<div class=\"box-body\">";
     }
-    
+
 	} /* }}} */
 
 	function startBoxCollapsableSuccess($title = "") { /* {{{ */
@@ -455,7 +447,6 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 		echo "</div>\n";
 	} /* }}} */
 
-
 	/**
 	 * Returns the html needed for the clipboard list in the menu
 	 *
@@ -466,7 +457,7 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 	 *        documents and folders.
 	 * @return string html code
 	 */
-function menuClipboard($clipboard) { /* {{{ */
+	function menuClipboard($clipboard) { /* {{{ */
 		if ($this->params['user']->isGuest() || (count($clipboard['docs']) + count($clipboard['folders'])) == 0) {
 			return '';
 		}
@@ -495,14 +486,13 @@ function menuClipboard($clipboard) { /* {{{ */
 		return $content;
 	} /* }}} */
 
- 
 	function mainHeaderForLoginError(){ /* {{{ */
 		$sitename = trim(strip_tags($this->params['sitename']));
 
 		echo "<header class=\"main-header\">";
-    echo "<a href=\"/out/out.ViewFolder.php?folderid=".$this->params['rootfolderid']."\" class=\"logo\">";
+    echo "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$this->params['rootfolderid']."\" class=\"logo\">";
     echo "<!-- mini logo for sidebar mini 50x50 pixels -->";
-    echo "<span class=\"logo-mini\"><b><img class=\"header-logo\" src=".$this->getLogo()."></b></span>"; // TODO: change for mini logo 
+    echo "<span class=\"logo-mini\"><b><img class=\"header-logo\" src=".$this->getLogo()."></b></span>"; // TODO: change for mini logo
     echo "<!-- logo for regular state and mobile devices -->";
     echo "<span class=\"logo-lg\"><b><img class=\"header-brand\" src=".$this->getBrand()."></b></span>";
     echo "</a>";
@@ -518,79 +508,27 @@ function menuClipboard($clipboard) { /* {{{ */
 	} /* }}} */
 
 	function mainHeader(){ /* {{{ */
-		$user=$this->params['user'];
 		$sitename = trim(strip_tags($this->params['sitename']));
 
 		echo "<header class=\"main-header\">";
-    echo "<a href=\"/out/out.ViewFolder.php?folderid=".$this->params['rootfolderid']."\" class=\"logo\">";
+    echo "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$this->params['rootfolderid']."\" class=\"logo\">";
     echo "<!-- mini logo for sidebar mini 50x50 pixels -->";
-    echo "<span class=\"logo-mini\"><img class=\"header-logo\" src=".$this->getLogo()."></span>"; // TODO: change for mini logo 
+    echo "<span class=\"logo-mini\"><img class=\"header-logo\" src=".$this->getLogo()."></span>"; // TODO: change for mini logo
     echo "<!-- logo for regular state and mobile devices -->";
     echo "<span class=\"logo-lg\"><img class=\"header-brand\" src=".$this->getBrand()."></span>";
     echo "</a>";
 
     echo "<!-- Header Navbar -->";
     echo "<nav class=\"navbar navbar-static-top\" role=\"navigation\">";
-    $user = $this->params['user'];
-    if($user->isAdmin())
-    {
-    	echo "<!-- Sidebar toggle button-->";
+    echo "<!-- Sidebar toggle button-->";
     echo "<a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"offcanvas\" role=\"button\">";
     echo "<span class=\"sr-only\"></span>";
     echo "</a>";
-    }
-    
 
     echo "<!-- Navbar Right Menu -->";
     echo "<div class=\"navbar-custom-menu\">";
     echo "<ul class=\"nav navbar-nav\">";
     echo "<!-- Messages: style can be found in dropdown.less-->";
-    		
-    $idChat=$user->getChatID($user->getID());
-   	$estaVacio=$user->estaChatVacio($idChat); 
-    
-    $hayObservacion=false;
-    if(!$estaVacio)
-    {
-    	$ultimoEscritor=$user->ultimoEscritorChat($idChat);
-    	if($ultimoEscritor!=$user->getID())
-    	{
-    		$hayObservacion=true;
-    	}
-    	
-    }
-    //echo "Ultimo escritor char: ".$ultimoEscritor;
-	
-     if(!$user->isAdmin() && !$user->isGuest() && $hayObservacion==true) //si el user es usuario, y no hay iniciada una observación, no puedo responder
-     {
-          //echo HAY OBSERVACIONES
-     	echo "<!-- Notifications Menu -->";
-    echo "<li class=\"dropdown notifications-menu\">";
-    echo "<!-- Menu toggle button -->";
-    echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">";
-    echo "<i class=\"fa fa-bell-o\"></i>";
-    echo "<span class=\"label label-warning\">1</span>";
-    echo "</a>";
-    echo "<ul class=\"dropdown-menu\">";
-    echo "<li class=\"header\">Tiene una observación sobre su postulación</li>";
-    echo "<li>";
-    echo "<!-- Inner Menu: contains the notifications -->";
-    echo "<ul class=\"menu\">";
-    echo "<li><!-- start notification -->";
-    $id=$user->getID();
-    echo "<a class=\"users-list-name\"href=\"/out/out.VerPostulacion.php?postulante=$id\">";
-    echo "<i class=\"fa fa-info text-aqua\"></i> La administración de la ENAFOP<br> ha realizado una observación <br>a su postulación. Acceda a su perfil <br> para verificarla y resolverla.";
-    echo "</a>";
-    echo "</li>";
-    echo "<!-- end notification -->";
-    echo "</ul>";
-    echo "</li>";
-    echo "<li class=\"footer\"><a href=\"#\">No tiene más notificaciones</a></li>";
-    echo "</ul>";
-    echo "</li>";
-     }
-    
-    
 
     if($this->params['enablelanguageselector']) {
 
@@ -601,11 +539,11 @@ function menuClipboard($clipboard) { /* {{{ */
 		    echo "<i class=\"fa fa-flag-o fix-padding\"></i>";
 
 		    if ($this->params['session']->getLanguage() == "es_ES") {
-		    	echo "<span class=\"label label-info\">es</span>";	
+		    	echo "<span class=\"label label-info\">es</span>";
 		    } else if ($this->params['session']->getLanguage() == "en_GB") {
 		    	echo "<span class=\"label label-info\">en</span>";
 		    }
-		    
+
 		    echo "</a>";
 		    echo "<ul class=\"dropdown-menu\">";
 		    echo "<li class=\"header\">".getMLText("settings_available_languages")."</li>";
@@ -622,10 +560,9 @@ function menuClipboard($clipboard) { /* {{{ */
 					else
 						echo "<li>";
 
-					echo "<a href=\"/op/op.SetLanguage.php?lang=".$currLang."&referer=".$_SERVER["REQUEST_URI"]."\">";
+					echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.SetLanguage.php?lang=".$currLang."&referer=".$_SERVER["REQUEST_URI"]."\">";
 					echo "<div class=\"my-menu-body\">".getMLText($currLang);
-					//echo "<img class=\"pull-right\" src=\"".$this->getCountryFlag($languages[$langCount])."\" ></img>";
-					
+
 			    echo "</div>";
 			    echo "</a>";
 			    echo "</li>";
@@ -638,19 +575,19 @@ function menuClipboard($clipboard) { /* {{{ */
 			echo "</li>\n";
 		}
 
-		
+
 
     echo "<!-- User Account Menu -->";
     echo "<li class=\"dropdown user user-menu\">";
     echo "<!-- Menu Toggle Button -->";
     echo "<a href=\"#\" class=\"dropdown-toggle a-fix-height\" data-toggle=\"dropdown\">";
     echo "<!-- The user image in the navbar-->";
-    
+
     // Get user image
    	if($this->params['user']->hasImage()) {
-    	echo "<img class=\"img-nav-mini img-circle\" src=\"/out/out.UserImage.php?userid=".$this->params['user']->getId()."\"> ";
+    	echo "<img class=\"img-nav-mini img-circle\" src=\"".$this->params['settings']->_httpRoot."out/out.UserImage.php?userid=".$this->params['user']->getId()."\"> ";
   	} else {
-  		echo "<img class=\"user-image\" src=\"/views/".$this->theme."/images/user-default.png\" alt=\"User Image\"> ";
+  		echo "<img class=\"user-image\" src=\"".$this->params['settings']->_httpRoot."views/".$this->theme."/images/user-default.png\" alt=\"User Image\"> ";
   	}
 
     echo "<!-- hidden-xs hides the username on small devices so only the image appears. -->";
@@ -665,9 +602,9 @@ function menuClipboard($clipboard) { /* {{{ */
 
     // Get user image
    	if($this->params['user']->hasImage()) {
-    	echo "<img class=\"img-circle\" src=\"/out/out.UserImage.php?userid=".$this->params['user']->getId()."\">";
+    	echo "<img class=\"img-circle\" src=\"".$this->params['settings']->_httpRoot."out/out.UserImage.php?userid=".$this->params['user']->getId()."\">";
   	} else {
-  		echo "<img class=\"img-circle\" src=\"/views/".$this->theme."/images/user-default.png\" alt=\"User Image\">";
+  		echo "<img class=\"img-circle\" src=\"".$this->params['settings']->_httpRoot."views/".$this->theme."/images/user-default.png\" alt=\"User Image\">";
   	}
 
     echo "<p>";
@@ -679,29 +616,29 @@ function menuClipboard($clipboard) { /* {{{ */
     echo "<li class=\"user-footer\">";
     echo "<div class=\"row\">";
     if ($this->params['user']->isAdmin()) {
-	    echo "<div class=\"col-xs-3 text-center\">"; 
-	    echo "<a class=\"btn btn-info btn-flat\" href=\"/out/out.MyAccount.php\" title=\"".getMLText("my_account")."\"><i class=\"fa fa-user\"></i></a>";
+	    echo "<div class=\"col-xs-3 text-center\">";
+	    echo "<a class=\"btn btn-info btn-flat\" href=\"".$this->params['settings']->_httpRoot."out/out.MyAccount.php\" title=\"".getMLText("my_account")."\"><i class=\"fa fa-user\"></i></a>";
 	    echo "</div>";
 
 	    echo "<div class=\"col-xs-3 text-center\">";
-	    //echo "<a class=\"btn btn-success btn-flat\" href=\"/out/out.MyDocuments.php?inProcess=1\" title=\"".getMLText("my_documents")."\"><i class=\"fa fa-file\"></i></a>";
+	    echo "<a class=\"btn btn-success btn-flat\" href=\"".$this->params['settings']->_httpRoot."out/out.MyDocuments.php?inProcess=1\" title=\"".getMLText("my_documents")."\"><i class=\"fa fa-file\"></i></a>";
 	    echo "</div>";
 
 	    if(!$this->params['session']->getSu()) {
 	    	echo "<div class=\"col-xs-3 text-center\">";
-	    	echo "<a class=\"btn btn-primary btn-flat\" href=\"/out/out.SubstituteUser.php\" title=\"".getMLText("substitute_user")."\"><i class=\"fa fa-exchange\"></i></a>";
+	    	echo "<a class=\"btn btn-primary btn-flat\" href=\"".$this->params['settings']->_httpRoot."out/out.SubstituteUser.php\" title=\"".getMLText("substitute_user")."\"><i class=\"fa fa-exchange\"></i></a>";
 	    	echo "</div>";
 	    }
 
     	if($this->params['session']->getSu()) {
 
 				echo "<div class=\"col-xs-6 text-center\">";
-    		echo "<a href=\"/op/op.ResetSu.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out_user")."\"><i class=\"fa fa-sign-out\"></i></a>";
+    		echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.ResetSu.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out_user")."\"><i class=\"fa fa-sign-out\"></i></a>";
     		echo "</div>";
 
 			} else {
 				echo "<div class=\"col-xs-3 text-center\">";
-    		echo "<a href=\"/op/op.Logout.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out")."\"><i class=\"fa fa-sign-out\"></i></a>";
+    		echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.Logout.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out")."\"><i class=\"fa fa-sign-out\"></i></a>";
     		echo "</div>";
 
 			}
@@ -709,24 +646,24 @@ function menuClipboard($clipboard) { /* {{{ */
     } else {
 
     	if (!$this->params['user']->isGuest()) {
-    		echo "<div class=\"col-xs-4 text-center\">"; 
-		    echo "<a class=\"btn btn-info btn-flat\" href=\"/out/out.MyAccount.php\" title=\"".getMLText("my_account")."\"><i class=\"fa fa-user\"></i></a>";
+    		echo "<div class=\"col-xs-4 text-center\">";
+		    echo "<a class=\"btn btn-info btn-flat\" href=\"".$this->params['settings']->_httpRoot."out/out.MyAccount.php\" title=\"".getMLText("my_account")."\"><i class=\"fa fa-user\"></i></a>";
 		    echo "</div>";
 
 		    echo "<div class=\"col-xs-4 text-center\">";
-		    //echo "<a class=\"btn btn-success btn-flat\" href=\"/out/out.MyDocuments.php?inProcess=1\" title=\"".getMLText("my_documents")."\"><i class=\"fa fa-file\"></i></a>";
+		    echo "<a class=\"btn btn-success btn-flat\" href=\"".$this->params['settings']->_httpRoot."out/out.MyDocuments.php?inProcess=1\" title=\"".getMLText("my_documents")."\"><i class=\"fa fa-file\"></i></a>";
 		    echo "</div>";
     	}
 
 	    if($this->params['session']->getSu()) {
 
 				echo "<div class=\"col-xs-4 text-center\">";
-    		echo "<a href=\"/op/op.ResetSu.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out_user")."\"><i class=\"fa fa-sign-out\"></i></a>";
+    		echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.ResetSu.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out_user")."\"><i class=\"fa fa-sign-out\"></i></a>";
     		echo "</div>";
 
 			} else {
 				echo "<div class=\"col-xs-4 text-center\">";
-    		echo "<a href=\"/op/op.Logout.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out")."\"><i class=\"fa fa-sign-out\"></i></a>";
+    		echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.Logout.php\" class=\"btn btn-danger btn-flat\" title=\"".getMLText("sign_out")."\"><i class=\"fa fa-sign-out\"></i></a>";
     		echo "</div>";
 
 			}
@@ -751,7 +688,7 @@ function menuClipboard($clipboard) { /* {{{ */
 	    echo "<a href=\"#\" data-toggle=\"control-sidebar\" class=\"a-fix-height\"><i class=\"fa fa-wrench\"></i></a>";
 	    echo "</li>";
     }
-    
+
     echo "</ul>";
     echo "</div>";
     echo "</nav>";
@@ -765,21 +702,21 @@ function menuClipboard($clipboard) { /* {{{ */
 	function printTheTree($tree, $i = 0, $folder){ /* {{{ */
 
 			foreach ($tree as $key => $treeNode) {
-				
+
 					if ($i == 0 && $folder != 0) {
 						echo "<li class=\"treeview active\">";
-						echo "<a href=\"/out/out.ViewFolder.php?folderid=".$treeNode['id']."\" class=\"link-to-folder\"><i class=\"fa fa-folder-open\"></i></a>";
+						echo "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$treeNode['id']."\" class=\"link-to-folder\"><i class=\"fa fa-folder-open\"></i></a>";
 					} else {
 						echo "<li class=\"treeview\">";
-						echo "<a href=\"/out/out.ViewFolder.php?folderid=".$treeNode['id']."\" class=\"link-to-folder\"><i class=\"fa fa-folder-open\"></i></a>";
+						echo "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$treeNode['id']."\" class=\"link-to-folder\"><i class=\"fa fa-folder-open\"></i></a>";
 					}
-				
+
 			  echo "<a href=\"#\" class=\"fix-width\"><i class=\"fa fa-folder\"></i> <span class=\"wrap-normal\">".$treeNode['label']." (".count($treeNode['children']).") </span>";
 
 			  if (count($treeNode['children']) > 0) {
 			  	echo "<span class=\"pull-right-container\">";
 			  	echo "<i class=\"\"></i>";
-			  	echo "</span>";	
+			  	echo "</span>";
 			  }
 			  echo "</a>";
 
@@ -805,9 +742,9 @@ function menuClipboard($clipboard) { /* {{{ */
 
     // Get user image
    	if($this->params['user']->hasImage()) {
-    	echo "<img class=\"img-circle\" src=\"/out/out.UserImage.php?userid=".$this->params['user']->getId()."\">";
+    	echo "<img class=\"img-circle\" src=\"".$this->params['settings']->_httpRoot."out/out.UserImage.php?userid=".$this->params['user']->getId()."\">";
   	} else {
-  		echo "<img class=\"img-circle\" src=\"/views/".$this->theme."/images/user-default.png\" alt=\"User Image\">";
+  		echo "<img class=\"img-circle\" src=\"".$this->params['settings']->_httpRoot."views/".$this->theme."/images/user-default.png\" alt=\"User Image\">";
   	}
 
     echo "</div>";
@@ -821,9 +758,9 @@ function menuClipboard($clipboard) { /* {{{ */
     echo "</div>";
 
     ?>
-    	<form class="sidebar-form" action="../out/out.Buscar.php" method="get" name="form1">
+    	<form class="sidebar-form" action="<?php echo $this->params['settings']->_httpRoot; ?>out/out.Search.php" method="get" name="form1">
     	<div class="input-group">
-			<input type="text" name="terminos" class="form-control" placeholder="<?php echo getMLText("search"); ?>">
+			<input type="text" name="query" class="form-control" placeholder="<?php echo getMLText("search"); ?>">
 			<input type="hidden" name="mode" value="1">
 			<input type="hidden" name="ownerid" value="-1">
 			<input type="hidden" name="resultmode" value="3">
@@ -837,48 +774,61 @@ function menuClipboard($clipboard) { /* {{{ */
     <?php
 
 
-    // Original search
-    /*echo "<!-- search form (Optional) -->";
-    echo "<form action=\"#\" method=\"get\" class=\"sidebar-form\">";
-    echo "<div class=\"input-group\">";
-    echo "<input type=\"text\" name=\"q\" class=\"form-control\" placeholder=\"".getMLText("search")."\">";
-    echo "<span class=\"input-group-btn\">";
-    echo "<button type=\"submit\" name=\"search\" id=\"search-btn\" class=\"btn btn-flat\"><i class=\"fa fa-search\"></i>";
-    echo "</button>";
-    echo "</span>";
-    echo "</div>";
-    echo "</form>";
-    echo "<!-- /.search form -->";*/
-    /////////////////////////////////////
-
     echo "<!-- Sidebar Menu -->";
     echo "<ul class=\"sidebar-menu\">";
     echo "<li class=\"header\">".getMLText("tools")."</li>";
 
-		// View tree
+	// View tree
+	$rootFolder = $this->printTree(1, M_READ, 0,'', 1, 's');
+	$this->printTheTree($rootFolder, 0, $folder);
 
-		$rootFolder = $this->printTree(1, M_READ, 0,'', 1, 's');
+    // Non conformities
+    $viewAllActive = "";
+    $addNonConfoActive = "";
+    $addProcessActive = "";
+    $addOwnerActive = "";
+    if ($nonconfo != 0) {
+    	switch ($nonconfo) {
+    	case 1:
+    		$viewAllActive = "active";
+    		break;
+    	case 2:
+    		$addNonConfoActive = "active";
+    		break;
+    	case 3:
+    		$addProcessActive = "active";
+    		break;
+    	case 4:
+    		$addOwnerActive = "active";
+    		break;
+    	default:
+    		break;
+    	}
+    }
 
-		$this->printTheTree($rootFolder, 0, $folder);
+    if (!$this->params['user']->isGuest()) {
+    	if ($nonconfo != 0) {
+    		echo "<li class=\"treeview active\">";
+    	} else {
+    		echo "<li class=\"treeview\">";
+    	}
+	    echo "<a href=\"#\"><i class=\"fa fa-wrench\"></i> <span>".getMLText("nonconfo")."</span>";
+	    echo "<span class=\"pull-right-container\">";
+	    echo "<i class=\"fa fa-angle-left pull-right\"></i>";
+	    echo "</span>";
+	    echo "</a>";
+	    echo "<ul class=\"treeview-menu\">";
+	    echo "<li class=\"".$viewAllActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.ViewAllNonConfo.php\">".getMLText("nonconfo_view")."</a></li>";
+	    echo "<li class=\"".$addNonConfoActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddNonConfo.php\">".getMLText("nonconfo_add_nonconfo")."</a></li>";
 
-    //TreeView Old 
+	    if ($this->params['user']->isAdmin()) {
+	    	echo "<li class=\"".$addProcessActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddProcess.php\">".getMLText("nonconfo_add_process")."</a></li>";
+	    	echo "<li class=\"".$addOwnerActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddOwners.php\">".getMLText("nonconfo_define_owners")."</a></li>";
+	    }
 
-		/*echo "<li class=\"treeview active\">";
-    echo "<a href=\"#\"><i class=\"fa fa-sitemap\"></i> <span>".getMLText("folderTree")."</span>";
-    echo "<span class=\"pull-right-container\">";
-    echo "<i class=\"fa fa-angle-left pull-right\"></i>";
-    echo "</span>";
-    echo "</a>";
-    echo "<ul class=\"treeview-menu menu-open\">";
-    echo "<li>";
-    echo "<a>";
-    $this->printNewTreeNavigationHTML($this->params['rootfolderid'], M_READ, 0, '', 2, "");
-    echo "</a>";
-		echo "</li>";
-    echo "</ul>";
-    echo "</li>";*/
-
- 
+    	echo "</ul>";
+    	echo "</li>";
+  	}
 
   	// Calendar
   	$calendarWeekActive = "";
@@ -891,13 +841,13 @@ function menuClipboard($clipboard) { /* {{{ */
 		    	case "w":
 		    		$calendarWeekActive = "active";
 		    		break;
-		    	case "m": 
+		    	case "m":
 		    		$calendarMonthActive = "active";
 		    		break;
 		    	case "y":
 		    		$calendarYearActive = "active";
 		    		break;
-    		}	
+    		}
     	}
 
     	if ($calendar == 2) {
@@ -905,10 +855,10 @@ function menuClipboard($clipboard) { /* {{{ */
     	}
     }
 
-    
+
     if ($this->params['enablecalendar'] && !$this->params['user']->isGuest()){
     	if ($calendar != 0) {
-    		echo "<li class=\"treeview active\">";	
+    		echo "<li class=\"treeview active\">";
     	} else {
     		echo "<li class=\"treeview\">";
     	}
@@ -919,10 +869,10 @@ function menuClipboard($clipboard) { /* {{{ */
 	    echo "</span>";
 	    echo "</a>";
 	    echo "<ul class=\"treeview-menu\">";
-	    echo "<li class=\"".$calendarWeekActive."\"><a href=\"/out/out.Calendar.php?mode=w\">".getMLText("week_view")."</a></li>";
-	    echo "<li class=\"".$calendarMonthActive."\"><a href=\"/out/out.Calendar.php?mode=m\">".getMLText("month_view")."</a></li>";
-	    echo "<li class=\"".$calendarYearActive."\"><a href=\"/out/out.Calendar.php?mode=y\">".getMLText("year_view")."</a></li>";
-	    echo "<li class=\"".$addEventActive."\"><a href=\"/out/out.AddEvent.php\">".getMLText("add_event")."</a></li>";
+	    echo "<li class=\"".$calendarWeekActive."\"><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=w\">".getMLText("week_view")."</a></li>";
+	    echo "<li class=\"".$calendarMonthActive."\"><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=m\">".getMLText("month_view")."</a></li>";
+	    echo "<li class=\"".$calendarYearActive."\"><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=y\">".getMLText("year_view")."</a></li>";
+	    echo "<li class=\"".$addEventActive."\"><a href=\"".$this->params['settings']->_httpRoot."out/out.AddEvent.php\">".getMLText("add_event")."</a></li>";
 	    echo "</ul>";
 	    echo "</li>";
 	  }
@@ -930,7 +880,7 @@ function menuClipboard($clipboard) { /* {{{ */
 	  // Help
 	  if($this->params['enablehelp']) {
 			$tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
-			echo "<li><a href=\"/out/out.Help.php?context=".$tmp[1]."\"><i class=\"fa fa-info-circle\"></i> <span>".getMLText("help")."</span></a></li>";
+			echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Help.php?context=".$tmp[1]."\"><i class=\"fa fa-info-circle\"></i> <span>".getMLText("help")."</span></a></li>";
 		}
 
     echo "</ul>";
@@ -967,62 +917,61 @@ function menuClipboard($clipboard) { /* {{{ */
 
     if($this->params['user']->isAdmin()) {
     echo "<div class=\"tab-pane\" id=\"control-sidebar-home-tab\">";
-    echo "<a type=\"button\" href=\"/out/out.AdminTools.php\"><h3 class=\"control-sidebar-heading btn-admin-tools\">".getMLText("admin_tools")."</h3></a>";
+    echo "<a type=\"button\" href=\"".$this->params['settings']->_httpRoot."out/out.AdminTools.php\"><h3 class=\"control-sidebar-heading btn-admin-tools\">".getMLText("admin_tools")."</h3></a>";
     echo "<ul class=\"control-sidebar-menu\">";
 
     if ($this->params['user']->_comment != "client-admin") {
-    echo "<li><a href=\"/out/out.UsrMgr.php\"><i class=\"menu-icon fa fa-user bg-green\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.UsrMgr.php\"><i class=\"menu-icon fa fa-user bg-green\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("user_management")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.GroupMgr.php\"><i class=\"menu-icon fa fa-users bg-green\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("group_management")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.GroupMgr.php\"><i class=\"menu-icon fa fa-users bg-green\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("group_management")."</h4></div></a></li>";
   	}
-  	 echo "<li><a href=\"/out/out.GestorTemas.php\"><i class=\"menu-icon fa fa-text-height bg-maroon\"></i>";
-    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">"."Gestión de temas de la administración pública"."</h4></div></a></li>";
 
-    echo "<li><a href=\"/out/out.BackupTools.php\"><i class=\"menu-icon fa fa-hdd-o bg-green\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.BackupTools.php\"><i class=\"menu-icon fa fa-hdd-o bg-green\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("backup_tools")."</h4></div></a></li>";
-    echo "<li><a href=\"/out/out.LogManagement.php\"><i class=\"menu-icon fa fa-list bg-teal\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.LogManagement.php\"><i class=\"menu-icon fa fa-list bg-green\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("log_management")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.DefaultKeywords.php\"><i class=\"menu-icon fa fa-bars bg-green\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_default_keywords")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.Categories.php\"><i class=\"menu-icon fa fa-columns bg-light-blue\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_document_categories")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.AttributeMgr.php\"><i class=\"menu-icon fa fa-tags bg-light-blue\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_attributedefinitions")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.WorkflowMgr.php\"><i class=\"menu-icon fa fa-sitemap bg-light-blue\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_workflows")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.WorkflowStatesMgr.php\"><i class=\"menu-icon fa fa-star-o bg-light-blue\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_workflow_states")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.WorkflowActionsMgr.php\"><i class=\"menu-icon fa fa-bolt bg-light-blue\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_workflow_actions")."</h4></div></a></li>";
-    
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.DefaultKeywords.php\"><i class=\"menu-icon fa fa-bars bg-green\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_default_keywords")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Categories.php\"><i class=\"menu-icon fa fa-columns bg-light-blue\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_document_categories")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.AttributeMgr.php\"><i class=\"menu-icon fa fa-tags bg-light-blue\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_attributedefinitions")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.WorkflowMgr.php\"><i class=\"menu-icon fa fa-sitemap bg-light-blue\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_workflows")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.WorkflowStatesMgr.php\"><i class=\"menu-icon fa fa-star-o bg-light-blue\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_workflow_states")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.WorkflowActionsMgr.php\"><i class=\"menu-icon fa fa-bolt bg-light-blue\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("global_workflow_actions")."</h4></div></a></li>";
+
     if($this->params['enablefullsearch']) {
-    echo "<li><a href=\"/out/out.Indexer.php\"><i class=\"menu-icon fa fa-refresh bg-yellow\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Indexer.php\"><i class=\"menu-icon fa fa-refresh bg-yellow\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("update_fulltext_index")."</h4></div></a></li>";
-    echo "<li><a href=\"/out/out.CreateIndex.php\"><i class=\"menu-icon fa fa-search bg-yellow\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.CreateIndex.php\"><i class=\"menu-icon fa fa-search bg-yellow\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("create_fulltext_index")."</h4></div></a></li>";
-    echo "<li><a href=\"/out/out.IndexInfo.php\"><i class=\"menu-icon fa fa-info bg-yellow\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.IndexInfo.php\"><i class=\"menu-icon fa fa-info bg-yellow\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("fulltext_info")."</h4></div></a></li>";
   	}
 
-    echo "<li><a href=\"/out/out.Statistic.php\"><i class=\"menu-icon fa fa-tasks bg-yellow\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Statistic.php\"><i class=\"menu-icon fa fa-tasks bg-yellow\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("folders_and_documents_statistic")."</h4></div></a></li>";
-    echo "<li><a href=\"/out/out.Estadisticas.php\"><i class=\"menu-icon fa fa-pie-chart bg-purple\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Charts.php\"><i class=\"menu-icon fa fa-pie-chart bg-yellow\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("charts")."</h4></div></a></li>";
-    echo "<li><a href=\"/out/out.ObjectCheck.php\"><i class=\"menu-icon fa fa-check-circle-o bg-red\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ReportMgr.php\"><i class=\"menu-icon fa fa-table bg-yellow\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("reports")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ObjectCheck.php\"><i class=\"menu-icon fa fa-check-circle-o bg-red\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("objectcheck")."</h4></div></a></li>";
-    echo "<li><a href=\"/out/out.Timeline.php\"><i class=\"menu-icon fa fa-clock-o bg-red\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Timeline.php\"><i class=\"menu-icon fa fa-clock-o bg-red\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("timeline")."</h4></div></a></li>";
 
-    if ($this->params['user']->_comment != "client-admin") 
-    {
-    echo "<li><a href=\"/out/out.Settings.php\"><i class=\"menu-icon fa fa-wrench bg-navy\"></i>";
+    if ($this->params['user']->_comment != "client-admin") {
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Settings.php\"><i class=\"menu-icon fa fa-wrench bg-red\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("settings")."</h4></div></a></li>";
-    // echo "<li><a href=\"/out/out.ExtensionMgr.php\"><i class=\"menu-icon fa fa-cogs bg-red\"></i>";
-    // echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("extension_manager")."</h4></div></a></li>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ExtensionMgr.php\"><i class=\"menu-icon fa fa-cogs bg-red\"></i>";
+    echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("extension_manager")."</h4></div></a></li>";
   	}
 
-    echo "<li><a href=\"/out/out.Info.php\"><i class=\"menu-icon fa fa-info-circle bg-orange\"></i>";
+    echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Info.php\"><i class=\"menu-icon fa fa-info-circle bg-red\"></i>";
     echo "<div class=\"menu-info\"><h4 class=\"control-sidebar-subheading\">".getMLText("version_info")."</h4></div></a></li>";
     echo "</ul>";
     echo "<!-- /.sidebar-menu -->";
@@ -1047,7 +996,7 @@ function menuClipboard($clipboard) { /* {{{ */
     			?>
     				<li class="align-center li-logo"><img class="thelogo" data-toggle="tooltip" data-placement="bottom" title="<?php echo getMLText("img_logo_recomendation"); ?>" src="<?php echo $path_to_file_logo; ?>"></li>
     				<li>
-    					<form enctype="multipart/form-data" method="post" id="formupload1" name="formupload1" action="<?php echo "/views/".$this->theme."/validate.php"; ?>">
+    					<form enctype="multipart/form-data" method="post" id="formupload1" name="formupload1" action="<?php echo $this->params['settings']->_httpRoot."/views/".$this->theme."/validate.php"; ?>">
     					<input type="hidden" name="command" value="validatelogo" />
 
 	    					<?php $this->printLogoChooser("logofile", false); ?>
@@ -1063,7 +1012,7 @@ function menuClipboard($clipboard) { /* {{{ */
     			?>
     				<li class="align-center li-logo"><img class="thebrand" data-toggle="tooltip" data-placement="bottom" title="<?php echo getMLText("img_brand_recomendation"); ?>" src="<?php echo $path_to_file_brand; ?>"></li>
     				<li>
-    					<form enctype="multipart/form-data" method="post" id="formupload2" name="formupload2" action="<?php echo "/views/".$this->theme."/validate.php"; ?>">
+    					<form enctype="multipart/form-data" method="post" id="formupload2" name="formupload2" action="<?php echo $this->params['settings']->_httpRoot."/views/".$this->theme."/validate.php"; ?>">
     					<input type="hidden" name="command" value="validatebrand" />
 	    					<?php $this->printLogoChooser("brandfile", false); ?>
 						 	</form>
@@ -1074,7 +1023,7 @@ function menuClipboard($clipboard) { /* {{{ */
     	<div>
     	<ul class="list-unstyled clearfix">
     		<li class="align-center">
-    		<form action="../../op/op.ClearCache.php" name="form1" method="post">
+    		<form action="<?php echo $this->params['settings']->_httpRoot; ?>op/op.ClearCache.php" name="form1" method="post">
 				<?php echo createHiddenFieldWithKey('clearcache'); ?>
 				<input type="hidden" name="preview" value="1">
 				<input type="hidden" name="js" value="1">
@@ -1091,12 +1040,12 @@ function menuClipboard($clipboard) { /* {{{ */
 	} /* }}} */
 
 	function getLogo(){
-		$path = "/images/multisis-lte/logo.png";
+		$path = $this->params['settings']->_httpRoot."images/".$this->params['settings']->_theme."/logo.png";
 		return $path;
 	}
 
 	function getBrand(){
-		$path = "/images/multisis-lte/brand.png";
+		$path = $this->params['settings']->_httpRoot."images/".$this->params['settings']->_theme."/brand.png";
 		return $path;
 	}
 
@@ -1110,7 +1059,7 @@ function menuClipboard($clipboard) { /* {{{ */
 		echo "     <span class=\"icon-bar\"></span>\n";
 		echo "     <span class=\"icon-bar\"></span>\n";
 		echo "   </a>\n";
-		echo "   <a class=\"brand\" href=\"/out/out.ViewFolder.php?folderid=".$this->params['rootfolderid']."\"><img src='/views/multisistemas/images/logo.png' alt=\"Multisistemas Logo\" /> ".(strlen($this->params['sitename'])>0 ? $this->params['sitename'] : "SeedDMS")."</a>\n";
+		echo "   <a class=\"brand\" href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$this->params['rootfolderid']."\"><img src='/views/".$this->params['settings']->_theme."/images/logo.png' alt=\"Multisistemas Logo\" /> ".(strlen($this->params['sitename'])>0 ? $this->params['sitename'] : "SeedDMS")."</a>\n";
 		if(isset($this->params['user']) && $this->params['user']) {
 			echo "   <div class=\"nav-collapse nav-col1\">\n";
 			echo "   <ul id=\"main-menu-admin\" class=\"nav pull-right\">\n";
@@ -1119,8 +1068,8 @@ function menuClipboard($clipboard) { /* {{{ */
 			echo "     <ul class=\"dropdown-menu\" role=\"menu\">\n";
 			if (!$this->params['user']->isGuest()) {
 				$menuitems = array();
-				$menuitems['my_documents'] = array('link'=>"/out/out.MyDocuments.php?inProcess=1", 'label'=>'my_documents');
-				$menuitems['my_account'] = array('link'=>"/out/out.MyAccount.php", 'label'=>'my_account');
+				$menuitems['my_documents'] = array('link'=>$this->params['settings']->_httpRoot."out/out.MyDocuments.php?inProcess=1", 'label'=>'my_documents');
+				$menuitems['my_account'] = array('link'=>$this->params['settings']->_httpRoot."out/out.MyAccount.php", 'label'=>'my_account');
 				$hookObjs = $this->getHookObjects('SeedDMS_View_Bootstrap');
 				foreach($hookObjs as $hookObj) {
 					if (method_exists($hookObj, 'userMenuItems')) {
@@ -1146,7 +1095,7 @@ function menuClipboard($clipboard) { /* {{{ */
 						echo "<li class=\"active\">";
 					else
 						echo "<li>";
-					echo "<a href=\"/op/op.SetLanguage.php?lang=".$currLang."&referer=".$_SERVER["REQUEST_URI"]."\">";
+					echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.SetLanguage.php?lang=".$currLang."&referer=".$_SERVER["REQUEST_URI"]."\">";
 					echo getMLText($currLang)."</a></li>\n";
 				}
 				echo "     </ul>\n";
@@ -1154,14 +1103,14 @@ function menuClipboard($clipboard) { /* {{{ */
 			}
 			if($this->params['user']->isAdmin()) {
 				$showdivider = true;
-				echo "    <li><a href=\"/out/out.SubstituteUser.php\">".getMLText("substitute_user")."</a></li>\n";
+				echo "    <li><a href=\"".$this->params['settings']->_httpRoot."out/out.SubstituteUser.php\">".getMLText("substitute_user")."</a></li>\n";
 			}
 			if($showdivider)
 				echo "    <li class=\"divider\"></li>\n";
 			if($this->params['session']->getSu()) {
-				echo "    <li><a href=\"/op/op.ResetSu.php\">".getMLText("sign_out_user")."</a></li>\n";
+				echo "    <li><a href=\"".$this->params['settings']->_httpRoot."op/op.ResetSu.php\">".getMLText("sign_out_user")."</a></li>\n";
 			} else {
-				echo "    <li><a href=\"/op/op.Logout.php\">".getMLText("sign_out")."</a></li>\n";
+				echo "    <li><a href=\"".$this->params['settings']->_httpRoot."op/op.Logout.php\">".getMLText("sign_out")."</a></li>\n";
 			}
 			echo "     </ul>\n";
 			echo "    </li>\n";
@@ -1175,22 +1124,19 @@ function menuClipboard($clipboard) { /* {{{ */
 
 			echo "   <ul class=\"nav\">\n";
 
-			//Link to non-conformities extension 
+			//Link to non-conformities extension
+			if (!$this->params['user']->isGuest()) {
+					echo "<li><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.ViewAllNonConfo.php\">".getMLText("nonconfo")."</a></li>\n";
+			}
 
-			// if (!$this->params['user']->isGuest()) {
-			// 		echo "<li><a href=\"/ext/nonconfo/out/out.ViewAllNonConfo.php\">".getMLText("nonconfo")."</a></li>\n";
-			// }	
-			
-	//		echo "    <li id=\"first\"><a href=\"/out/out.ViewFolder.php?folderid=".$this->params['rootfolderid']."\">".getMLText("content")."</a></li>\n";
-	//		echo "    <li><a href=\"/out/out.SearchForm.php?folderid=".$this->params['rootfolderid']."\">".getMLText("search")."</a></li>\n";
-			if ($this->params['enablecalendar']) echo "    <li><a href=\"/out/out.Calendar.php?mode=".$this->params['calendardefaultview']."\">".getMLText("calendar")."</a></li>\n";
-			if ($this->params['user']->isAdmin()) echo "    <li><a href=\"/out/out.AdminTools.php\">".getMLText("admin_tools")."</a></li>\n";
+			if ($this->params['enablecalendar']) echo "    <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=".$this->params['calendardefaultview']."\">".getMLText("calendar")."</a></li>\n";
+			if ($this->params['user']->isAdmin()) echo "    <li><a href=\"".$this->params['settings']->_httpRoot."out/out.AdminTools.php\">".getMLText("admin_tools")."</a></li>\n";
 			if($this->params['enablehelp']) {
 			$tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
-			echo "    <li><a href=\"/out/out.Help.php?context=".$tmp[1]."\">".getMLText("help")."</a></li>\n";
+			echo "    <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Help.php?context=".$tmp[1]."\">".getMLText("help")."</a></li>\n";
 			}
 			echo "   </ul>\n";
-			echo "     <form action=\"/out/out.Search.php\" class=\"form-inline navbar-search pull-left\" autocomplete=\"off\">";
+			echo "     <form action=\"".$this->params['settings']->_httpRoot."out/out.Search.php\" class=\"form-inline navbar-search pull-left\" autocomplete=\"off\">";
 			if ($folder!=null && is_object($folder) && !strcasecmp(get_class($folder), $dms->getClassname('folder'))) {
 				echo "      <input type=\"hidden\" name=\"folderid\" value=\"".$folder->getID()."\" />";
 			}
@@ -1222,31 +1168,22 @@ function menuClipboard($clipboard) { /* {{{ */
 		for ($i = 0; $i < count($path); $i++) {
 			$txtpath .= "<li>";
 			if ($i +1 < count($path)) {
-				$txtpath .= "<a href=\"/out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\" rel=\"folder_".$path[$i]->getID()."\" class=\"table-row-folder\" formtoken=\"".createFormKey('movefolder')."\">".
+				$txtpath .= "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\" rel=\"folder_".$path[$i]->getID()."\" class=\"table-row-folder\" formtoken=\"".createFormKey('movefolder')."\">".
 					htmlspecialchars($path[$i]->getName())."</a>";
 			}
 			else {
-				$txtpath .= ($tagAll ? "<a href=\"/out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\">".
+				$txtpath .= ($tagAll ? "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\">".
 										 htmlspecialchars($path[$i]->getName())."</a>" : htmlspecialchars($path[$i]->getName()));
 			}
-			//$txtpath .= " <span class=\"divider\">/</span></li>";
+
 		}
 		if($document)
-			$txtpath .= "<li><a href=\"/out/out.ViewDocument.php?documentid=".$document->getId()."\">".htmlspecialchars($document->getName())."</a></li>";
-		if(!$user->isAdmin())
-			{
+			$txtpath .= "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ViewDocument.php?documentid=".$document->getId()."\">".htmlspecialchars($document->getName())."</a></li>";
 
-			$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a id=\"add-document\" type=\"button\" class=\"btn btn-warning btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\""."Mi aplicación"."\"><i class=\"fa fa-plus fa-4x\"></i> <i class=\"fa fa-wpforms fa-4x\"></i></a> </li>";		
-			}
-		if($folder->getAccessMode($user) >= M_READWRITE) 
-		{
+		if($folder->getAccessMode($user) >= M_READWRITE) {
+			$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a id=\"add-document\" type=\"button\" class=\"btn btn-warning btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("add_document")."\"><i class=\"fa fa-plus\"></i> <i class=\"fa fa-file\"></i></a> </li>";
+			$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a id=\"add-folder\" type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("add_subfolder")."\"><i class=\"fa fa-plus\"></i> <i class=\"fa fa-folder\"></i></a></li>";
 
-			
-			/*$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a id=\"add-document\" type=\"button\" class=\"btn btn-warning btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("add_document")."\"><i class=\"fa fa-plus\"></i> <i class=\"fa fa-file\"></i></a> </li>";*/
-			// $rutaFormulario="/out/out.FormularioAplicacion.php";
-			// $txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a id=\"add-folder\" type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("add_subfolder")."\"><i class=\"fa fa-plus\"></i> <i class=\"fa fa-folder\"></i></a></li>";
-			// 	//$txtpath .= "<li><a href=\"/out/out.ViewDocument.php?documentid=".$document->getId()."\">".htmlspecialchars($document->getName())."</a></li>";
-			//  $txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a href =\"".$rutaFormulario. "\" id=\"indice_desclasificacion\" type=\"button\" class=\"btn btn-default  btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\""."Acceder al formulario de aplicación"."\"><i class=\"fa fa-gavel fa-4x\"></i> </a></li>";
 		}
 
 		return '<ul class="breadcrumb default-bread">'.$txtpath.'</ul>';
@@ -1258,17 +1195,16 @@ function menuClipboard($clipboard) { /* {{{ */
 		for ($i = 0; $i < count($path); $i++) {
 			$txtpath .= "<li>";
 			if ($i +1 < count($path)) {
-				$txtpath .= "<a href=\"/out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\" rel=\"folder_".$path[$i]->getID()."\" class=\"table-row-folder\" formtoken=\"".createFormKey('movefolder')."\">".
+				$txtpath .= "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\" rel=\"folder_".$path[$i]->getID()."\" class=\"table-row-folder\" formtoken=\"".createFormKey('movefolder')."\">".
 					htmlspecialchars($path[$i]->getName())."</a>";
 			}
 			else {
-				$txtpath .= ($tagAll ? "<a href=\"/out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\">".
+				$txtpath .= ($tagAll ? "<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=".$path[$i]->getID()."&showtree=".showtree()."\">".
 										 htmlspecialchars($path[$i]->getName())."</a>" : htmlspecialchars($path[$i]->getName()));
 			}
-			//$txtpath .= " <span class=\"divider\">/</span></li>";
 		}
 		if($document)
-			$txtpath .= "<li><a href=\"/out/out.ViewDocument.php?documentid=".$document->getId()."\">".htmlspecialchars($document->getName())."</a></li>";
+			$txtpath .= "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ViewDocument.php?documentid=".$document->getId()."\">".htmlspecialchars($document->getName())."</a></li>";
 
 		return '<ul class="breadcrumb default-bread">'.$txtpath.'</ul>';
 	} /* }}} */
@@ -1277,18 +1213,18 @@ function menuClipboard($clipboard) { /* {{{ */
 	function getNonconfoPathHTML() { /* {{{ */
 		$txtpath = "";
 
-		$txtpath .= "<li><a href=\"/ext/nonconfo/out/out.ViewAllNonConfo.php\" type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo")."\"><i class=\"fa fa-home\"></i></a></li>";
+		$txtpath .= "<li><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.ViewAllNonConfo.php\" type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo")."\"><i class=\"fa fa-home\"></i></a></li>";
 
 		if ($this->params['user']->isAdmin()) {
-			$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a href=\"/ext/nonconfo/out/out.AddProcess.php\" type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo_add_process")."\"><i class=\"fa fa-wrench\"></i></a></li>";
-			$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a href=\"/ext/nonconfo/out/out.AddOwners.php\" type=\"button\" class=\"btn btn-warning btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo_define_owners")."\"><i class=\"fa fa-users\"></i></a></li>";
+			$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddProcess.php\" type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo_add_process")."\"><i class=\"fa fa-wrench\"></i></a></li>";
+			$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddOwners.php\" type=\"button\" class=\"btn btn-warning btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo_define_owners")."\"><i class=\"fa fa-users\"></i></a></li>";
 		}
 
-		$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a id=\"add-nonconfo\" href=\"/ext/nonconfo/out/out.AddNonConfo.php\" type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo_add_nonconfo")."\"><i class=\"fa fa-plus\"></i> <i class=\"fa fa-file\"></i></a> </li>";
+		$txtpath .= "<li class=\"pull-right breadcrumb-btn\"><a id=\"add-nonconfo\" href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddNonConfo.php\" type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("nonconfo_add_nonconfo")."\"><i class=\"fa fa-plus\"></i> <i class=\"fa fa-file\"></i></a> </li>";
 
 		echo '<ul class="breadcrumb nonconfo-bread">'.$txtpath.'</ul>';
 	} /* }}} */
-	
+
 	function pageNavigation($pageTitle, $pageType=null, $extra=null) { /* {{{ */
 
 		if ($pageType!=null && strcasecmp($pageType, "noNav")) {
@@ -1337,14 +1273,14 @@ function menuClipboard($clipboard) { /* {{{ */
 
 	private function nonconfoNavigationBar() {
 		$dms = $this->params['dms'];
-		echo "<id=\"first\"><a href=\"/ext/nonconfo/out/out.ViewAllNonConfo.php\" class=\"brand\">".getMLText("nonconfo")."</a>\n";
+		echo "<id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.ViewAllNonConfo.php\" class=\"brand\">".getMLText("nonconfo")."</a>\n";
 		echo "<div class=\"nav-collapse col2\">\n";
 		echo "<ul class=\"nav\">\n";
 		$menuitems = array();
-		$menuitems['nonconfo_add_nonconfo'] = array('link' => "/ext/nonconfo/out/out.AddNonConfo.php", 'label' => 'nonconfo_add_nonconfo');
-		$menuitems['nonconfo_view_all'] = array('link' => "/ext/nonconfo/out/out.ViewAllNonConfo.php", 'label' => 'nonconfo_view_all');
-		$menuitems['nonconfo_processes'] = array('link' => "/ext/nonconfo/out/out.AddProcess.php", 'label' => 'nonconfo_processes');
-		$menuitems['nonconfo_define_owners'] = array('link' => "/ext/nonconfo/out/out.AddOwners.php", 'label' => 'nonconfo_define_owners');
+		$menuitems['nonconfo_add_nonconfo'] = array('link' => "".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddNonConfo.php", 'label' => 'nonconfo_add_nonconfo');
+		$menuitems['nonconfo_view_all'] = array('link' => "".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.ViewAllNonConfo.php", 'label' => 'nonconfo_view_all');
+		$menuitems['nonconfo_processes'] = array('link' => "".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddProcess.php", 'label' => 'nonconfo_processes');
+		$menuitems['nonconfo_define_owners'] = array('link' => "".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddOwners.php", 'label' => 'nonconfo_define_owners');
 
 		foreach($menuitems as $menuitem) {
 			echo "<li><a href=\"".$menuitem['link']."\">".getMLText($menuitem['label'])."</a></li>";
@@ -1364,34 +1300,33 @@ function menuClipboard($clipboard) { /* {{{ */
 		}
 		$accessMode = $folder->getAccessMode($this->params['user']);
 		$folderID = $folder->getID();
-		echo "<id=\"first\"><a href=\"/out/out.ViewFolder.php?folderid=". $folderID ."&showtree=".showtree()."\" class=\"brand\">".getMLText("folder")."</a>\n";
+		echo "<id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=". $folderID ."&showtree=".showtree()."\" class=\"brand\">".getMLText("folder")."</a>\n";
 		echo "<div class=\"nav-collapse col2\">\n";
 		echo "<ul class=\"nav\">\n";
 		$menuitems = array();
 
 		if ($accessMode == M_READ && !$this->params['user']->isGuest()) {
-			$menuitems['edit_folder_notify'] = array('link'=>"/out/out.FolderNotify.php?folderid=".$folderID."&showtree=".showtree(), 'label'=>'edit_folder_notify');
+			$menuitems['edit_folder_notify'] = array('link'=> $this->params['settings']->_httpRoot."out/out.FolderNotify.php?folderid=".$folderID."&showtree=".showtree(), 'label'=>'edit_folder_notify');
 		}
 		else if ($accessMode >= M_READWRITE) {
-			$menuitems['add_subfolder'] = array('link'=>"/out/out.AddSubFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'add_subfolder');
-			$menuitems['add_document'] = array('link'=>"/out/out.AddDocument.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'add_document');
-			//if($this->params['enablelargefileupload'])
-				//$menuitems['add_multiple_documents'] = array('link'=>"/out/out.AddMultiDocument.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'add_multiple_documents');
-			$menuitems['edit_folder_props'] = array('link'=>"/out/out.EditFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'edit_folder_props');
+			$menuitems['add_subfolder'] = array('link'=> $this->params['settings']->_httpRoot."out/out.AddSubFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'add_subfolder');
+			$menuitems['add_document'] = array('link'=> $this->params['settings']->_httpRoot."out/out.AddDocument.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'add_document');
+
+			$menuitems['edit_folder_props'] = array('link'=> $this->params['settings']->_httpRoot."out/out.EditFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'edit_folder_props');
 			if ($folderID != $this->params['rootfolderid'] && $folder->getParent())
-				$menuitems['move_folder'] = array('link'=>"/out/out.MoveFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'move_folder');
+				$menuitems['move_folder'] = array('link'=> $this->params['settings']->_httpRoot."out/out.MoveFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'move_folder');
 
 			if ($accessMode == M_ALL) {
 				if ($folderID != $this->params['rootfolderid'] && $folder->getParent())
-					$menuitems['rm_folder'] = array('link'=>"/out/out.RemoveFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'rm_folder');
+					$menuitems['rm_folder'] = array('link'=> $this->params['settings']->_httpRoot."out/out.RemoveFolder.php?folderid=". $folderID ."&showtree=".showtree(), 'label'=>'rm_folder');
 			}
 			if ($accessMode == M_ALL) {
-				$menuitems['edit_folder_access'] = array('link'=>"/out/out.FolderAccess.php?folderid=".$folderID."&showtree=".showtree(), 'label'=>'edit_folder_access');
+				$menuitems['edit_folder_access'] = array('link'=> $this->params['settings']->_httpRoot."out/out.FolderAccess.php?folderid=".$folderID."&showtree=".showtree(), 'label'=>'edit_folder_access');
 			}
-			$menuitems['edit_existing_notify'] = array('link'=>"/out/out.FolderNotify.php?folderid=". $folderID ."&showtree=". showtree(), 'label'=>'edit_existing_notify');
+			$menuitems['edit_existing_notify'] = array('link'=> $this->params['settings']->_httpRoot."out/out.FolderNotify.php?folderid=". $folderID ."&showtree=". showtree(), 'label'=>'edit_existing_notify');
 		}
 		if ($this->params['user']->isAdmin() && $this->params['enablefullsearch']) {
-			$menuitems['index_folder'] = array('link'=>"/out/out.Indexer.php?folderid=". $folderID."&showtree=".showtree(), 'label'=>'index_folder');
+			$menuitems['index_folder'] = array('link'=> $this->params['settings']->_httpRoot."out/out.Indexer.php?folderid=". $folderID."&showtree=".showtree(), 'label'=>'index_folder');
 		}
 
 		/* Check if hook exists because otherwise callHook() will override $menuitems */
@@ -1409,54 +1344,42 @@ function menuClipboard($clipboard) { /* {{{ */
 	private function documentNavigationBar($document)	{ /* {{{ */
 		$accessMode = $document->getAccessMode($this->params['user']);
 		$docid=".php?documentid=" . $document->getID();
-		echo "<id=\"first\"><a href=\"/out/out.ViewDocument". $docid ."\" class=\"brand\">".getMLText("document")."</a>\n";
+		echo "<id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."out/out.ViewDocument". $docid ."\" class=\"brand\">".getMLText("document")."</a>\n";
 		echo "<div class=\"nav-collapse col2\">\n";
 		echo "<ul class=\"nav\">\n";
 		$menuitems = array();
 
 		if ($accessMode >= M_READWRITE) {
 			if (!$document->isLocked()) {
-				$menuitems['update_document'] = array('link'=>"/out/out.UpdateDocument".$docid, 'label'=>'update_document');
-				$menuitems['lock_document'] = array('link'=>"/op/op.LockDocument".$docid, 'label'=>'lock_document');
-				$menuitems['edit_document_props'] = array('link'=>"/out/out.EditDocument".$docid , 'label'=>'edit_document_props');
-				$menuitems['move_document'] = array('link'=>"/out/out.MoveDocument".$docid, 'label'=>'move_document');
+				$menuitems['update_document'] = array('link'=>$this->params['settings']->_httpRoot."out/out.UpdateDocument".$docid, 'label'=>'update_document');
+				$menuitems['lock_document'] = array('link'=>$this->params['settings']->_httpRoot."op/op.LockDocument".$docid, 'label'=>'lock_document');
+				$menuitems['edit_document_props'] = array('link'=>$this->params['settings']->_httpRoot."out/out.EditDocument".$docid , 'label'=>'edit_document_props');
+				$menuitems['move_document'] = array('link'=>$this->params['settings']->_httpRoot."out/out.MoveDocument".$docid, 'label'=>'move_document');
 			}
 			else {
 				$lockingUser = $document->getLockingUser();
 				if (($lockingUser->getID() == $this->params['user']->getID()) || ($document->getAccessMode($this->params['user']) == M_ALL)) {
-					$menuitems['update_document'] = array('link'=>"/out/out.UpdateDocument".$docid, 'label'=>'update_document');
-					$menuitems['unlock_document'] = array('link'=>"/op/op.UnlockDocument".$docid, 'label'=>'unlock_document');
-					$menuitems['edit_document_props'] = array('link'=>"/out/out.EditDocument".$docid, 'label'=>'edit_document_props');
-					$menuitems['move_document'] = array('link'=>"/out/out.MoveDocument".$docid, 'label'=>'move_document');
+					$menuitems['update_document'] = array('link'=>$this->params['settings']->_httpRoot."out/out.UpdateDocument".$docid, 'label'=>'update_document');
+					$menuitems['unlock_document'] = array('link'=>$this->params['settings']->_httpRoot."op/op.UnlockDocument".$docid, 'label'=>'unlock_document');
+					$menuitems['edit_document_props'] = array('link'=>$this->params['settings']->_httpRoot."out/out.EditDocument".$docid, 'label'=>'edit_document_props');
+					$menuitems['move_document'] = array('link'=>$this->params['settings']->_httpRoot."out/out.MoveDocument".$docid, 'label'=>'move_document');
 				}
 			}
 			if($this->params['accessobject']->maySetExpires()) {
-				$menuitems['expires'] = array('link'=>"/out/out.SetExpires".$docid, 'label'=>'expires');
+				$menuitems['expires'] = array('link'=>$this->params['settings']->_httpRoot."out/out.SetExpires".$docid, 'label'=>'expires');
 			}
 		}
 		if ($accessMode == M_ALL) {
-			$menuitems['rm_document'] = array('link'=>"/out/out.RemoveDocument".$docid, 'label'=>'rm_document');
-			$menuitems['edit_document_access'] = array('link'=>"/out/out.DocumentAccess". $docid, 'label'=>'edit_document_access');
+			$menuitems['rm_document'] = array('link'=>$this->params['settings']->_httpRoot."out/out.RemoveDocument".$docid, 'label'=>'rm_document');
+			$menuitems['edit_document_access'] = array('link'=>$this->params['settings']->_httpRoot."out/out.DocumentAccess". $docid, 'label'=>'edit_document_access');
 		}
 		if ($accessMode >= M_READ && !$this->params['user']->isGuest()) {
-			$menuitems['edit_existing_notify'] = array('link'=>"/out/out.DocumentNotify". $docid, 'label'=>'edit_existing_notify');
+			$menuitems['edit_existing_notify'] = array('link'=>$this->params['settings']->_httpRoot."out/out.DocumentNotify". $docid, 'label'=>'edit_existing_notify');
 		}
 
 		/* Check if hook exists because otherwise callHook() will override $menuitems */
 		if($this->hasHook('documentNavigationBar'))
 			$menuitems = $this->callHook('documentNavigationBar', $document, $menuitems);
-
-		/* Do not use $this->callHook() because $menuitems must be returned by the hook
-		 * or left unchanged
-		 */
-		/*
-		$hookObjs = $this->getHookObjects();
-		foreach($hookObjs as $hookObj) {
-			if (method_exists($hookObj, 'documentNavigationBar')) {
-	      $menuitems = $hookObj->documentNavigationBar($this, $document, $menuitems);
-			}
-		}
-		*/
 
 		foreach($menuitems as $menuitem) {
 			echo "<li><a href=\"".$menuitem['link']."\">".getMLText($menuitem['label'])."</a></li>";
@@ -1467,22 +1390,22 @@ function menuClipboard($clipboard) { /* {{{ */
 	} /* }}} */
 
 	private function accountNavigationBar() { /* {{{ */
-		echo "<id=\"first\"><a href=\"/out/out.MyAccount.php\" class=\"brand\">".getMLText("my_account")."</a>\n";
+		echo "<id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."out/out.MyAccount.php\" class=\"brand\">".getMLText("my_account")."</a>\n";
 		echo "<div class=\"nav-collapse col2\">\n";
 		echo "<ul class=\"nav\">\n";
 
 		if ($this->params['user']->isAdmin() || !$this->params['disableselfedit'])
-			echo "<li id=\"first\"><a href=\"/out/out.EditUserData.php\">".getMLText("edit_user_details")."</a></li>\n";
-		
-		if (!$this->params['user']->isAdmin()) 
-			echo "<li><a href=\"/out/out.UserDefaultKeywords.php\">".getMLText("edit_default_keywords")."</a></li>\n";
+			echo "<li id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."out/out.EditUserData.php\">".getMLText("edit_user_details")."</a></li>\n";
 
-		echo "<li><a href=\"/out/out.ManageNotify.php\">".getMLText("edit_existing_notify")."</a></li>\n";
+		if (!$this->params['user']->isAdmin())
+			echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.UserDefaultKeywords.php\">".getMLText("edit_default_keywords")."</a></li>\n";
+
+		echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ManageNotify.php\">".getMLText("edit_existing_notify")."</a></li>\n";
 
 		if ($this->params['enableusersview']){
-			echo "<li><a href=\"/out/out.UsrView.php\">".getMLText("users")."</a></li>\n";
-			echo "<li><a href=\"/out/out.GroupView.php\">".getMLText("groups")."</a></li>\n";
-		}		
+			echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.UsrView.php\">".getMLText("users")."</a></li>\n";
+			echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.GroupView.php\">".getMLText("groups")."</a></li>\n";
+		}
 		echo "</ul>\n";
 		echo "</div>\n";
 		return;
@@ -1490,18 +1413,18 @@ function menuClipboard($clipboard) { /* {{{ */
 
 	private function myDocumentsNavigationBar() { /* {{{ */
 
-		echo "<id=\"first\"><a href=\"/out/out.MyDocuments.php?inProcess=1\" class=\"brand\">".getMLText("my_documents")."</a>\n";
+		echo "<id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."out/out.MyDocuments.php?inProcess=1\" class=\"brand\">".getMLText("my_documents")."</a>\n";
 		echo "<div class=\"nav-collapse col2\">\n";
 		echo "<ul class=\"nav\">\n";
 
-		echo "<li><a href=\"/out/out.MyDocuments.php?inProcess=1\">".getMLText("documents_in_process")."</a></li>\n";
-		echo "<li><a href=\"/out/out.MyDocuments.php\">".getMLText("all_documents")."</a></li>\n";
+		echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.MyDocuments.php?inProcess=1\">".getMLText("documents_in_process")."</a></li>\n";
+		echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.MyDocuments.php\">".getMLText("all_documents")."</a></li>\n";
 		if($this->params['workflowmode'] == 'traditional' || $this->params['workflowmode'] == 'traditional_only_approval') {
 			if($this->params['workflowmode'] == 'traditional')
-				echo "<li><a href=\"/out/out.ReviewSummary.php\">".getMLText("review_summary")."</a></li>\n";
-			echo "<li><a href=\"/out/out.ApprovalSummary.php\">".getMLText("approval_summary")."</a></li>\n";
+				echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ReviewSummary.php\">".getMLText("review_summary")."</a></li>\n";
+			echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.ApprovalSummary.php\">".getMLText("approval_summary")."</a></li>\n";
 		} else {
-			echo "<li><a href=\"/out/out.WorkflowSummary.php\">".getMLText("workflow_summary")."</a></li>\n";
+			echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.WorkflowSummary.php\">".getMLText("workflow_summary")."</a></li>\n";
 		}
 		echo "</ul>\n";
 		echo "</div>\n";
@@ -1509,31 +1432,21 @@ function menuClipboard($clipboard) { /* {{{ */
 	} /* }}} */
 
 	private function adminToolsNavigationBar() { /* {{{ */
-		echo "    <id=\"first\"><a href=\"/out/out.AdminTools.php\" class=\"brand\">".getMLText("admin_tools")."</a>\n";
+		echo "    <id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."out/out.AdminTools.php\" class=\"brand\">".getMLText("admin_tools")."</a>\n";
 		echo "<div class=\"nav-collapse col2\">\n";
 		echo "   <ul class=\"nav\">\n";
-
-		/*echo "    <li class=\"dropdown\">\n";
-		echo "     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">".getMLText("user_group_management")." <i class=\"icon-caret-down\"></i></a>\n";
-		echo "     <ul class=\"dropdown-menu\" role=\"menu\">\n";
-		echo "      <li><a href=\"/out/out.UsrMgr.php\">".getMLText("user_management")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.GroupMgr.php\">".getMLText("group_management")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.UserList.php\">".getMLText("user_list")."</a></li>\n";
-		echo "     </ul>\n";
-		echo "    </li>\n";
-		echo "   </ul>\n";*/
 
 		echo "   <ul class=\"nav\">\n";
 		echo "    <li class=\"dropdown\">\n";
 		echo "     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">".getMLText("definitions")." <i class=\"icon-caret-down\"></i></a>\n";
 		echo "     <ul class=\"dropdown-menu\" role=\"menu\">\n";
-		//echo "      <li><a href=\"/out/out.DefaultKeywords.php\">".getMLText("global_default_keywords")."</a></li>\n";
-		echo "     <li><a href=\"/out/out.Categories.php\">".getMLText("global_document_categories")."</a></li>\n";
-		echo "     <li><a href=\"/out/out.AttributeMgr.php\">".getMLText("global_attributedefinitions")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.DefaultKeywords.php\">".getMLText("global_default_keywords")."</a></li>\n";
+		echo "     <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Categories.php\">".getMLText("global_document_categories")."</a></li>\n";
+		echo "     <li><a href=\"".$this->params['settings']->_httpRoot."out/out.AttributeMgr.php\">".getMLText("global_attributedefinitions")."</a></li>\n";
 		if($this->params['workflowmode'] == 'advanced') {
-			echo "     <li><a href=\"/out/out.WorkflowMgr.php\">".getMLText("global_workflows")."</a></li>\n";
-			echo "     <li><a href=\"/out/out.WorkflowStatesMgr.php\">".getMLText("global_workflow_states")."</a></li>\n";
-			echo "     <li><a href=\"/out/out.WorkflowActionsMgr.php\">".getMLText("global_workflow_actions")."</a></li>\n";
+			echo "     <li><a href=\"".$this->params['settings']->_httpRoot."out/out.WorkflowMgr.php\">".getMLText("global_workflows")."</a></li>\n";
+			echo "     <li><a href=\"".$this->params['settings']->_httpRoot."out/out.WorkflowStatesMgr.php\">".getMLText("global_workflow_states")."</a></li>\n";
+			echo "     <li><a href=\"".$this->params['settings']->_httpRoot."out/out.WorkflowActionsMgr.php\">".getMLText("global_workflow_actions")."</a></li>\n";
 		}
 		echo "     </ul>\n";
 		echo "    </li>\n";
@@ -1544,9 +1457,9 @@ function menuClipboard($clipboard) { /* {{{ */
 			echo "    <li class=\"dropdown\">\n";
 			echo "     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">".getMLText("fullsearch")." <i class=\"icon-caret-down\"></i></a>\n";
 			echo "     <ul class=\"dropdown-menu\" role=\"menu\">\n";
-			echo "      <li><a href=\"/out/out.Indexer.php\">".getMLText("update_fulltext_index")."</a></li>\n";
-			echo "      <li><a href=\"/out/out.CreateIndex.php\">".getMLText("create_fulltext_index")."</a></li>\n";
-			echo "      <li><a href=\"/out/out.IndexInfo.php\">".getMLText("fulltext_info")."</a></li>\n";
+			echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Indexer.php\">".getMLText("update_fulltext_index")."</a></li>\n";
+			echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.CreateIndex.php\">".getMLText("create_fulltext_index")."</a></li>\n";
+			echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.IndexInfo.php\">".getMLText("fulltext_info")."</a></li>\n";
 			echo "     </ul>\n";
 			echo "    </li>\n";
 			echo "   </ul>\n";
@@ -1556,9 +1469,9 @@ function menuClipboard($clipboard) { /* {{{ */
 		echo "    <li class=\"dropdown\">\n";
 		echo "     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">".getMLText("backup_log_management")." <i class=\"icon-caret-down\"></i></a>\n";
 		echo "     <ul class=\"dropdown-menu\" role=\"menu\">\n";
-		echo "      <li><a href=\"/out/out.BackupTools.php\">".getMLText("backup_tools")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.BackupTools.php\">".getMLText("backup_tools")."</a></li>\n";
 		if ($this->params['logfileenable'])
-			echo "      <li><a href=\"/out/out.LogManagement.php\">".getMLText("log_management")."</a></li>\n";
+			echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.LogManagement.php\">".getMLText("log_management")."</a></li>\n";
 		echo "     </ul>\n";
 		echo "    </li>\n";
 		echo "   </ul>\n";
@@ -1567,14 +1480,14 @@ function menuClipboard($clipboard) { /* {{{ */
 		echo "    <li class=\"dropdown\">\n";
 		echo "     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">".getMLText("misc")." <i class=\"icon-caret-down\"></i></a>\n";
 		echo "     <ul class=\"dropdown-menu\" role=\"menu\">\n";
-		echo "      <li><a href=\"/out/out.ImportFS.php\">".getMLText("import_fs")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.Statistic.php\">".getMLText("folders_and_documents_statistic")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.Charts.php\">".getMLText("charts")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.Timeline.php\">".getMLText("timeline")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.ObjectCheck.php\">".getMLText("objectcheck")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.ExtensionMgr.php\">".getMLText("extension_manager")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.ClearCache.php\">".getMLText("clear_cache")."</a></li>\n";
-		echo "      <li><a href=\"/out/out.Info.php\">".getMLText("version_info")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.ImportFS.php\">".getMLText("import_fs")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Statistic.php\">".getMLText("folders_and_documents_statistic")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Charts.php\">".getMLText("charts")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Timeline.php\">".getMLText("timeline")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.ObjectCheck.php\">".getMLText("objectcheck")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.ExtensionMgr.php\">".getMLText("extension_manager")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.ClearCache.php\">".getMLText("clear_cache")."</a></li>\n";
+		echo "      <li><a href=\"".$this->params['settings']->_httpRoot."out/out.Info.php\">".getMLText("version_info")."</a></li>\n";
 		echo "     </ul>\n";
 		echo "    </li>\n";
 		echo "   </ul>\n";
@@ -1584,21 +1497,21 @@ function menuClipboard($clipboard) { /* {{{ */
 		echo "</div>\n";
 		return;
 	} /* }}} */
-	
+
 	private function calendarNavigationBar($d){ /* {{{ */
 		$ds="&day=".$d[0]."&month=".$d[1]."&year=".$d[2];
-		echo "<id=\"first\"><a href=\"/out/out.Calendar.php?mode=y\" class=\"brand\">".getMLText("calendar")."</a>\n";
+		echo "<id=\"first\"><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=y\" class=\"brand\">".getMLText("calendar")."</a>\n";
 		echo "<div class=\"nav-collapse col2\">\n";
 		echo "<ul class=\"nav\">\n";
 
-		echo "<li><a href=\"/out/out.Calendar.php?mode=w".$ds."\">".getMLText("week_view")."</a></li>\n";
-		echo "<li><a href=\"/out/out.Calendar.php?mode=m".$ds."\">".getMLText("month_view")."</a></li>\n";
-		echo "<li><a href=\"/out/out.Calendar.php?mode=y".$ds."\">".getMLText("year_view")."</a></li>\n";
-		if (!$this->params['user']->isGuest()) echo "<li><a href=\"/out/out.AddEvent.php\">".getMLText("add_event")."</a></li>\n";
+		echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=w".$ds."\">".getMLText("week_view")."</a></li>\n";
+		echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=m".$ds."\">".getMLText("month_view")."</a></li>\n";
+		echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.Calendar.php?mode=y".$ds."\">".getMLText("year_view")."</a></li>\n";
+		if (!$this->params['user']->isGuest()) echo "<li><a href=\"".$this->params['settings']->_httpRoot."out/out.AddEvent.php\">".getMLText("add_event")."</a></li>\n";
 		echo "</ul>\n";
 		echo "</div>\n";
 		return;
-	
+
 	} /* }}} */
 
 	function pageList($pageNumber, $totalPages, $baseURI, $params) { /* {{{ */
@@ -1825,7 +1738,7 @@ function menuClipboard($clipboard) { /* {{{ */
 	} /* }}} */
 
 	function printDateChooser($defDate = -1, $varName) { /* {{{ */
-	
+
 		if ($defDate == -1)
 			$defDate = mktime();
 		$day   = date("d", $defDate);
@@ -1850,7 +1763,7 @@ function menuClipboard($clipboard) { /* {{{ */
 			print ">" . $i . "</option>\n";
 		}
 		print "</select> \n";
-		print "<select name=\"" . $varName . "year\">\n";	
+		print "<select name=\"" . $varName . "year\">\n";
 		for ($i = $year-5 ; $i <= $year+5 ; $i++)
 		{
 			print "<option value=\"" . $i . "\"";
@@ -1891,7 +1804,7 @@ function menuClipboard($clipboard) { /* {{{ */
 		print "<input type=\"hidden\" id=\"docid".$formName."\" name=\"docid\" value=\"\">";
 		print "<div class=\"input-append\">\n";
 		print "<input type=\"text\" class=\"custom-input-text-search\" id=\"choosedocsearch".$formName."\" data-target=\"docid".$formName."\" data-provide=\"typeahead\" name=\"docname".$formName."\" placeholder=\"".getMLText('type_to_search')."\" autocomplete=\"off\" />";
-		print "<a type=\"button\" data-target=\"#docChooser".$formName."\" href=\"/out/out.DocumentChooser.php?form=".$formName."&folderid=".$this->params['rootfolderid']."\" role=\"button\" class=\"btn btn-primary btn-flat\" data-toggle=\"modal\">".getMLText("document")."…</a>\n";
+		print "<a type=\"button\" data-target=\"#docChooser".$formName."\" href=\"".$this->params['settings']->_httpRoot."out/out.DocumentChooser.php?form=".$formName."&folderid=".$this->params['rootfolderid']."\" role=\"button\" class=\"btn btn-primary btn-flat\" data-toggle=\"modal\">".getMLText("document")."…</a>\n";
 		print "</div>\n";
 ?>
 <div class="modal fade" id="docChooser<?php echo $formName ?>" tabindex="-1" role="dialog" aria-labelledby="docChooserLabel" aria-hidden="true">
@@ -1908,7 +1821,7 @@ function menuClipboard($clipboard) { /* {{{ */
 	  </div>
  	</div>
 </div>
-<?php 
+<?php
 	} /* }}} */
 
 	function printDocumentChooserJs($formName) { /* {{{ */
@@ -1941,7 +1854,7 @@ function folderSelected<?php echo $formName ?>(id, name) {
 		print "<div class=\"form-group\">\n";
 		print "<input class=\"custom-input-text-search\" type=\"text\" id=\"choosefoldersearch".$form."\" data-target=\"".$formid."\" data-provide=\"typeahead\"  name=\"targetname".$form."\" value=\"". (($default) ? htmlspecialchars($default->getName()) : "") ."\" placeholder=\"".getMLText('type_to_search')."\" autocomplete=\"off\" target=\"".$formid."\" required/>";
 			print "<button type=\"button\" class=\"btn btn-default\" id=\"clearfolder".$form."\"><i class=\"fa fa-times\"></i></button>";
-		print "<a type=\"button\" data-target=\"#folderChooser".$form."\" href=\"/out/out.FolderChooser.php?form=".$form."&mode=".$accessMode."&exclude=".$exclude."\" role=\"button\" class=\"btn btn-default\" data-toggle=\"modal\">".getMLText("folder")."…</a>\n";
+		print "<a type=\"button\" data-target=\"#folderChooser".$form."\" href=\"".$this->params['settings']->_httpRoot."out/out.FolderChooser.php?form=".$form."&mode=".$accessMode."&exclude=".$exclude."\" role=\"button\" class=\"btn btn-default\" data-toggle=\"modal\">".getMLText("folder")."…</a>\n";
 		print "</div>\n";
 ?>
 <div class="modal" id="folderChooser<?php echo $form ?>" tabindex="-1" role="dialog" aria-labelledby="folderChooser<?php echo $form ?>Label" aria-hidden="true">
@@ -1970,7 +1883,7 @@ function folderSelected<?php echo $formName ?>(id, name) {
 		print "<div class=\"form-group\">\n";
 		print "<input class=\"custom-input-text-search\" type=\"text\" id=\"choosefoldersearch".$form."\" data-target=\"".$formid."\" data-provide=\"typeahead\"  name=\"targetname".$form."\" value=\"". (($default) ? htmlspecialchars($default->getName()) : "") ."\" placeholder=\"".getMLText('type_to_search')."\" autocomplete=\"off\" target=\"".$formid."\" required/>";
 		//	print "<button type=\"button\" class=\"btn btn-default\" id=\"clearfolder".$form."\"><i class=\"fa fa-times\"></i></button>";
-		print "<a type=\"button\" data-target=\"#folderChooser".$form."\" href=\"/out/out.FolderChooser.php?form=".$form."&mode=".$accessMode."&exclude=".$exclude."\" role=\"button\" class=\"btn btn-default\" data-toggle=\"modal\">".getMLText("folder")."…</a>\n";
+		print "<a type=\"button\" data-target=\"#folderChooser".$form."\" href=\"".$this->params['settings']->_httpRoot."out/out.FolderChooser.php?form=".$form."&mode=".$accessMode."&exclude=".$exclude."\" role=\"button\" class=\"btn btn-default\" data-toggle=\"modal\">".getMLText("folder")."…</a>\n";
 		print "</div>\n";
 ?>
 <div class="modal" id="folderChooser<?php echo $form ?>" tabindex="-1" role="dialog" aria-labelledby="folderChooser<?php echo $form ?>Label" aria-hidden="true">
@@ -1999,7 +1912,7 @@ function folderSelected<?php echo $formName ?>(id, name) {
 		print "<div class=\"form-group\">\n";
 		print "<input class=\"custom-input-text-search\" type=\"text\" id=\"choosefoldersearch".$form."\" data-target=\"".$formid."\" data-provide=\"typeahead\"  name=\"targetname".$form."\" value=\"". (($default) ? htmlspecialchars($default->getName()) : "") ."\" placeholder=\"".getMLText('type_to_search')."\" autocomplete=\"off\" target=\"".$formid."\" required/>";
 		print "<button type=\"button\" class=\"btn btn-default\" id=\"clearfolder".$form."\"><i class=\"fa fa-times\"></i></button>";
-		//print "<a type=\"button\" data-target=\"#folderChooser".$form."\" href=\"/out/out.FolderChooser.php?form=".$form."&mode=".$accessMode."&exclude=".$exclude."\" role=\"button\" class=\"btn btn-default\" data-toggle=\"modal\">".getMLText("folder")."…</a>\n";
+		//print "<a type=\"button\" data-target=\"#folderChooser".$form."\" href=\"".$this->params['settings']->_httpRoot."out/out.FolderChooser.php?form=".$form."&mode=".$accessMode."&exclude=".$exclude."\" role=\"button\" class=\"btn btn-default\" data-toggle=\"modal\">".getMLText("folder")."…</a>\n";
 		print "</div>\n";
 ?>
 <div class="modal" id="folderChooser<?php echo $form ?>" tabindex="-1" role="dialog" aria-labelledby="folderChooser<?php echo $form ?>Label" aria-hidden="true">
@@ -2153,9 +2066,69 @@ $(document).ready(function() {
 
 	function printAttributeEditField($attrdef, $attribute, $fieldname='attributes', $norequire=false) { /* {{{ */
 		switch($attrdef->getType()) {
+		case SeedDMS_Core_AttributeDefinition::type_info:
+				echo "<p>";
+				echo $attrdef->getDescription();
+				echo "</p>";
+		break;
+		case SeedDMS_Core_AttributeDefinition::type_matrix:
+			if($valueset = $attrdef->getValueSetAsMatrix()) {
+
+				$rows = $valueset['rows'];
+				$cols = $valueset['cols'];
+				$input = $valueset['input'];
+
+				$countRows = count($rows);
+				$countCols = count($cols);
+
+				$matrix = array_map(null, $rows, $cols);
+
+				echo "<p>";
+				echo $attrdef->getDescription();
+				echo "</p>";
+
+				echo "<table class='table table-bordered table-hover' role='grid'>";
+				for($r=1; $r <= $countRows; $r++) {
+					if($r==1) {
+						echo "<thead><tr role='row'><th></th>";
+						for($cf=0; $cf < $countCols; $cf++) {
+							echo "<th>".$cols[$cf]."</th>";
+
+						}
+						echo "</tr></thead>";
+					}
+					echo "<tbody><tr role='row'>";
+					for($c=0; $c <= $countCols; $c++) {
+						if($c==0) {
+							echo "<td>".$rows[$r-1]."</td>";
+						} else {
+							//echo "<td><input type='$input' name='".$attrdef->getName()."_".$r."_".$c."'/></td>";
+							//echo "<td><input type='$input'/></td>";
+							//echo "<td><input type='$input' name='".$attrdef->getName()."_".$r."[]' data-index='".$r."_".$c."'/></td>";
+							//echo "<td><input type='hidden' id=\"".$fieldname."_".$attrdef->getId()."\" name=\"".$fieldname."_".$attrdef->getId()."[".$r."][".$c."]\" value=\"\" ".(($attribute && $attribute->getValue()) ? 'checked' : '')." data-col=\"$c\" data-row=\"$r\" />";
+							switch($input) {
+								case 'radio':
+									break;
+								case 'checkbox':
+									$objvalue = $attribute ? (is_object($attribute) ? $attribute->getValueMatrix($r,$c) : $attribute) : '';
+									if($objvalue == 1){ $checked = 'checked';} else {$checked = '';}
+									echo "<td><input type='$input' id=\"".$fieldname."_".$attrdef->getId()."\" name=\"".$fieldname."[".$attrdef->getId()."][".$r."][".$c."]\" value=\"1\" $checked data-col=\"$c\" data-row=\"$r\" /></td>";
+									break;
+								case 'text':
+									$objvalue = $attribute ? (is_object($attribute) ? $attribute->getValueMatrix($r,$c) : $attribute) : '';
+									echo "<td><input type='$input' id=\"".$fieldname."_".$attrdef->getId()."\" name=\"".$fieldname."[".$attrdef->getId()."][".$r."][".$c."]\" value=\"".$objvalue."\" data-col=\"$c\" data-row=\"$r\" /></td>";
+									break;
+							}
+						}
+					}
+					echo "</tr></tbody>";
+				}
+				echo "</table>";
+			}
+			break;
 		case SeedDMS_Core_AttributeDefinition::type_boolean:
-			echo "<input type=\"hidden\" name=\"".$fieldname."[".$attrdef->getId()."]\" value=\"0\" />";
-			echo "<input class=\"form-control\" type=\"checkbox\" id=\"".$fieldname."_".$attrdef->getId()."\" name=\"".$fieldname."[".$attrdef->getId()."]\" value=\"1\" ".(($attribute && $attribute->getValue()) ? 'checked' : '')." />";
+			echo "<div class=\"checkbox\"><label><input type=\"checkbox\" id=\"".$fieldname."_".$attrdef->getId()."\" name=\"".$fieldname."[".$attrdef->getId()."]\" value=\"1\" ".(($attribute && $attribute->getValue()) ? 'checked' : '')." />".$attrdef->getDescription()."</label></div>";
+//			echo "<input type=\"hidden\" name=\"".$fieldname."[".$attrdef->getId()."]\" value=\"0\" /></br>";
 			break;
 		case SeedDMS_Core_AttributeDefinition::type_date:
 				$objvalue = $attribute ? (is_object($attribute) ? $attribute->getValue() : $attribute) : '';
@@ -2173,7 +2146,7 @@ $(document).ready(function() {
 		default:
 			if($valueset = $attrdef->getValueSetAsArray()) {
 				echo "<input type=\"hidden\" name=\"".$fieldname."[".$attrdef->getId()."]\" value=\"\" />";
-				echo "<select class=\"form-control\" id=\"".$fieldname."_".$attrdef->getId()."\" name=\"".$fieldname."[".$attrdef->getId()."]";
+				echo "<select class=\"form-control chzn-select\" id=\"".$fieldname."_".$attrdef->getId()."\" name=\"".$fieldname."[".$attrdef->getId()."]";
 				if($attrdef->getMultipleValues()) {
 					echo "[]\" multiple";
 				} else {
@@ -2267,7 +2240,7 @@ $(document).ready(function() {
 		if ( is_file($this->imgpath.$img) ) {
 			return $this->imgpath.$img;
 		}
-		return "/out/images/$img";
+		return $this->params['settings']->_httpRoot."out/images/$img";
 	} /* }}} */
 
 	function getCountryFlag($lang) { /* {{{ */
@@ -2333,16 +2306,16 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<?php
-		$this->contentEnd();		
+		$this->contentEnd();
 		$this->containerEnd();
 		$this->htmlEndPage();
-		
+
 		add_log_line(" UI::exitError error=".$error." pagetitle=".$pagetitle, PEAR_LOG_ERR);
 
 		if($noexit)
 			return;
 
-		exit;	
+		exit;
 	} /* }}} */
 
 	function printNewTreeNavigation($folderid=0, $accessmode=M_READ, $showdocs=0, $formid='form1', $expandtree=0, $orderby='') { /* {{{ */
@@ -2357,7 +2330,7 @@ $(document).ready(function() {
 	} /* }}} */
 
 	function printNewTreeNavigationHtml($folderid=0, $accessmode=M_READ, $showdocs=0, $formid='form1', $expandtree=0, $orderby='') { /* {{{ */
-		echo "<div id=\"jqtree".$formid."\" data-url=\"/op/op.Ajax.php?command=subtree&showdocs=".$showdocs."&orderby=".$orderby."\"></div>\n";
+		echo "<div id=\"jqtree".$formid."\" data-url=\"".$this->params['settings']->_httpRoot."op/op.Ajax.php?command=subtree&showdocs=".$showdocs."&orderby=".$orderby."\"></div>\n";
 	} /* }}} */
 
 	/**
@@ -2435,7 +2408,7 @@ $(document).ready(function() {
 			} else {
 				$tree[] = $node;
 			}
-			
+
 		} else {
 			$root = $this->params['dms']->getFolder($this->params['rootfolderid']);
 			$tree = array(array('label'=>$root->getName(), 'id'=>$root->getID(), 'load_on_demand'=>true, 'is_folder'=>true));
@@ -2486,19 +2459,19 @@ $(function() {
 
 	function printTreeNavigation($folderid, $showtree){ /* {{{ */
 		if ($showtree==1){
-			$this->contentHeading("<a href=\"/out/out.ViewFolder.php?folderid=". $folderid."&showtree=0\"><i class=\"fa fa-minus-circle\"></i></a>", true);
+			$this->contentHeading("<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=". $folderid."&showtree=0\"><i class=\"fa fa-minus-circle\"></i></a>", true);
 			$this->contentContainerStart();
 ?>
 	<script language="JavaScript">
 	function folderSelected(id, name) {
-		window.location = '/out/out.ViewFolder.php?folderid=' + id;
+		window.location = <?php echo $this->params['settings']->_httpRoot; ?>'out/out.ViewFolder.php?folderid=' + id;
 	}
 	</script>
 <?php
 			$this->printNewTreeNavigation($folderid, M_READ, 0, '');
 			$this->contentContainerEnd();
 		} else {
-			$this->contentHeading("<a href=\"/out/out.ViewFolder.php?folderid=". $folderid."&showtree=1\"><i class=\"fa fa-plus-circle\"></i></a>", true);
+			$this->contentHeading("<a href=\"".$this->params['settings']->_httpRoot."out/out.ViewFolder.php?folderid=". $folderid."&showtree=1\"><i class=\"fa fa-plus-circle\"></i></a>", true);
 		}
 	} /* }}} */
 
@@ -2526,7 +2499,7 @@ $(function() {
 					}
 					$content .= "</td>\n";
 					$content .= "<td>\n";
-					$content .= "<div class=\"list-action\"><a class=\"removefromclipboard\" rel=\"F".$folderid."\" msg=\"".getMLText('splash_removed_from_clipboard')."\" _href=\"/op/op.RemoveFromClipboard.php?folderid=".(isset($this->params['folder']) ? $this->params['folder']->getID() : '')."&id=".$folderid."&type=folder\" title=\"".getMLText('rm_from_clipboard')."\"><i class=\"icon-remove\"></i></a></div>";
+					$content .= "<div class=\"list-action\"><a class=\"removefromclipboard\" rel=\"F".$folderid."\" msg=\"".getMLText('splash_removed_from_clipboard')."\" _href=\"".$this->params['settings']->_httpRoot."op/op.RemoveFromClipboard.php?folderid=".(isset($this->params['folder']) ? $this->params['folder']->getID() : '')."&id=".$folderid."&type=folder\" title=\"".getMLText('rm_from_clipboard')."\"><i class=\"icon-remove\"></i></a></div>";
 					$content .= "</td>\n";
 					$content .= "</tr>\n";
 					$foldercount++;
@@ -2543,27 +2516,27 @@ $(function() {
 						$previewer->createPreview($latestContent);
 						$version = $latestContent->getVersion();
 						$status = $latestContent->getStatus();
-						
+
 						$content .= "<tr draggable=\"true\" rel=\"document_".$docid."\" class=\"table-row-document\" formtoken=\"".createFormKey('movedocument')."\">";
 
 						if (file_exists($dms->contentDir . $latestContent->getPath())) {
-							$content .= "<td class=\"align-center\"><a draggable=\"false\" href=\"/op/op.Download.php?documentid=".$docid."&version=".$version."\">";
+							$content .= "<td class=\"align-center\"><a draggable=\"false\" href=\"".$this->params['settings']->_httpRoot."op/op.Download.php?documentid=".$docid."&version=".$version."\">";
 							if($previewer->hasPreview($latestContent)) {
-								$content .= "<img draggable=\"false\" class=\"mimeicon\" width=\"40\"src=\"/op/op.Preview.php?documentid=".$document->getID()."&version=".$latestContent->getVersion()."&width=40\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
+								$content .= "<img draggable=\"false\" class=\"mimeicon\" width=\"40\"src=\"".$this->params['settings']->_httpRoot."op/op.Preview.php?documentid=".$document->getID()."&version=".$latestContent->getVersion()."&width=40\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
 							} else {
-								$content .= "<img draggable=\"false\" class=\"mimeicon\" src=\"".$this->getMimeIcon($latestContent->getFileType())."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
+								$content .= "<img draggable=\"false\" class=\"mimeicon\" src=\"".$this->params['settings']->_httpRoot.$this->getMimeIcon($latestContent->getFileType())."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
 							}
 							$content .= "</a></td>";
 						} else
-							$content .= "<td><img draggable=\"false\" class=\"mimeicon\" src=\"".$this->getMimeIcon($latestContent->getFileType())."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\"></td>";
-						
-						$content .= "<td><a draggable=\"false\" href=\"out.ViewDocument.php?documentid=".$docid."&showtree=".showtree()."\">" . htmlspecialchars($document->getName()) . "</a>";
+							$content .= "<td><img draggable=\"false\" class=\"mimeicon\" src=\"".$this->params['settings']->_httpRoot.$this->getMimeIcon($latestContent->getFileType())."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\"></td>";
+
+						$content .= "<td><a draggable=\"false\" href=\"".$this->params['settings']->_httpRoot."out.ViewDocument.php?documentid=".$docid."&showtree=".showtree()."\">" . htmlspecialchars($document->getName()) . "</a>";
 						if($comment) {
 							$content .= "<br /><span style=\"font-size: 85%;\">".htmlspecialchars($comment)."</span>";
 						}
 						$content .= "</td>\n";
 						$content .= "<td>\n";
-						$content .= "<div class=\"list-action\"><a class=\"removefromclipboard\" rel=\"D".$docid."\" msg=\"".getMLText('splash_removed_from_clipboard')."\" _href=\"/op/op.RemoveFromClipboard.php?folderid=".(isset($this->params['folder']) ? $this->params['folder']->getID() : '')."&id=".$docid."&type=document\" title=\"".getMLText('rm_from_clipboard')."\"><i class=\"icon-remove\"></i></a></div>";
+						$content .= "<div class=\"list-action\"><a class=\"removefromclipboard\" rel=\"D".$docid."\" msg=\"".getMLText('splash_removed_from_clipboard')."\" _href=\"".$this->params['settings']->_httpRoot."op/op.RemoveFromClipboard.php?folderid=".(isset($this->params['folder']) ? $this->params['folder']->getID() : '')."&id=".$docid."&type=document\" title=\"".getMLText('rm_from_clipboard')."\"><i class=\"icon-remove\"></i></a></div>";
 						$content .= "</td>\n";
 						$content .= "</tr>";
 						$doccount++;
@@ -2648,7 +2621,7 @@ $(function() {
     		},
 	    		callback: function (result) {
 	    			if (result) {
-	    				$.get('/op/op.Ajax.php',
+	    				$.get('".$this->params['settings']->_httpRoot."op/op.Ajax.php',
 							{ command: 'deletedocument', id: id, formtoken: formtoken },
 							function(data) {
 								if(data.success) {
@@ -2674,7 +2647,7 @@ $(function() {
 							},
 							'json'
 							);
-	    			}	
+	    			}
 					}
 				});
 			});
@@ -2699,7 +2672,7 @@ $(function() {
 		$content .= '<a type="button" class="btn btn-danger btn-sm delete-folder-btn btn-action" rel="'.$folderid.'" msg="'.getMLText($msg).'" confirmmsg="'.htmlspecialchars(getMLText("confirm_rm_folder", array ("foldername" => $folder->getName())), ENT_QUOTES).'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("rm_folder").'"><i class="fa fa-times"></i></a>';
 		if($return)
 			return $content;
-		
+
 		else
 			echo $content;
 		return '';
@@ -2725,10 +2698,10 @@ $(function() {
             label: \"".getMLText("cancel")."\",
             className: 'btn-default'
         	}
-    		}, 
+    		},
 	    		callback: function (result) {
 	    			if (result) {
-	    				$.get('/op/op.Ajax.php',
+	    				$.get('".$this->params['settings']->_httpRoot."op/op.Ajax.php',
 								{ command: 'deletefolder', id: id, formtoken: formtoken },
 									function(data) {
 										if(data.success) {
@@ -2754,7 +2727,7 @@ $(function() {
 								},
 								'json'
 							);
-						}	
+						}
 	    		}
 	    	});
 			});
@@ -2946,7 +2919,7 @@ $(document).ready( function() {
 					$needwkflaction = $latestContent->needsWorkflowAction($user);
 				}
 			}
-			
+
 			/* Retrieve attacheѕ files */
 			$files = $document->getDocumentFiles();
 
@@ -2955,16 +2928,16 @@ $(document).ready( function() {
 			$links = SeedDMS_Core_DMS::filterDocumentLinks($user, $links);
 
 			$content .= "<td class=\"align-center\">";
-			if (file_exists($dms->contentDir . $latestContent->getPath())) { 
+			if (file_exists($dms->contentDir . $latestContent->getPath())) {
 
 				/*************** If the document status is equal to "released" the download will be available ***************/
-				if ($status['status'] == 2 && !$document->isLocked()) { 
-					$content .= "<a draggable=\"false\" href=\"/op/op.Download.php?documentid=".$docID."&version=".$version."\">";
+				if ($status['status'] == 2 && !$document->isLocked()) {
+					$content .= "<a draggable=\"false\" href=\"".$this->params['settings']->_httpRoot."op/op.Download.php?documentid=".$docID."&version=".$version."\">";
 					if($previewer->hasPreview($latestContent)) {
-						$content .= "<img draggable=\"false\" class=\"mimeicon\" width=\"".$previewwidth."\"src=\"/op/op.Preview.php?documentid=".$document->getID()."&version=".$latestContent->getVersion()."&width=".$previewwidth."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
+						$content .= "<img draggable=\"false\" class=\"mimeicon\" width=\"".$previewwidth."\"src=\"".$this->params['settings']->_httpRoot."op/op.Preview.php?documentid=".$document->getID()."&version=".$latestContent->getVersion()."&width=".$previewwidth."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
 					} else {
 						//$content .= "<i class=\"fa fa-file-pdf-o fa-2x\"></i>";
-						$content .= "<img draggable=\"false\" class=\"mimeicon\" src=\"".$this->getMimeIcon($latestContent->getFileType())."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
+						$content .= "<img draggable=\"false\" class=\"mimeicon\" src=\"".$this->params['settings']->_httpRoot.$this->getMimeIcon($latestContent->getFileType())."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
 					}
 					$content .= "</a>";
 				}
@@ -2973,13 +2946,13 @@ $(document).ready( function() {
 			} else {
 
 					if($previewer->hasPreview($latestContent)) {
-						$content .= "<img draggable=\"false\" class=\"mimeicon\" width=\"".$previewwidth."\"src=\"/op/op.Preview.php?documentid=".$document->getID()."&version=".$latestContent->getVersion()."&width=".$previewwidth."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
+						$content .= "<img draggable=\"false\" class=\"mimeicon\" width=\"".$previewwidth."\"src=\"".$this->params['settings']->_httpRoot."op/op.Preview.php?documentid=".$document->getID()."&version=".$latestContent->getVersion()."&width=".$previewwidth."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
 					} else {
 						//$content .= "<i class=\"fa fa-file-pdf-o fa-2x\"></i>";
 						$content .= "<img draggable=\"false\" class=\"mimeicon\" src=\"".$this->getMimeIcon($latestContent->getFileType())."\" title=\"".htmlspecialchars($latestContent->getMimeType())."\">";
 					}
 
-			} 
+			}
 
 			$content .= "</td>";
 
@@ -2990,7 +2963,7 @@ $(document).ready( function() {
 				if (htmlspecialchars($latestContent->getMimeType()) == 'application/pdf' ) {
 					$content .= "<a href=\"#\" draggable=\"false\" class=\"preview-doc-btn btn-action doc-link\" id=\"".$docID."\" rel=\"".$latestContent->getVersion()."\" title=\"".htmlspecialchars($document->getName())." - ".getMLText("current_version").": ".$latestContent->getVersion()."\">" . htmlspecialchars($document->getName()) . "</a>";
 				}	else {
-					$content .= "<a draggable=\"false\" class=\"doc-link\" target=\"_self\" href=\"../op/op.ViewOnline.php?documentid=".$docID."&version=". $latestContent->getVersion()."\">" . htmlspecialchars($document->getName()) . "</a>";
+					$content .= "<a draggable=\"false\" class=\"doc-link\" target=\"_self\" href=\"".$this->params['settings']->_httpRoot."op/op.ViewOnline.php?documentid=".$docID."&version=". $latestContent->getVersion()."\">" . htmlspecialchars($document->getName()) . "</a>";
 				}
 
 			} else {
@@ -3033,39 +3006,38 @@ $(document).ready( function() {
 //				$content .= "<td>".$version."</td>";
 			$content .= "<td>";
 			$content .= "<div class=\"list-action\">";
-			if($document->getAccessMode($user) >= M_ALL) 
-			{
-				//$content .= $this->printDeleteDocumentButton($document, 'splash_rm_document', true);
+			if($document->getAccessMode($user) >= M_ALL) {
+				$content .= $this->printDeleteDocumentButton($document, 'splash_rm_document', true);
 			} else {
 				$content .= '<span style="padding: 2px; color: #CCC;"><i class="icon-remove"></i></span>';
 			}
-			// if($document->getAccessMode($user) >= M_READWRITE) {
-			// 	$content .= '<a type="button" href="/out/out.EditDocument.php?documentid='.$docID.'&showtree=1" class="btn btn-success btn-sm btn-action" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_document_props").'"><i class="fa fa-pencil"></i></a>';
-			// } 
+			if($document->getAccessMode($user) >= M_READWRITE) {
+				$content .= '<a type="button" href="'.$this->params['settings']->_httpRoot.'out/out.EditDocument.php?documentid='.$docID.'&showtree=1" class="btn btn-success btn-sm btn-action" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_document_props").'"><i class="fa fa-pencil"></i></a>';
+			}
 
-			// if($document->getAccessMode($user) >= M_READWRITE) {
-			// 	$content .= $this->printLockButton($document, 'splash_document_locked', 'splash_document_unlocked', true);
-			// }
-			// if($enableClipboard) {
-			// 	$content .= '<a type="button" class="btn btn-success btn-sm addtoclipboard btn-action" rel="D'.$docID.'" msg="'.getMLText('splash_added_to_clipboard').'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("add_to_clipboard").'"><i class="fa fa-copy"></i></a>';
-			// }
+			if($document->getAccessMode($user) >= M_READWRITE) {
+				$content .= $this->printLockButton($document, 'splash_document_locked', 'splash_document_unlocked', true);
+			}
+			if($enableClipboard) {
+				$content .= '<a type="button" class="btn btn-success btn-sm addtoclipboard btn-action" rel="D'.$docID.'" msg="'.getMLText('splash_added_to_clipboard').'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("add_to_clipboard").'"><i class="fa fa-copy"></i></a>';
+			}
 
 			////////
 			$content .= "<a type=\"button\" class=\"btn btn-info btn-sm\" href=\"out.ViewDocument.php?documentid=".$docID."\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"".getMLText("view")."\"><i class=\"fa fa-eye\"></i></a>";
 			/*if ($status['status'] == 2 ) {
 				if (htmlspecialchars($latestContent->getMimeType()) == 'application/pdf' ) {
 					$content .= '<a type="button" class="btn btn-info btn-sm preview-doc-btn btn-action" id="'.$docID.'" rel="'.$latestContent->getVersion().'" title="'.htmlspecialchars($document->getName()).' - '.getMLText('current_version').': '.$latestContent->getVersion().'"><i class="fa fa-eye"></i></a>';
-				}	
+				}
 			}*/
 			/////////
 
-			// if($document->getAccessMode($user) >= M_ALL) {
-			// 	$content .= '<a type="button" href="/out/out.DocumentAccess.php?documentid='.$docID.'&showtree=1" class="btn btn-success btn-sm access-folder-btn btn-action " rel="'.$docID.'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_document_access").'"><i class="fa fa-user-times"></i></a>';
-			// }
+			if($document->getAccessMode($user) >= M_ALL) {
+				$content .= '<a type="button" href="'.$this->params['settings']->_httpRoot.'out/out.DocumentAccess.php?documentid='.$docID.'&showtree=1" class="btn btn-success btn-sm access-folder-btn btn-action " rel="'.$docID.'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_document_access").'"><i class="fa fa-user-times"></i></a>';
+			}
 
-			// if($document->getAccessMode($user) >= M_READWRITE) {
-			// 	$content .= '<a type="button" class="btn btn-primary btn-sm move-doc-btn btn-action" rel="'.$docID.'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("move_document").'"><i class="fa fa-arrows"></i></a>';				
-			// }
+			if($document->getAccessMode($user) >= M_READWRITE) {
+				$content .= '<a type="button" class="btn btn-primary btn-sm move-doc-btn btn-action" rel="'.$docID.'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("move_document").'"><i class="fa fa-arrows"></i></a>';
+			}
 
 			$content .= "</div>";
 			$content .= "</td>";
@@ -3100,8 +3072,8 @@ $(document).ready( function() {
 		$content = '';
 		$content .= "<tr id=\"table-row-folder-".$subFolder->getID()."\" draggable=\"true\" rel=\"folder_".$subFolder->getID()."\" class=\"folder table-row-folder\" formtoken=\"".createFormKey('movefolder')."\">";
 	//	$content .= "<td><img src=\"images/folder_closed.gif\" width=18 height=18 border=0></td>";
-		$content .= "<td class=\"align-center\"><a _rel=\"folder_".$subFolder->getID()."\" draggable=\"false\" href=\"out.VerArchivos.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\"><i class=\"fa fa-folder fa-2x\"></i></a></td>\n";
-		$content .= "<td><a draggable=\"false\" _rel=\"folder_".$subFolder->getID()."\" href=\"out.VerArchivos.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\">" . htmlspecialchars($subFolder->getName()) . "</a>";
+		$content .= "<td class=\"align-center\"><a _rel=\"folder_".$subFolder->getID()."\" draggable=\"false\" href=\"out.ViewFolder.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\"><i class=\"fa fa-folder fa-2x\"></i></a></td>\n";
+		$content .= "<td><a draggable=\"false\" _rel=\"folder_".$subFolder->getID()."\" href=\"out.ViewFolder.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\">" . htmlspecialchars($subFolder->getName()) . "</a>";
 		$content .= "<br /><span style=\"font-size: 85%; font-style: italic; color: #666;\">".getMLText('owner').": <b>".htmlspecialchars($owner->getFullName())."</b>, ".getMLText('creation_date').": <b>".date('Y-m-d', $subFolder->getDate())."</b></span>";
 		if($comment) {
 			$content .= "<br /><span style=\"font-size: 85%;\">".htmlspecialchars($comment)."</span>";
@@ -3139,9 +3111,25 @@ $(document).ready( function() {
 //		$content .= "<td></td>";
 		$content .= "<td>";
 		$content .= "<div class=\"list-action\">";
+		if($subFolder->getAccessMode($user) >= M_ALL) {
+			$content .= $this->printDeleteFolderButton($subFolder, 'splash_rm_folder', true);
+		}
 
+		if($subFolder->getAccessMode($user) >= M_READWRITE) {
+			$content .= '<a type="button" href="'.$this->params['settings']->_httpRoot.'out/out.EditFolder.php?folderid='.$subFolder->getID().'" class="btn btn-success btn-sm btn-action " data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_folder_props").'"><i class="fa fa-pencil"></i></a>';
+		}
 
-	
+		if($subFolder->getAccessMode($user) >= M_ALL) {
+			$content .= '<a type="button" class="btn btn-primary btn-sm move-folder-btn btn-action" rel="'.$subFolder->getID().'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("move_folder").'"><i class="fa fa-arrows"></i></a>';
+		}
+
+		if($subFolder->getAccessMode($user) >= M_ALL) {
+			$content .= '<a type="button" href="'.$this->params['settings']->_httpRoot.'out/out.FolderAccess.php?folderid='.$subFolder->getID().'&showtree=1" class="btn btn-warning btn-sm access-folder-btn btn-action " rel="'.$subFolder->getID().'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_folder_access").'"><i class="fa fa-user-times"></i></a>';
+		}
+
+		if($enableClipboard) {
+			$content .= '<a type="button" class="btn btn-default btn-sm addtoclipboard btn-action" rel="F'.$subFolder->getID().'" msg="'.getMLText('splash_added_to_clipboard').'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("add_to_clipboard").'"><i class="fa fa-clone"></i></a>';
+		}
 		$content .= "</div>";
 		$content .= "</td>";
 		$content .= "</tr>\n";
@@ -3216,12 +3204,12 @@ mayscript>
      */
     function uploaderFileStatusChanged( uploader, file ) {
         traceEvent( "uploaderFileStatusChanged, index=" + file.getIndex() + ", status=" + file.getStatus() + ", content=" + file.getResponseContent() );
-        if( file.isFinished() ) { 
-            var serverFileName = file.getId() + "." + file.getName(); 
-            var linkHtml = "<a href='/uploaded/" + serverFileName + "'>" + serverFileName + "</a> " + file.getLength() + " bytes"; 
-            var container = document.getElementById( "fileLinks"); 
-            container.innerHTML += linkHtml + "<br />"; 
-        } 
+        if( file.isFinished() ) {
+            var serverFileName = file.getId() + "." + file.getName();
+            var linkHtml = "<a href='/uploaded/" + serverFileName + "'>" + serverFileName + "</a> " + file.getLength() + " bytes";
+            var container = document.getElementById( "fileLinks");
+            container.innerHTML += linkHtml + "<br />";
+        }
     }
     /**
      * trace event to events textarea
@@ -3394,7 +3382,7 @@ mayscript>
          var files = uploader.getAllFiles();
          var file = getSelectedFile();
 				 if(file) {
-					 for (var i = 0; i < uploader.getFileCount() ; i++) { 
+					 for (var i = 0; i < uploader.getFileCount() ; i++) {
 						 if(uploader.getFile(i).getIndex() == file.getIndex())
 							 content += listFileAttributes( uploader.getFile(i), 1, i );
 						 else
@@ -3516,13 +3504,13 @@ mayscript>
 			case "review":
 				if($rec['file']) {
 					echo "<br />";
-					echo "<a href=\"/op/op.Download.php?documentid=".$document->getID()."&reviewlogid=".$rec['reviewLogID']."\" class=\"btn btn-mini\"><i class=\"icon-download\"></i> ".getMLText('download')."</a>";
+					echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.Download.php?documentid=".$document->getID()."&reviewlogid=".$rec['reviewLogID']."\" class=\"btn btn-mini\"><i class=\"icon-download\"></i> ".getMLText('download')."</a>";
 				}
 				break;
 			case "approval":
 				if($rec['file']) {
 					echo "<br />";
-					echo "<a href=\"/op/op.Download.php?documentid=".$document->getID()."&approvelogid=".$rec['approveLogID']."\" class=\"btn btn-mini\"><i class=\"icon-download\"></i> ".getMLText('download')."</a>";
+					echo "<a href=\"".$this->params['settings']->_httpRoot."op/op.Download.php?documentid=".$document->getID()."&approvelogid=".$rec['approveLogID']."\" class=\"btn btn-mini\"><i class=\"icon-download\"></i> ".getMLText('download')."</a>";
 				}
 				break;
 			}
@@ -3617,7 +3605,7 @@ mayscript>
 		timeline = new links.Timeline(document.getElementById('timeline'), options);
 		links.events.addListener(timeline, 'select', onselect);
 		$.getJSON(
-			'<?php echo $timelineurl ?>', 
+			'<?php echo $timelineurl ?>',
 			function(data) {
 				$.each( data, function( key, val ) {
 					val.start = new Date(val.start);
@@ -3644,14 +3632,7 @@ mayscript>
 
 	protected function printPopupBox($title, $content, $ret=false) { /* {{{ */
 		$id = md5(uniqid());
-		/*
-		$this->addFooterJS('
-$("body").on("click", "span.openpopupbox", function(e) {
-	$(""+$(e.target).data("href")).toggle();
-//	$("div.popupbox").toggle();
-});
-');
-		 */
+
 		$html = '
 		<span class="openpopupbox" data-href="#'.$id.'">'.$title.'</span>
 		<div id="'.$id.'" class="popupbox" style="display: none;">
@@ -3751,7 +3732,7 @@ $("body").on("click", "span.openpopupbox", function(e) {
 			} else {
 				$tree[] = $node;
 			}
-			
+
 		} else {
 			$root = $this->params['dms']->getFolder($this->params['rootfolderid']);
 			$tree = array(array('label'=>$root->getName(), 'id'=>$root->getID(), 'is_folder'=>true));
