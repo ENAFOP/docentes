@@ -488,13 +488,13 @@ function getDatoGeneral($dato)
 		return $total;
 	 }
 
-	 function getFotoPostulante($idUser)
+	 function getFotoPostulante($idUser,$base)
 	 {
 	 	$enlace=false;
 		$usuario=$this->_dms->getUser($idUser);
 		if($usuario->hasImage())
 		{
-			$enlace="/out/out.UserImage.php?userid=$idUser";
+			$enlace=$base."out/out.UserImage.php?userid=$idUser";
 		}
 		return $enlace;
 	 }

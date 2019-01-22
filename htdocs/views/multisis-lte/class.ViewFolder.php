@@ -232,6 +232,7 @@ $(document).ready(function(){
 		$user = $this->params['user'];
 		$folder = $this->params['folder'];
 		$orderby = $this->params['orderby'];
+    $baseServer=$this->params['settings']->_httpRoot;
 		$enableFolderTree = $this->params['enableFolderTree'];
 		$enableClipboard = $this->params['enableclipboard'];
 		$enableDropUpload = $this->params['enableDropUpload'];
@@ -243,7 +244,7 @@ $(document).ready(function(){
 		$maxRecursiveCount = $this->params['maxRecursiveCount'];
 		$previewwidth = $this->params['previewWidthList'];
 		$timeout = $this->params['timeout'];
-     $rutaModificar="/out/out.ModificarPerfil.php";
+     $rutaModificar=$baseServer."out/out.ModificarPerfil.php";
 		$folderid = $folder->getId();
 		$db = $dms->getDB();
 		$limite=8; //limite de los que se muestran en la tanblita últimos n postulantes
@@ -362,7 +363,7 @@ $(document).ready(function(){
             <div class="icon">
               <i class="ion ion-person"></i>
             </div>
-            <a href="/out/out.ListaPostulantes.php?estado=postulado" class="small-box-footer">Ver lista de postulantes en evaluación<i class="fa fa-arrow-circle-right"></i></a>
+            <a <?php echo "href=\"".$baseServer."/out/out.ListaPostulantes.php?estado=postulado\""?> class="small-box-footer">Ver lista de postulantes en evaluación<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -384,7 +385,8 @@ $(document).ready(function(){
             <div class="icon">
               <i class="ion ion-checkmark-circled"></i>
             </div>
-            <a href="/out/out.ListaPostulantes.php?estado=aprobado" class="small-box-footer">Ver la lista de aprobados<i class="fa fa-arrow-circle-right"></i></a>
+            <a <?php echo "href=\"".$baseServer."out/out.ListaPostulantes.php?estado=aprobado\""?> 
+         class="small-box-footer">Ver la lista de aprobados<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-2 col-xs-6">  <!-- inicio lista de revisados-->
@@ -404,7 +406,8 @@ $(document).ready(function(){
             <div class="icon">
               <i class="ion ion-information-circled"></i>
             </div>
-            <a href="/out/out.ListaPostulantes.php?estado=revisado" class="small-box-footer">Ver lista de solicitudes en revisión<i class="fa fa-arrow-circle-right"></i></a>
+
+            <a <?php echo "href=\"".$baseServer."out/out.ListaPostulantes.php?estado=revisado\""?>  class="small-box-footer">Ver lista de solicitudes en revisión<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
        
@@ -423,7 +426,8 @@ $(document).ready(function(){
             <div class="icon">
               <i class="ion ion-close-circled"></i>
             </div>
-            <a href="/out/out.ListaPostulantes.php?estado=rechazado" class="small-box-footer">Ver lista de solicitudes no aprobadas<i class="fa fa-arrow-circle-right"></i></a>
+
+            <a <?php echo "href=\"".$baseServer."out/out.ListaPostulantes.php?estado=rechazado\""?> class="small-box-footer">Ver lista de solicitudes no aprobadas<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -448,7 +452,10 @@ $(document).ready(function(){
 
             <div class="info-box-content">
               <span class="info-box-text">ENAFOP</span>
-               <span class="info-box-number"><a href="/out/out.Buscador.php">Acceder al buscador de docentes</a></span>
+
+               <span class="info-box-number">
+               <a <?php echo "href=\"".$baseServer."out/out.Buscador.php\""?>>Acceder al buscador de docentes</a>
+               </span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -504,10 +511,10 @@ $(document).ready(function(){
                 
                      echo '<li>';
                    
-                      $fotoUsuario=$user->getFotoPostulante($idpostulante); 
+                      $fotoUsuario=$user->getFotoPostulante($idpostulante,$baseServer); 
               if($fotoUsuario==false)
               {
-                 echo '<img class="img-circle" src="/styles/multisis-lte/dist/img/persona.png" width="50" height="50" alt="avatar postulante">';
+                 echo '<img class="img-circle" src="'.$baseServer.'styles/multisis-lte/dist/img/persona.png" width="50" height="50" alt="avatar postulante">';
               }
               else
               {
@@ -515,7 +522,7 @@ $(document).ready(function(){
               }
 
 
-                      echo "<a class=\"users-list-name\"href=\"/out/out.VerPostulacion.php?postulante=$idpostulante\">$nombreFull</a>";
+                      echo "<a class=\"users-list-name\"href=\"".$baseServer."out/out.VerPostulacion.php?postulante=$idpostulante\">$nombreFull</a>";
                       echo "<span class=\"users-list-date\">$dia/$mes/$ano</span>";
                     echo '</li>';
                     
@@ -604,19 +611,14 @@ $(document).ready(function(){
                 //         echo '<div class="row">';
                 //      }
                      echo '<li>';
-                              $fotoUsuario=$user->getFotoPostulante($idpostulante); 
+                              $fotoUsuario=$user->getFotoPostulante($idpostulante,$baseServer); 
                               //echo "foto usuariuo: ".$fotoUsuario;
               if($fotoUsuario==false)
               {
-                 echo '<img class="img-circle" src="/styles/multisis-lte/dist/img/persona.png" width="50" height="50" alt="avatar postulante">';
-              }
-              else
-              {
-                //echo "<img class=\"img-circle\" src=$fotoUsuario width=\"50\" height=\"50\" alt=\"avatar postulante\">";
-                echo '<img class="img-circle" src="/styles/multisis-lte/dist/img/persona.png" width="50" height="50" alt="avatar postulante">';
+                 echo '<img class="img-circle" src="'.$baseServer.'styles/multisis-lte/dist/img/persona.png" width="50" height="50" alt="avatar postulante">';
               }
 
-                      echo "<a class=\"users-list-name\"href=\"/out/out.VerPostulacion.php?postulante=$idpostulante\">$nombreFull</a>";
+                      echo "<a class=\"users-list-name\"href=\"".$baseServer."out/out.VerPostulacion.php?postulante=$idpostulante\">$nombreFull</a>";
                       echo "<span class=\"users-list-date\">$dia/$mes/$ano</span>";
                     echo '</li>';
                    
@@ -665,7 +667,7 @@ $(document).ready(function(){
               <h5 class="widget-user-desc"> <?php echo $user->getEmail();?> </h5>
             </div>
             <div class="widget-user-image">
-              <img class="img-circle" src="/images/usuario.png" alt="User Avatar">
+              <img class="img-circle" <?php echo "src=\"".$baseServer."images/usuario.png" ?>  alt="User Avatar">
             </div>
             <div class="box-footer">
               <div class="row">
@@ -706,49 +708,49 @@ $(document).ready(function(){
                 </ol>
                 <div class="carousel-inner">
                   <div class="item active">
-                    <img src="/images/slide/Diapositiva1.JPG" width="1400" height="200" alt="First slide">
+                    <img <?php echo "src=\"".$baseServer."images/slide/Diapositiva1.JPG" ?>"  width="1400" height="200" alt="First slide">
 
                     <div class="carousel-caption">
                       Primera lámina
                     </div>
                   </div>
                   <div class="item">
-                    <img src="/images/slide/Diapositiva2.JPG" width="1400" height="200" alt="Second slide">
+                    <img <?php echo "src=\"".$baseServer."images/slide/Diapositiva2.JPG" ?>" width="1400" height="200" alt="Second slide">
 
                     <div class="carousel-caption">
                       Segunda lámina
                     </div>
                   </div>
                   <div class="item">
-                    <img src="/images/slide/Diapositiva3.JPG" width="1400" height="200" alt="Third slide">
+                    <img <?php echo "src=\"".$baseServer."images/slide/Diapositiva3.JPG" ?>" width="1400" height="200" alt="Third slide">
 
                     <div class="carousel-caption">
                       Tercera lámina
                     </div>
                   </div>
                    <div class="item">
-                    <img src="/images/slide/Diapositiva4.JPG" width="1400" height="200" alt="Third slide">
+                    <img <?php echo "src=\"".$baseServer."images/slide/Diapositiva4.JPG" ?>" width="1400" height="200" alt="Third slide">
 
                     <div class="carousel-caption">
                       Cuarta lámina
                     </div>
                   </div>
                    <div class="item">
-                    <img src="/images/slide/Diapositiva5.JPG" width="1400" height="200" alt="Third slide">
+                    <img <?php echo "src=\"".$baseServer."images/slide/Diapositiva5.JPG" ?>" width="1400" height="200" alt="Third slide">
 
                     <div class="carousel-caption">
                       Quinta lámina
                     </div>
                   </div>
                    <div class="item">
-                    <img src="/images/slide/Diapositiva6.JPG" width="1400" height="200" alt="Third slide">
+                    <img <?php echo "src=\"".$baseServer."images/slide/Diapositiva6.JPG" ?>" width="1400" height="200" alt="Third slide">
 
                     <div class="carousel-caption">
                       Sexta lámina
                     </div>
                   </div>
                   <div class="item">
-                    <img src="/images/slide/Diapositiva7.JPG" width="1400" height="200" alt="Third slide">
+                    <img <?php echo "src=\"".$baseServer."images/slide/Diapositiva7.JPG" ?>" width="1400" height="200" alt="Third slide">
 
                     <div class="carousel-caption">
                       Séptima y última lámina
@@ -785,7 +787,7 @@ $(document).ready(function(){
 
                 //echo '<p>Rellene el formulario y envíe su postulación con el enlace siguiente:</p>';
           echo '</div>';
-      $rutaFormulario="/out/out.FormularioAplicacion.php";
+      $rutaFormulario=$baseServer."out/out.FormularioAplicacion.php";
  
 
         echo '<div class="small-box bg-primary">';
@@ -810,7 +812,7 @@ $(document).ready(function(){
 
                 //echo '<p>Si desea modificar su postulación y los datos adjuntos a la misma, haga click en el enlace siguiente:</p>';
           echo '</div>';
-      $rutaFormulario="/out/out.FormularioAplicacion.php";
+      $rutaFormulario=$baseServer."/out/out.FormularioAplicacion.php";
       echo '<div class="small-box bg-primary">';
              echo '<div class="inner">';
                echo '<h3>Modificar mi perfil</h3>';
@@ -828,7 +830,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil="/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
@@ -865,7 +867,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil="/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
@@ -885,7 +887,7 @@ $(document).ready(function(){
 
                 //echo '<p>Si desea modificar su postulación y los datos adjuntos a la misma, haga click en el enlace siguiente:</p>';
           echo '</div>';
-      $rutaFormulario="/out/out.FormularioAplicacion.php";
+      $rutaFormulario=$baseServer."/out/out.FormularioAplicacion.php";
       echo '<div class="small-box bg-primary">';
              echo '<div class="inner">';
                echo '<h3>Modificar mi perfil</h3>';
@@ -904,7 +906,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil="/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
@@ -922,7 +924,7 @@ $(document).ready(function(){
 
                 //echo '<p>Si desea modificar su postulación y los datos adjuntos a la misma, haga click en el enlace siguiente:</p>';
           echo '</div>';
-      $rutaFormulario="/out/out.FormularioAplicacion.php";
+      $rutaFormulario=$baseServer."/out/out.FormularioAplicacion.php";
       echo '<div class="small-box bg-primary">';
              echo '<div class="inner">';
                echo '<h3>Modificar mi perfil</h3>';
@@ -940,7 +942,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil="/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
