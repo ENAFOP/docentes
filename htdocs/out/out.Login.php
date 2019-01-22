@@ -47,6 +47,7 @@ if($view) {
 	$view->setParam('referrer', $refer);
 	$view->setParam('themes', $themes);
 	$view->setParam('languages', getLanguages());
+	$view->setParam('baseServer', $settings->_httpRoot);
 	$view->setParam('enablelanguageselector', $settings->_enableLanguageSelector);
 	$view->setParam('enablethemeselector', $settings->_enableThemeSelector);
 	$view($_GET);
