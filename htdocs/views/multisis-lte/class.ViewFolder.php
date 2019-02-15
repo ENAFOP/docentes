@@ -274,18 +274,22 @@ $(document).ready(function(){
 		echo $this->callHook('preContent');
 		$this->contentStart();
     echo '<div class="row text-center">';
-    echo '<div class="col-xs-12 col-sm-4">';
+    echo '<div class="col-xs-12 col-sm-6">';
     echo '<br>';
-     echo "<img src=\"/images/logoesa2.png\" class=\"img-responsive center-block\" alt=\"Logo ESA\" height=\"200\" width=\"200\">";
+     echo "<img src=\"".$baseServer."images/logoesa2.jpg\" class=\"img-responsive center-block\" alt=\"Logo ESA\" height=\"200\" width=\"200\">";
 
       echo '</div>'; //cierre col 4
-      echo '<div class="col-xs-12 col-sm-4">';
-      echo '<br>';
-      echo "<img src=\"/images/logoStpp.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
-      echo '</div>'; //cierre col 4
-       echo '<div class="col-xs-12 col-sm-4">';
+
+
+      // echo '<div class="col-xs-12 col-sm-4">';
+      // echo '<br>';
+      // echo "<img src=\"".$baseServer."images/logoStpp.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
+      // echo '</div>'; //cierre col 4
+
+
+       echo '<div class="col-xs-12 col-sm-6">';
        echo '<br>';
-    echo "<img src=\"/images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP\" height=\"200\" width=\"200\">";
+    echo "<img src=\"".$baseServer."images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP\" height=\"200\" width=\"200\">";
     echo '</div>'; //cierre col 4
     echo '</div>'; //cierre de row
 
