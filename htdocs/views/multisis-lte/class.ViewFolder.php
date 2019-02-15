@@ -276,9 +276,8 @@ $(document).ready(function(){
     echo '<div class="row text-center">';
     echo '<div class="col-xs-12 col-sm-6">';
     echo '<br>';
-     echo "<img src=\"".$baseServer."images/escudoarmas.png\" class=\"img-responsive center-block\" alt=\"Logo ESA\" height=\"100\" width=\"100\">";
-
-      echo '</div>'; //cierre col 4
+     echo "<img src=\"".$baseServer."images/escudoarmas.png\" class=\"img-responsive center-block\" alt=\"Escudo de Armas\" height=\"100\" width=\"100\">";
+      echo '</div>'; //cierre col 6
 
 
       // echo '<div class="col-xs-12 col-sm-4">';
