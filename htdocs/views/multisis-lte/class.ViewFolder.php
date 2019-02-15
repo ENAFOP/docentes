@@ -298,7 +298,7 @@ $(document).ready(function(){
      //echo $this->getFolderPathHTML($folder);
      if($user->isAdmin())
      {
-     	$this->startBoxPrimary("Panel de control gestión de postulaciones VER SI APARECE EN SERVER");
+     	$this->startBoxPrimary("Panel de control gestión de postulaciones");
      	
      			
      }
