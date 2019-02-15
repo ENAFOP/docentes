@@ -273,25 +273,19 @@ $(document).ready(function(){
 		$previewer = new SeedDMS_Preview_Previewer($cachedir, $previewwidth, $timeout);
 		echo $this->callHook('preContent');
 		$this->contentStart();
+    /// INICIO DE IMPRIMIR LOGOS
     echo '<div class="row text-center">';
     echo '<div class="col-xs-12 col-sm-6">';
     echo '<br>';
      echo "<img src=\"".$baseServer."images/escudoarmas.png\" class=\"img-responsive center-block\" alt=\"Escudo de Armas\" height=\"100\" width=\"100\">";
       echo '</div>'; //cierre col 6
 
-
-      // echo '<div class="col-xs-12 col-sm-4">';
-      // echo '<br>';
-      // echo "<img src=\"".$baseServer."images/logoStpp.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
-      // echo '</div>'; //cierre col 4
-
-
        echo '<div class="col-xs-12 col-sm-6">';
        echo '<br>';
     echo "<img src=\"".$baseServer."images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP transformando\" height=\"200\" width=\"200\">";
     echo '</div>'; //cierre col 4
     echo '</div>'; //cierre de row
-
+  ////////////////FIN DE IMPRIMIR LOGOS
 
 		?>
     <div class="gap-10"></div>

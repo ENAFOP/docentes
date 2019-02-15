@@ -1,3 +1,4 @@
+var baseServer=$("#baseServer").val();
 
 ///////////////////////////////////////////////////////////////////////////////////// INICIO FUNCIONES
 function anadirGrado(nombreTabla)  //para tab 3
@@ -929,7 +930,7 @@ $('#departamento').change(function()
 	console.log("cambio en departamento");
 	var depar=$("#departamento").val();
 	$.ajax({
-                        url:"/response.php?departamento="+depar,
+                        url:baseServer+"response.php?departamento="+depar,
                         success:function(result)
                         {
 							
@@ -974,7 +975,7 @@ $('#departamento').change(function()
 		if(depar.localeCompare("")!=0)
 		{
 			$.ajax({
-							url:"/response.php?departamento="+depar,
+							url:baseServer+"response.php?departamento="+depar,
 							success:function(result)
 							{
 								   var codificar=JSON.stringify(result);
@@ -1048,7 +1049,7 @@ $('#departamento').change(function()
 			}
 			
 			$.ajax({
-				url:"/actualizarBD.php?idpostulante="+idpostulante+"&pestana="+1+"&paisResidencia="+paisResidencia+"&nit="+nit+"&telefono="+telefono+"&correo="+correo+"&tipoDocumento="+tipoDocumento+"&numeroDocumento="+numeroDocumento+"&estadoPostulacion="+estadoPostulacion+"&idpostulacion="+idpostulacion+"&genero="+genero+"&edad="+edad+"&departamento="+departamento+"&municipio="+municipio,
+				url:baseServer+"actualizarBD.php?idpostulante="+idpostulante+"&pestana="+1+"&paisResidencia="+paisResidencia+"&nit="+nit+"&telefono="+telefono+"&correo="+correo+"&tipoDocumento="+tipoDocumento+"&numeroDocumento="+numeroDocumento+"&estadoPostulacion="+estadoPostulacion+"&idpostulacion="+idpostulacion+"&genero="+genero+"&edad="+edad+"&departamento="+departamento+"&municipio="+municipio,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);
@@ -1136,7 +1137,7 @@ $('#departamento').change(function()
 					var inicio=nuevosIniciales[i].value;
 					var fin=nuevosFinales[i].value;
 					$.ajax({
-							url:"/anadirCargos.php?cargo="+cargo+"&funciones="+funciones+"&institucion="+institucion+"&anoInicio="+inicio+"&anoFin="+fin,
+							url:baseServer+"anadirCargos.php?cargo="+cargo+"&funciones="+funciones+"&institucion="+institucion+"&anoInicio="+inicio+"&anoFin="+fin,
 							success:function(result)
 							{
 								
@@ -2601,7 +2602,7 @@ $('[id*="borrar-"]').click(function() //borrar de pestaña 3
 		console.log("Quiere borrar el elemento "+numElemento+" en la tabla "+tabla);
 		//llamo a AJAX donde la función borrarTema de borrarTema.php 
 		$.ajax({
-				url:"/borrarGrado.php?tabla="+tabla+"&id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
+				url:baseServer+"borrarGrado.php?tabla="+tabla+"&id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);
@@ -2623,7 +2624,7 @@ $('[id*="eliminar-cargo-"]').click(function() //borrar de pestaña 2
 		//console.log("Quiere borrar el elemento "+numElemento+" en la tabla "+tabla);
 		//llamo a AJAX donde la función borrarTema de borrarTema.php 
 		$.ajax({
-				url:"/borrarCargo.php?id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
+				url:baseServer+"borrarCargo.php?id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);
@@ -2643,7 +2644,7 @@ $('[id*="eliminar-materia-"]').click(function() //borrar de pestaña 2
 		//console.log("Quiere borrar el elemento "+numElemento+" en la tabla "+tabla);
 		//llamo a AJAX donde la función borrarTema de borrarTema.php 
 		$.ajax({
-				url:"/borrarMateria.php?id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
+				url:baseServer+"borrarMateria.php?id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);
@@ -2663,7 +2664,7 @@ $('[id*="eliminar-taller-"]').click(function() //borrar de pestaña 6
 		//console.log("Quiere borrar el elemento "+numElemento+" en la tabla "+tabla);
 		//llamo a AJAX donde la función borrarTema de borrarTema.php 
 		$.ajax({
-				url:"/borrarTaller.php?id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
+				url:baseServer+"borrarTaller.php?id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);
@@ -2684,7 +2685,7 @@ $('[id*="erase-"]').click(function() //borrar de pestaña 6
 		//console.log("Quiere borrar el elemento "+numElemento+" en la tabla "+tabla);
 		//llamo a AJAX donde la función borrarTema de borrarTema.php 
 		$.ajax({
-				url:"/borrarTemaPublico.php?tabla="+nombreTabla+"&id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
+				url:baseServer+"borrarTemaPublico.php?tabla="+nombreTabla+"&id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);
@@ -2705,7 +2706,7 @@ $('[id*="delete-"]').click(function() //borrar de pestaña 7
 		//console.log("Quiere borrar el elemento "+numElemento+" en la tabla "+tabla);
 		//llamo a AJAX donde la función borrarTema de borrarTema.php 
 		$.ajax({
-				url:"/borrarMetodologia.php?tabla="+nombreTabla+"&id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
+				url:baseServer+"borrarMetodologia.php?tabla="+nombreTabla+"&id="+numElemento+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);

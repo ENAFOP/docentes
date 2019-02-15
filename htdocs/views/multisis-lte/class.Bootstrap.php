@@ -108,7 +108,7 @@ class SeedDMS_Bootstrap_Style extends SeedDMS_View_Common {
 
 		//añadido por Mario:
 		//echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/animacionTabs.js"></script>'."\n";	
-		echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/validation/jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>'."\n";
+		//echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/validation/jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>'."\n";
 		
 		// echo '<script type="text/javascript" src="'.$this->params['settings']->_httpRoot.'styles/'.$this->theme.'/validation/jquery-validation-1.17.0/dist/additional-methods.js"></script>'."\n";
 

@@ -362,6 +362,7 @@ class SeedDMS_View_ModificarPerfil extends SeedDMS_Bootstrap_Style
 		$orderby = $this->params['orderby'];
 		$showInProcess = $this->params['showinprocess'];
 		$cachedir = $this->params['cachedir'];
+    $baseServer=$this->params['settings']->_httpRoot;
 		$workflowmode = $this->params['workflowmode'];
 		$previewwidth = $this->params['previewWidthList'];
 		$timeout = $this->params['timeout'];	
@@ -384,28 +385,29 @@ class SeedDMS_View_ModificarPerfil extends SeedDMS_Bootstrap_Style
 		//$this->contentContainerStart("hoa");
 		echo $this->callHook('preContent');
 		$this->contentStart(); 
-       echo '<div class="row text-center">';
-    echo '<div class="col-xs-12 col-sm-4">';
+       /// INICIO DE IMPRIMIR LOGOS
+    echo '<div class="row text-center">';
+    echo '<div class="col-xs-12 col-sm-6">';
     echo '<br>';
-     echo "<img src=\"/images/logoesa2.png\" class=\"img-responsive center-block\" alt=\"Logo ESA\" height=\"200\" width=\"200\">";
+     echo "<img src=\"".$baseServer."images/escudoarmas.png\" class=\"img-responsive center-block\" alt=\"Escudo de Armas\" height=\"100\" width=\"100\">";
+      echo '</div>'; //cierre col 6
 
-      echo '</div>'; //cierre col 4
-      echo '<div class="col-xs-12 col-sm-4">';
-      echo '<br>';
-      echo "<img src=\"/images/logoStpp.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
-      echo '</div>'; //cierre col 4
-       echo '<div class="col-xs-12 col-sm-4">';
+       echo '<div class="col-xs-12 col-sm-6">';
        echo '<br>';
-    echo "<img src=\"/images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP\" height=\"200\" width=\"200\">";
+    echo "<img src=\"".$baseServer."images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP transformando\" height=\"200\" width=\"200\">";
     echo '</div>'; //cierre col 4
-    echo '</div>'; //cierre de row         
+    echo '</div>'; //cierre de row
+  ////////////////FIN DE IMPRIMIR LOGOS       
 		?>
         
       <h1>
         Formulario de modificación
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/out/out.ViewFolder.php?folderid=1"><i class="fa fa-home"></i>Mi perfil: inicio</a></li>
+        <?php echo "<li><a href=\"".$baseServer."out/out.ViewFolder.php?folderid=1\">"; ?>
+          <i class="fa fa-home">
+          
+        </i>Mi perfil: inicio</a></li>
         <li class="active">modificar mi perfil</li>
       </ol>
     
@@ -632,28 +634,28 @@ $this->contentContainerStart();
 
 
 
-                      echo "<td><a href=\"#\" id=\"$idCargo\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarCargos.php\" data-title=\"Nombre del cargo\">$cargo</a></td>";
+                      echo "<td><a href=\"#\" id=\"$idCargo\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarCargos.php\" data-title=\"Nombre del cargo\">$cargo</a></td>";
 
 
                                   
-                      echo "<td><a href=\"#\" id=\"$idFunciones\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarCargos.php\" data-title=\"Funciones ejercidas\">$funciones</a></td>";
+                      echo "<td><a href=\"#\" id=\"$idFunciones\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarCargos.php\" data-title=\"Funciones ejercidas\">$funciones</a></td>";
 
 
                                               
-                      echo "<td><a href=\"#\" id=\"$idInstitucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarCargos.php\" data-title=\"Nombre de la institución\">$institucion</a></td>";
+                      echo "<td><a href=\"#\" id=\"$idInstitucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarCargos.php\" data-title=\"Nombre de la institución\">$institucion</a></td>";
 
                                   //
 
                               echo "<td>";
                                     echo '<div class="col-xs-4">';
-                                      echo "<a href=\"#\" id=\"$idAnoInicio\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"/modificarCargos.php\" data-title=\"Fecha inicial\">$anoinicio</a>";
+                                      echo "<a href=\"#\" id=\"$idAnoInicio\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"".$baseServer."modificarCargos.php\" data-title=\"Fecha inicial\">$anoinicio</a>";
                                       echo '</div>';
 
                                      echo '<div class="col-xs-1">-</div>';
 
 
                                     echo '<div class="col-xs-4">';
-                                         echo "<a href=\"#\" id=\"$idAnoFin\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"/modificarCargos.php\" data-title=\"Fecha inicial\">$anofin</a>";
+                                         echo "<a href=\"#\" id=\"$idAnoFin\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"".$baseServer."modificarCargos.php\" data-title=\"Fecha inicial\">$anofin</a>";
                                       echo '</div>';
 
                                        echo '<div class="col-md-1">';
@@ -698,7 +700,7 @@ $this->contentContainerStart();
      
 
               <div class="tab-pane" id="tab_3">
-  <form  name="formPestana3" id="formPestana3" action="/anadirGrados.php" method="POST" enctype="multipart/form-data">
+  <form  name="formPestana3" id="formPestana3" <?php echo "action=\"".$baseServer."anadirGrados.php\""; ?>method="POST" enctype="multipart/form-data">
             
   <input type="hidden" name="folderid" value="<?php print $folder ?>">
                    <p style="font-family:verdana;font-size:18px;" class="text-success">                    
@@ -760,25 +762,25 @@ $this->contentContainerStart();
                          //echo "Estado postulación: ".$estadopostulacion;
 
 
-  echo "<td><a href=\"#\" id=\"titulo\" data-type=\"select\" data-pk=\"$id\" data-url=\"/modificarGrado.php\" data-source=\"{'Bachiller': 'Bachiller', 'Licenciado': 'Licenciado', 'Ingeniero': 'Ingeniero', 'Doctor': 'Doctor', 'Otro': 'Otro'}\" data-title=\"Nombre del título\">$titulo</a></td>";
+  echo "<td><a href=\"#\" id=\"titulo\" data-type=\"select\" data-pk=\"$id\" data-url=\"".$baseServer."modificarGrado.php\" data-source=\"{'Bachiller': 'Bachiller', 'Licenciado': 'Licenciado', 'Ingeniero': 'Ingeniero', 'Doctor': 'Doctor', 'Otro': 'Otro'}\" data-title=\"Nombre del título\">$titulo</a></td>";
 
 
-         echo "<td><a href=\"#\" id=\"nombretitulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarGrado.php\" data-title=\"F\">$nombretitulo</a></td>";
+         echo "<td><a href=\"#\" id=\"nombretitulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarGrado.php\" data-title=\"F\">$nombretitulo</a></td>";
 
 
                                               
-            echo "<td><a href=\"#\" id=\"ano\" data-type=\"number\" data-pk=\"$id\" data-url=\"/modificarGrado.php\" data-title=\"Año\">$ano</a></td>";
+            echo "<td><a href=\"#\" id=\"ano\" data-type=\"number\" data-pk=\"$id\" data-url=\"".$baseServer."modificarGrado.php\" data-title=\"Año\">$ano</a></td>";
 
                                   //
 
                       echo "<td>";
-                              echo "<a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarGrado.php\" data-title=\"institucion\">$institucion</a>";
+                              echo "<a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarGrado.php\" data-title=\"institucion\">$institucion</a>";
                        echo "</td>";
 
 
                       echo "<td>";
                        echo '<div class="col-md-3">';
-                        echo "<a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
+                        echo "<a href=\"".$baseServer."out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
                         echo '</div>';
                     
                           echo '<div class="col-md-1">';
@@ -843,26 +845,26 @@ $this->contentContainerStart();
 
 
 
-                      echo "<td><a href=\"#\" id=\"titulo\" data-type=\"select\" data-pk=\"$id\" data-url=\"/modificarPosGrado.php\" data-source=\"{'Máster': 'Máster', 'Doctorado': 'Doctorado','Otro': 'Otro'}\" data-title=\"Nombre del título\" >$titulo</a></td>";
+                      echo "<td><a href=\"#\" id=\"titulo\" data-type=\"select\" data-pk=\"$id\" data-url=\"".$baseServer."modificarPosGrado.php\" data-source=\"{'Máster': 'Máster', 'Doctorado': 'Doctorado','Otro': 'Otro'}\" data-title=\"Nombre del título\" >$titulo</a></td>";
 
 
                                   
-                      echo "<td><a href=\"#\" id=\"nombretitulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarPosGrado.php\" data-title=\"Funciones ejercidas\">$nombretitulo</a></td>";
+                      echo "<td><a href=\"#\" id=\"nombretitulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarPosGrado.php\" data-title=\"Funciones ejercidas\">$nombretitulo</a></td>";
 
 
                                               
-                      echo "<td><a href=\"#\" id=\"ano\" data-type=\"number\" data-pk=\"$id\" data-url=\"/modificarPosGrado.php\" data-title=\"Año\">$ano</a></td>";
+                      echo "<td><a href=\"#\" id=\"ano\" data-type=\"number\" data-pk=\"$id\" data-url=\"".$baseServer."modificarPosGrado.php\" data-title=\"Año\">$ano</a></td>";
 
                                   //
 
                       echo "<td>";
-                    echo "<a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarPosGrado.php\" data-title=\"institucion\">$institucion</a>";
+                    echo "<a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarPosGrado.php\" data-title=\"institucion\">$institucion</a>";
                        echo "</td>";
 
 
                       echo "<td>";
                        echo '<div class="col-md-3">';
-                        echo "<a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
+                        echo "<a href=\"".$baseServer."out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
                         echo '</div>';
                     
                           echo '<div class="col-md-1">';
@@ -928,28 +930,28 @@ $this->contentContainerStart();
 
 
 
-                      echo "<td><a href=\"#\" id=\"titulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarOtroGrado.php\" data-title=\"Nombre del título\">$titulo</a></td>";
+                      echo "<td><a href=\"#\" id=\"titulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarOtroGrado.php\" data-title=\"Nombre del título\">$titulo</a></td>";
 
 
                                   
-                      echo "<td><a href=\"#\" id=\"nombretitulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarOtroGrado.php\" data-title=\"Funciones ejercidas\">$nombretitulo</a></td>";
+                      echo "<td><a href=\"#\" id=\"nombretitulo\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarOtroGrado.php\" data-title=\"Funciones ejercidas\">$nombretitulo</a></td>";
 
 
                                               
                       echo "<td>";
-                      echo "<a href=\"#\" id=\"ano\" data-type=\"number\" data-pk=\"$id\" data-url=\"/modificarOtroGrado.php\" data-title=\"Año\">$ano</a>";   
+                      echo "<a href=\"#\" id=\"ano\" data-type=\"number\" data-pk=\"$id\" data-url=\"".$baseServer."modificarOtroGrado.php\" data-title=\"Año\">$ano</a>";   
                           echo "</td>";
 
 
                      echo "<td>";
-                              echo "<a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarOtroGrado.php\" data-title=\"institucion\">$institucion</a>";
+                              echo "<a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarOtroGrado.php\" data-title=\"institucion\">$institucion</a>";
                        echo "</td>";
                         
 
 
                      echo "<td>";
                        echo '<div class="col-md-3">';
-                        echo "<a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
+                        echo "<a href=\"".$baseServer."out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
                         echo '</div>';
                     
                           echo '<div class="col-md-1">';
@@ -991,7 +993,7 @@ $this->contentContainerStart();
               <!-- ****************************/.PESTAÑA 4 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_4">
-                    <form  name="formPestana4" id="formPestana4" action="/anadirTemasPublicos.php" method="POST" enctype="multipart/form-data">
+                    <form  name="formPestana4" id="formPestana4" <?php echo "action=\"".$baseServer."anadirTemasPublicos.php"; ?>method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                      <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1364,7 +1366,7 @@ $this->contentContainerStart();
           $tat = $db->getResultArray($getNumChats);
           $conocimientos=$tat[0]['conocimientos'];
            $id=$tat[0]['id'];
-            echo "<a href=\"#\" id=\"conocimientos\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarConocimientos.php\" data-title=\"Nombre conocimientos\">$conocimientos</a>";
+            echo "<a href=\"#\" id=\"conocimientos\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarConocimientos.php\" data-title=\"Nombre conocimientos\">$conocimientos</a>";
 
         }
       
@@ -1382,7 +1384,7 @@ $this->contentContainerStart();
                <!-- **************************************/.PESTAÑA 5 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_5">
-                <form  name="formPestana5" id="formPestana5" action="/anadirMaterias.php" method="POST" enctype="multipart/form-data">
+                <form  name="formPestana5" id="formPestana5" <?php echo "action=\"".$baseServer."anadirMaterias.php"; ?>method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                      <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1431,11 +1433,11 @@ $this->contentContainerStart();
 
 
 
-                      echo "<td><a href=\"#\" id=\"materia\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarMaterias.php\" data-title=\"Nombre materia\">$materia</a></td>";
+                      echo "<td><a href=\"#\" id=\"materia\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarMaterias.php\" data-title=\"Nombre materia\">$materia</a></td>";
 
 
                                   
-                      echo "<td><a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarMaterias.php\" data-title=\"Institucion\">$institucion</a></td>";
+                      echo "<td><a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarMaterias.php\" data-title=\"Institucion\">$institucion</a></td>";
 
 
                     
@@ -1443,22 +1445,22 @@ $this->contentContainerStart();
 
                               echo "<td>";
                                     echo '<div class="col-xs-4">';
-                          echo "<a href=\"#\" id=\"anoinicio\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"/modificarMaterias.php\" data-title=\"Fecha inicial\">$anoinicio</a>";
+                          echo "<a href=\"#\" id=\"anoinicio\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"".$baseServer."modificarMaterias.php\" data-title=\"Fecha inicial\">$anoinicio</a>";
                                       echo '</div>';
 
                                      echo '<div class="col-xs-1">-</div>';
 
                                     echo '<div class="col-xs-4">';
-                              echo "<a href=\"#\" id=\"anofin\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"/modificarMaterias.php\" data-title=\"Fecha inicial\">$anofin</a>";
+                              echo "<a href=\"#\" id=\"anofin\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"".$baseServer."modificarMaterias.php\" data-title=\"Fecha inicial\">$anofin</a>";
                                       echo '</div>';                                      
                                       echo "</td>"; 
 
-                    echo "<td><a href=\"#\" id=\"modalidad\" data-type=\"select\" data-pk=\"$id\" data-url=\"/modificarMaterias.php\" data-source=\"{'Presencial': 'Presencial', 'Semipresencial': 'Semipresencial', 'En línea': 'En línea'}\" >$modalidad</a></td>";
+                    echo "<td><a href=\"#\" id=\"modalidad\" data-type=\"select\" data-pk=\"$id\" data-url=\"".$baseServer."modificarMaterias.php\" data-source=\"{'Presencial': 'Presencial', 'Semipresencial': 'Semipresencial', 'En línea': 'En línea'}\" >$modalidad</a></td>";
 
 
                                     echo "<td>";
                        echo '<div class="col-md-3">';
-                        echo "<a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
+                        echo "<a href=\"".$baseServer."out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
                         echo '</div>';
                     
                           echo '<div class="col-md-1">';
@@ -1493,7 +1495,7 @@ $this->contentContainerStart();
                <!-- ***************************************/.PESTAÑA 6 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_6">  <!-- /.INICIO PESTAÑA 6 -->
-                   <form  name="formPestana6" id="formPestana6" action="/anadirTalleres.php" method="POST" enctype="multipart/form-data">
+                   <form  name="formPestana6" id="formPestana6" <?php echo "action=\"".$baseServer."anadirTalleres.php" ?> method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1541,33 +1543,33 @@ $this->contentContainerStart();
                          $idatestado=$key['idatestado'];
                          echo "<tr>";
 
-                      echo "<td><a href=\"#\" id=\"taller\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarTaller.php\" data-title=\"Nombre taller\">$taller</a></td>";
+                      echo "<td><a href=\"#\" id=\"taller\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarTaller.php\" data-title=\"Nombre taller\">$taller</a></td>";
 
 
                                   
-                      echo "<td><a href=\"#\" id=\"totalhoras\" data-type=\"number\" data-pk=\"$id\" data-url=\"/modificarTaller.php\" data-title=\"total de horas\">$totalhoras</a></td>";
+                      echo "<td><a href=\"#\" id=\"totalhoras\" data-type=\"number\" data-pk=\"$id\" data-url=\"".$baseServer."modificarTaller.php\" data-title=\"total de horas\">$totalhoras</a></td>";
 
 
                               echo "<td>";
                                     echo '<div class="col-xs-4">';
-                          echo "<a href=\"#\" id=\"fechainicio\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"/modificarTaller.php\" data-title=\"Fecha inicial\">$fechainicio</a>";
+                          echo "<a href=\"#\" id=\"fechainicio\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"".$baseServer."modificarTaller.php\" data-title=\"Fecha inicial\">$fechainicio</a>";
                                       echo '</div>';
 
                                      echo '<div class="col-xs-1">-</div>';
 
                                     echo '<div class="col-xs-4">';
-                              echo "<a href=\"#\" id=\"fechafin\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"/modificarTaller.php\" data-title=\"Fecha final\">$fechafin</a>";
+                              echo "<a href=\"#\" id=\"fechafin\" data-type=\"combodate\" data-pk=\"$id\" data-url=\"".$baseServer."modificarTaller.php\" data-title=\"Fecha final\">$fechafin</a>";
                                       echo '</div>';                                      
                                       echo "</td>"; 
 
-                    echo "<td><a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarTaller.php\">$institucion</a></td>";
+                    echo "<td><a href=\"#\" id=\"institucion\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarTaller.php\">$institucion</a></td>";
 
-                     echo "<td><a href=\"#\" id=\"modalidad\" data-type=\"select\" data-pk=\"$id\" data-url=\"/modificarTaller.php\" data-source=\"{'Presencial': 'Presencial', 'Semipresencial': 'Semipresencial', 'En línea': 'En línea'}\" >$modalidad</a></td>";
+                     echo "<td><a href=\"#\" id=\"modalidad\" data-type=\"select\" data-pk=\"$id\" data-url=\"".$baseServer."modificarTaller.php\" data-source=\"{'Presencial': 'Presencial', 'Semipresencial': 'Semipresencial', 'En línea': 'En línea'}\" >$modalidad</a></td>";
 
 
                                     echo "<td>";
                        echo '<div class="col-md-3">';
-                        echo "<a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
+                        echo "<a href=\"".$baseServer."out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a>"; 
                         echo '</div>';
                     
                           echo '<div class="col-md-1">';
@@ -1600,7 +1602,7 @@ $this->contentContainerStart();
               <!-- **********************************/.PESTAÑA 7 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_7">
-                  <form  name="formPestana7" id="formPestana7" action="/anadirMetodologias.php" method="POST" enctype="multipart/form-data">
+                  <form  name="formPestana7" id="formPestana7" <?php echo "action=\"".$baseServer."anadirMetodologias.php" ?> method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                      <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1874,7 +1876,7 @@ $this->contentContainerStart();
               <!-- /.FIN PESTAÑA 7 -->
               <!-- ***********************************/.PESTAÑA 8 ***************************************************** -->
   <div class="tab-pane" id="tab_8">
-       <form  name="formPestana8" id="formPestana8" action="/anadirIdiomas.php" method="POST" enctype="multipart/form-data">
+       <form  name="formPestana8" id="formPestana8" <?php echo "action=\"/anadirIdiomas.php"; ?>method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1898,7 +1900,7 @@ $this->contentContainerStart();
                       echo '<div class="info-box-content">';
                       $crudo=$res[0]['relevante'];
                       $id=$res[0]['id'];
-                      $textoRelevante="<a href=\"#\" id=\"relevante\" data-type=\"text\" data-pk=\"$id\" data-url=\"/modificarOtros.php\" data-title=\"Info relevante\">$crudo</a>";
+                      $textoRelevante="<a href=\"#\" id=\"relevante\" data-type=\"text\" data-pk=\"$id\" data-url=\"".$baseServer."modificarOtros.php\" data-title=\"Info relevante\">$crudo</a>";
 
                   echo '<span class="info-box-number">Información que usted indicó como aclaratoria:</span>';
                   echo "<span class=\"info-box-text\">".$textoRelevante."</span>";
@@ -1913,7 +1915,7 @@ $this->contentContainerStart();
                      $consultar2="SELECT prezi FROM otros WHERE idpostulante=$idpostulante;";
         $res2 = $db->getResultArray($consultar2);
         $valorPrezi=$res2[0]['prezi'];
-         $manejoPrezi="<a href=\"#\" id=\"prezi\" data-type=\"select\" data-pk=\"$id\" data-source=\"{'si': 'Sí', 'no': 'No'}\"  data-url=\"/modificarOtros.php\" data-title=\"Info relevante\">$valorPrezi</a>";
+         $manejoPrezi="<a href=\"#\" id=\"prezi\" data-type=\"select\" data-pk=\"$id\" data-source=\"{'si': 'Sí', 'no': 'No'}\"  data-url=\"".$baseServer."modificarOtros.php\" data-title=\"Info relevante\">$valorPrezi</a>";
                          echo '<span class="info-box-number">Utilización de programas de presentación (PowerPoint, Prezi, etc.):</span>';
                   echo "<span class=\"info-box-text\">".$manejoPrezi."</span>";
                          
@@ -2059,7 +2061,7 @@ $this->contentContainerStart();
               <!-- ************************************/.PESTAÑA 9 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_9">
-                  <form  name="formPestana9" id="formPestana9" action="/anadirAdjuntos.php" method="POST" enctype="multipart/form-data">
+                  <form  name="formPestana9" id="formPestana9" <?php echo "action=\"/anadirAdjuntos.php" ?> method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -2152,17 +2154,19 @@ $this->endsBoxPrimary();
 		</div>
   <input type="hidden" name="idpostulacion" id="idpostulacion" value="<?php echo $idpostulacion ?>">
   <input type="hidden" name="estadopostulacion" id="estadopostulacion" value="<?php echo $estadopostulacion ?>">
+  <input type="hidden" name="baseServer" id="baseServer" value="<?php echo $baseServer ?>">
 		<?php	
 		$this->contentEnd();
 		$this->mainFooter();		
 		$this->containerEnd();
 		//$this->contentContainerEnd();
-		echo "<script type='text/javascript' src='/modificarPefil.js'></script>";
-    echo "<script type='text/javascript' src='/styles/multisis-lte/bootstrap-filestyle.js'></script>";
-    echo "<script type='text/javascript' src='/styles/multisis-lte/bootstrap-filestyle.min.js'></script>";
-      echo '<script type="text/javascript" src="/styles/'.$this->theme.'/jquery-editable/js/jquery-editable-poshytip.min.js"></script>'."\n";
-    echo '<script type="text/javascript" src="/styles/'.$this->theme.'/poshytip-1.2/src/jquery.poshytip.min.js"></script>'."\n";
-       echo '<script src="../styles/multisis-lte/bower_components/jquery-knob/js/jquery.knob.js"></script>';
+		echo "<script type='text/javascript' src='".$baseServer."modificarPefil.js'></script>";
+    echo "<script type='text/javascript' src='".$baseServer."styles/multisis-lte/bootstrap-filestyle.js'></script>";
+    echo "<script type='text/javascript' src='".$baseServer."/styles/multisis-lte/bootstrap-filestyle.min.js'></script>";
+      echo "<script type=\"text/javascript\" src=\"".$baseServer."/styles/".$this->theme.'/jquery-editable/js/jquery-editable-poshytip.min.js"></script>'."\n";
+    echo "<script type=\"text/javascript\" src=\"".$baseServer."/styles/".$this->theme.'/poshytip-1.2/src/jquery.poshytip.min.js"></script>'."\n";
+
+    echo '<script src="../styles/multisis-lte/bower_components/jquery-knob/js/jquery.knob.js"></script>';
     echo '<script src="../graficasEnModificar.js"></script>';
 		$this->htmlEndPage();
 	} /* }}} */
