@@ -288,7 +288,7 @@ $(document).ready(function(){
 
        echo '<div class="col-xs-12 col-sm-6">';
        echo '<br>';
-    echo "<img src=\"".$baseServer."images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP\" height=\"200\" width=\"200\">";
+    echo "<img src=\"".$baseServer."images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP transformando\" height=\"200\" width=\"200\">";
     echo '</div>'; //cierre col 4
     echo '</div>'; //cierre de row
 
