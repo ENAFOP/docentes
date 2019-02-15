@@ -14,7 +14,7 @@ if (isset($_POST["command"])) {
 
 	case 'validatelogo':
 
-		$target_dir =$settings->_rootDir."/images/multisis-lte/";
+		$target_dir =$settings->_rootDir."images/multisis-lte/";
 		$target_file = $target_dir . basename($_FILES["logofile"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

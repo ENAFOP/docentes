@@ -318,7 +318,6 @@ $(document).ready(function(){
       $numeroRevisados=$user->getPostulacionesEstado("revisado");
      	//echo "Numero de postulaciones: ".$numeroPostulaciones;
 
-
      	?>
      		<section class="content">
       <!-- Small boxes (Stat box) -->
@@ -363,7 +362,7 @@ $(document).ready(function(){
             <div class="icon">
               <i class="ion ion-person"></i>
             </div>
-            <a <?php echo "href=\"".$baseServer."/out/out.ListaPostulantes.php?estado=postulado\""?> class="small-box-footer">Ver lista de postulantes en evaluación<i class="fa fa-arrow-circle-right"></i></a>
+            <a <?php echo "href=\"".$baseServer."out/out.ListaPostulantes.php?estado=postulado\""?> class="small-box-footer">Ver lista de postulantes en evaluación<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

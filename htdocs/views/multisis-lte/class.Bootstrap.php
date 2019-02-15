@@ -1006,7 +1006,7 @@ function menuClipboard($clipboard) { /* {{{ */
     			?>
     				<li class="align-center li-logo"><img class="thelogo" data-toggle="tooltip" data-placement="bottom" title="<?php echo getMLText("img_logo_recomendation"); ?>" src="<?php echo $path_to_file_logo; ?>"></li>
     				<li>
-    					<form enctype="multipart/form-data" method="post" id="formupload1" name="formupload1" action="<?php echo $this->params['settings']->_httpRoot."/views/".$this->theme."/validate.php"; ?>">
+    					<form enctype="multipart/form-data" method="post" id="formupload1" name="formupload1" action="<?php echo $this->params['settings']->_httpRoot."views/".$this->theme."/validate.php"; ?>">
     					<input type="hidden" name="command" value="validatelogo" />
 
 	    					<?php $this->printLogoChooser("logofile", false); ?>

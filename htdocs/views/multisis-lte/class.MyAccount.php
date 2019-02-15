@@ -33,6 +33,7 @@ class SeedDMS_View_MyAccount extends SeedDMS_Bootstrap_Style {
 
 	function show() { /* {{{ */
 		$dms = $this->params['dms'];
+		$baseServer=$this->params['settings']->_httpRoot;
 		$user = $this->params['user'];
 		$enableuserimage = $this->params['enableuserimage'];
 		$passwordexpiration = $this->params['passwordexpiration'];
@@ -143,8 +144,12 @@ class SeedDMS_View_MyAccount extends SeedDMS_Bootstrap_Style {
 
 		?>
 		<div class="box-footer">
-			<a href="/out/out.EditUserData.php" type="button" class="btn btn-success"><i class="fa fa-pencil"></i> <?php printMLText("edit_user_details"); ?></a>
-			<a href="/out/out.EditUserPassword.php" type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> <?php printMLText("change_password"); ?></a>
+			<?php echo "<a href=\"".$baseServer."out/out.EditUserData.php\" type=\"button\" class=\"btn btn-success\">"; ?> 
+				<i class="fa fa-pencil"></i> <?php printMLText("edit_user_details"); ?></a>
+
+				<?php echo "<a href=\"".$baseServer."out/out.EditUserPassword.php\" type=\"button\" class=\"btn btn-primary\">"; ?> 
+			
+				<i class="fa fa-pencil"></i> <?php printMLText("change_password"); ?></a>
 		</div>
 		<?php $this->endsBoxPrimary(); ?>
 
