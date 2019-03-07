@@ -27,5 +27,5 @@ $manejador=new SeedDMS_Core_DatabaseAccess($driver,$host,$user,$pass,$base);
    $resultado1=$manejador->getResult($modificar);
      $historico="INSERT INTO historial VALUES (NULL,$idpostulacion,'$estadopostulacion',NOW(),'Se eliminó una entrada en la sección experiencia en formación y capacitación')";		 
 		  $resultado2=$manejador->getResult($historico);
-   header('Location: '."/out/out.ModificarPerfil.php");
+   header('Location: '."out/out.ModificarPerfil.php");
 ?>

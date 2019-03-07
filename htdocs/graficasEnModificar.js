@@ -1,3 +1,4 @@
+ var baseServer=$("#baseServer").val();
  $(function () {
     /* jQueryKnob */
 
@@ -19,7 +20,7 @@
 	   console.log("Id de esto que acaba de cambiar: "+id);
 	    console.log("Categoria de esto que acaba de cambiar: "+categoria);
 		$.ajax({
-				url:"/modificarIdioma.php?id="+id+"&categoria="+categoria+"&valor="+value+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
+				url:baseServer+"modificarIdioma.php?id="+id+"&categoria="+categoria+"&valor="+value+"&idpostulacion="+idpostulacion+"&estadopostulacion="+estadopostulacion,
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);

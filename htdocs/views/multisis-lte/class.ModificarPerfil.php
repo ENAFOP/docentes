@@ -75,11 +75,11 @@ require_once("SeedDMS/Preview.php");
              //echo "<small><a href=\"/out/out.ViewDocument.php?documentid=$idcarta\">$titulo</a></small>";
         echo '<div class="row">';
          echo '<div class="col-md-4">';
-          echo "<li><a href=\"/out/out.ViewDocument.php?documentid=$iddoc\">$titulo<span class=\"pull-right badge bg-aqua\">ADJUNTO</span></a></li>";
+          echo "<li><a href=\"out.ViewDocument.php?documentid=$iddoc\">$titulo<span class=\"pull-right badge bg-aqua\">ADJUNTO</span></a></li>";
            echo '</div>' ; 
 
            echo '<div class="col-md-3">';
-             echo "<a href=\"/out/out.EliminarAdjunto.php?documentid=$iddoc\">Borrar este documento</a>";
+             echo "<a href=\"out.EliminarAdjunto.php?documentid=$iddoc\">Borrar este documento</a>";
 
               echo '</div>' ; 
           echo '</div>' ;      
@@ -123,7 +123,7 @@ function imprimeMetodologias($idpostulante,$db)
           $tema=$resultado['experiencia'];
           $idatestado=$resultado['idatestado'];
           $id=$resultado['id'];
-             echo "<li><a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">$tema</a></li>";
+             echo "<li><a href=\"out.ViewDocument.php?documentid=$idatestado\">$tema</a></li>";
 
               $idBorrado="delete-".$nom."-".$id;
                           echo "<button type=\"button\" id=\"$idBorrado\" class=\"btn btn-danger btn-xs\"><i class=\"fa fa-times\"></i></button>";
@@ -993,7 +993,7 @@ $this->contentContainerStart();
               <!-- ****************************/.PESTAÑA 4 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_4">
-                    <form  name="formPestana4" id="formPestana4" <?php echo "action=\"".$baseServer."anadirTemasPublicos.php"; ?>method="POST" enctype="multipart/form-data">
+                    <form  name="formPestana4" id="formPestana4" <?php echo "action=\"".$baseServer."anadirTemasPublicos.php\""; ?>method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                      <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1384,7 +1384,7 @@ $this->contentContainerStart();
                <!-- **************************************/.PESTAÑA 5 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_5">
-                <form  name="formPestana5" id="formPestana5" <?php echo "action=\"".$baseServer."anadirMaterias.php"; ?>method="POST" enctype="multipart/form-data">
+                <form  name="formPestana5" id="formPestana5" <?php echo "action=\"".$baseServer."anadirMaterias.php\""; ?>method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                      <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1495,7 +1495,7 @@ $this->contentContainerStart();
                <!-- ***************************************/.PESTAÑA 6 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_6">  <!-- /.INICIO PESTAÑA 6 -->
-                   <form  name="formPestana6" id="formPestana6" <?php echo "action=\"".$baseServer."anadirTalleres.php" ?> method="POST" enctype="multipart/form-data">
+                   <form  name="formPestana6" id="formPestana6" <?php echo "action=\"".$baseServer."anadirTalleres.php\"" ?> method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1602,7 +1602,7 @@ $this->contentContainerStart();
               <!-- **********************************/.PESTAÑA 7 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_7">
-                  <form  name="formPestana7" id="formPestana7" <?php echo "action=\"".$baseServer."anadirMetodologias.php" ?> method="POST" enctype="multipart/form-data">
+                  <form  name="formPestana7" id="formPestana7" <?php echo "action=\"".$baseServer."anadirMetodologias.php\"" ?> method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                      <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -1876,7 +1876,7 @@ $this->contentContainerStart();
               <!-- /.FIN PESTAÑA 7 -->
               <!-- ***********************************/.PESTAÑA 8 ***************************************************** -->
   <div class="tab-pane" id="tab_8">
-       <form  name="formPestana8" id="formPestana8" <?php echo "action=\"".$baseServer."anadirIdiomas.php"; ?>method="POST" enctype="multipart/form-data">
+       <form  name="formPestana8" id="formPestana8" <?php echo "action=\"".$baseServer."anadirIdiomas.php\""; ?>method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -2061,7 +2061,7 @@ $this->contentContainerStart();
               <!-- ************************************/.PESTAÑA 9 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_9">
-                  <form  name="formPestana9" id="formPestana9" <?php echo "action=\"".$baseServer."anadirAdjuntos.php" ?> method="POST" enctype="multipart/form-data">
+                  <form  name="formPestana9" id="formPestana9" <?php echo "action=\"".$baseServer."anadirAdjuntos.php\"" ?> method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -2162,7 +2162,7 @@ $this->endsBoxPrimary();
 		//$this->contentContainerEnd();
 		echo "<script type='text/javascript' src='".$baseServer."modificarPefil.js'></script>";
     echo "<script type='text/javascript' src='".$baseServer."styles/multisis-lte/bootstrap-filestyle.js'></script>";
-    echo "<script type='text/javascript' src='".$baseServer."/styles/multisis-lte/bootstrap-filestyle.min.js'></script>";
+    echo "<script type='text/javascript' src='".$baseServer."styles/multisis-lte/bootstrap-filestyle.min.js'></script>";
       echo "<script type=\"text/javascript\" src=\"".$baseServer."/styles/".$this->theme.'/jquery-editable/js/jquery-editable-poshytip.min.js"></script>'."\n";
     echo "<script type=\"text/javascript\" src=\"".$baseServer."/styles/".$this->theme.'/poshytip-1.2/src/jquery.poshytip.min.js"></script>'."\n";
 
