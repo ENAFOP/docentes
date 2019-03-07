@@ -302,5 +302,5 @@ $manejador=new SeedDMS_Core_DatabaseAccess($driver,$host,$user,$pass,$base);
     $historico="INSERT INTO historial VALUES (NULL,$idpostulacion,'$estadopostulacion',NOW(),'Añadida(s) una nuevo(s) metodologías(s) que maneja')";
 		  //echo "Query historica: ".$historico;
 		  $resultado2=$manejador->getResult($historico);
-header('Location: '."/out/out.ModificarPerfil.php"); s
+header('Location: '."out/out.ModificarPerfil.php"); s
 ?>
