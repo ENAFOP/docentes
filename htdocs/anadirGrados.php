@@ -89,7 +89,7 @@ for ($i=0;$i<$numgrados;$i++)
     $userFileTipo=$arrayTiposFichero[$i];
     $userFileNombre=$arrayNombresFichero[$i];
 $user->insertarPestanaGrado("titulos_grado",$idCarpetaAdjuntos,"$arrayTitulosGrados[$i]","$arrayNombreTituloGrado[$i]","$arrayAnoGrado[$i]","$arrayInstitucionGrado[$i]",$ubicacionTemporal,$fileTipo,$userFileTipo,$userFileNombre); 
-header('Location: '."/out/out.ModificarPerfil.php");
+header('Location: '."out/out.ModificarPerfil.php#tab_3");
 }
 
 }
@@ -148,7 +148,7 @@ for ($i=0;$i<$numposgrados;$i++)
     $userFileTipo=$arrayTiposFichero[$i];
     $userFileNombre=$arrayNombresFichero[$i];
 $user->insertarPestanaGrado("titulos_posgrado",$idCarpetaAdjuntos,"$arrayTitulosPosGrados[$i]","$arrayNombreTituloPosGrado[$i]","$arrayAnoPosGrado[$i]","$arrayInstitucionPosGrado[$i]",$ubicacionTemporal,$fileTipo,$userFileTipo,$userFileNombre); 
-header('Location: '."/out/out.ModificarPerfil.php");
+header('Location: '."out/out.ModificarPerfil.php#tab_3");
 }
 }
 }//si hay al menos una entrada para titulos de posgrado, meterlos
@@ -206,7 +206,7 @@ for ($i=0;$i<$numotros;$i++)
     $userFileTipo=$arrayTiposFichero[$i];
     $userFileNombre=$arrayNombresFichero[$i];
 $user->insertarPestanaGrado("titulos_otros",$idCarpetaAdjuntos,"$arrayTitulosOtros[$i]","$ArrayNombreTituloOtros[$i]","$arrayAnoOtros[$i]","$arrayInstitucionOtros[$i]",$ubicacionTemporal,$fileTipo,$userFileTipo,$userFileNombre); 
-header('Location: '."/out/out.ModificarPerfil.php");
+header('Location: '."out/out.ModificarPerfil.php#tab_3");
 }
 }
 } // si hay almenos una entrada para otros totulos, meterlso
