@@ -61,6 +61,7 @@ class SeedDMS_View_ListaPostulantes extends SeedDMS_Bootstrap_Style
 		$cachedir = $this->params['cachedir'];
 		$workflowmode = $this->params['workflowmode'];
 		$previewwidth = $this->params['previewWidthList'];
+		$baseServer=$this->params['settings']->_httpRoot;
 		$timeout = $this->params['timeout'];	
 		$db = $dms->getDB();
 		$previewer = new SeedDMS_Preview_Previewer($cachedir, $previewwidth, $timeout);
@@ -158,7 +159,7 @@ $this->contentContainerStart();
 							 echo  '<tr>';
 			                  echo "<td>$nombreFull</td>";
 			                  echo "<td>$dia/$mes/$ano</td>";
-			               echo "<td><a href=\"/out/out.VerPostulacion.php?postulante=$idpostulante\">Acceder al perfil </a></td>";
+			               echo "<td><a href=\"out.VerPostulacion.php?postulante=$idpostulante\">Acceder al perfil </a></td>";
 		                    echo '</tr>';
 						}
 					}		                	

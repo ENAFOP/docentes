@@ -67,6 +67,7 @@ class SeedDMS_View_DecidirPostulante extends SeedDMS_Bootstrap_Style
 		$workflowmode = $this->params['workflowmode'];
 		$previewwidth = $this->params['previewWidthList'];
 		$timeout = $this->params['timeout'];
+		$baseServer=$this->params['settings']->_httpRoot;
 	
 		$db = $dms->getDB();
 		$previewer = new SeedDMS_Preview_Previewer($cachedir, $previewwidth, $timeout);
@@ -95,7 +96,7 @@ $idPostulante=$_POST["idPostulante"];
 $idPostulacion=getIdPostulacion($idPostulante,$db);
 if(isset($_POST["botonAprobar"]))
 {
-	echo '<form name="aprobar" id="aprobar" action="/aprobar.php" method="POST">';
+	echo '<form name="aprobar" id="aprobar"'." action=\"".$baseServer."aprobar.php\"".' method="POST">';
 	  echo "<input type=\"hidden\" name=\"idPostulante\" id=\"idPostulante\" value=\"$idPostulante\"></input>";
 	 echo "<input type=\"hidden\" name=\"idPostulacion\" id=\"idPostulacion\" value=\"$idPostulacion\"></input>";
 	 echo '<div class="callout callout-success">';
@@ -114,7 +115,7 @@ if(isset($_POST["botonAprobar"]))
 }
 if(isset($_POST["botonRechazar"]))
 {
-	echo '<form name="rechazar" id="rechazar" action="/rechazar.php" method="POST">';
+	echo '<form name="aprobar" id="aprobar"'." action=\"".$baseServer."rechazar.php\"".' method="POST">';
 	  echo "<input type=\"hidden\" name=\"idPostulante\" id=\"idPostulante\" value=\"$idPostulante\"></input>";
 	 echo "<input type=\"hidden\" name=\"idPostulacion\" id=\"idPostulacion\" value=\"$idPostulacion\"></input>";
 	 echo '<div class="callout callout-danger">';

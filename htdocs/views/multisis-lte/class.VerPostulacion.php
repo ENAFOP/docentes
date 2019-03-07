@@ -125,7 +125,7 @@ function imprimeMetodologias($idpostulante,$db)
 				{
 					$tema=$resultado['experiencia'];
 					$idatestado=$resultado['idatestado'];
-	   				 echo "<small><a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">$tema</a></small>";
+	   				 echo "<small><a href=\"out.ViewDocument.php?documentid=$idatestado\">$tema</a></small>";
 				}
 			}
 		}//fin bucle
@@ -157,8 +157,8 @@ function imprimeAdjuntos($idpostulante,$db)
 				{
 					$iddoc=$res1[0]['idreferencias'];
 				}			
-	   				 //echo "<small><a href=\"/out/out.ViewDocument.php?documentid=$idcarta\">$titulo</a></small>";
-	   			echo "<li><a href=\"/out/out.ViewDocument.php?documentid=$iddoc\">$titulo<span class=\"pull-right badge bg-aqua\">ADJUNTO</span></a></li>";
+	   				 //echo "<small><a href=\"out.ViewDocument.php?documentid=$idcarta\">$titulo</a></small>";
+	   			echo "<li><a href=\"out.ViewDocument.php?documentid=$iddoc\">$titulo<span class=\"pull-right badge bg-aqua\">ADJUNTO</span></a></li>";
 				
 			}
 		}//fin bucle
@@ -194,6 +194,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 		$departamento = $this->params['departamento'];
 		$municipio = $this->params['municipio'];
 		$estadoPostulacion = $this->params['estadoPostulacion'];
+		$baseServer=$this->params['settings']->_httpRoot;
 		$genero = $this->params['genero'];
 		$nombreUsuario = $this->params['nombreUsuario'];
 		$postulantePublico = $this->params['postulantePublico'];
@@ -205,7 +206,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 	
 		$db = $dms->getDB();
 		$previewer = new SeedDMS_Preview_Previewer($cachedir, $previewwidth, $timeout);
-		//$ruta_pagina_salida="../out/out.CaducaranPronto.php";
+		//$ruta_pagina_salida="..out.CaducaranPronto.php";
 
 		echo $this->callHook('startPage');
 		if($user->isAdmin())
@@ -246,7 +247,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
         <small>del postulante</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/out/out.ViewFolder.php?folderid=1"><i class="fa fa-home"></i>Inicio</a></li>
+        <li><a href="out.ViewFolder.php?folderid=1"><i class="fa fa-home"></i>Inicio</a></li>
         <li class="active">ver perfil</li>
       </ol>
     </section>
@@ -270,7 +271,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 		  	}
 	  		if(strcmp($estadoPostulacion, "postulado")==0 || strcmp($estadoPostulacion, "revisado")==0)
 		  	{
-		  	echo '<form name="formAprueba" id="formAprueba" action="../out/out.DecidirPostulante.php" method="POST">';
+		  	echo '<form name="formAprueba" id="formAprueba" action="out.DecidirPostulante.php" method="POST">';
 		          ////////////////////////////// APROBAR
 		       echo "<input type=\"hidden\" name=\"idPostulante\" id=\"idPostulante\" value=\"$idpostulante\"></input>";
 		       echo "<input type=\"hidden\" name=\"nombrePostulante\" id=\"nombrePostulante\" value=\"$nombre\"></input>";
@@ -284,13 +285,13 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 
 	            echo '<button type="submit" name="botonRechazar" id="botonRechazar" class="btn btn-block btn-danger btn-lg">Rechazar postulante</button>';
 
-	            // echo "<a href=\"/out/out.DecidirPostulante.php?postulante=$idpostulante\"><span class=\"info-box-number\">Rechazar postulante</span></a>";
+	            // echo "<a href=\"out.DecidirPostulante.php?postulante=$idpostulante\"><span class=\"info-box-number\">Rechazar postulante</span></a>";
 	           echo' </div></div>';
 	           echo "</form>";
 		  	}
 		  	if(strcmp($estadoPostulacion, "rechazado")==0)
 		  	{
-		  	echo '<form name="formAprueba" id="formAprueba" action="../out/out.DecidirPostulante.php" method="POST">';
+		  	echo '<form name="formAprueba" id="formAprueba" action="out.DecidirPostulante.php" method="POST">';
 		          ////////////////////////////// ESTANDO RECHAZADO, NO ME PUEDEN VOLER A RECHAZAR, PERO SI APROBAR
 		       echo "<input type=\"hidden\" name=\"idPostulante\" id=\"idPostulante\" value=\"$idpostulante\"></input>";
 		       echo "<input type=\"hidden\" name=\"nombrePostulante\" id=\"nombrePostulante\" value=\"$nombre\"></input>";
@@ -306,7 +307,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 
             echo '<div class="info-box-content">';
               echo '<span class="info-box-text">Adjuntos</span>';
-              	echo "<a href=\"../out/out.VerArchivos.php?folderid=$folderPostulante\">Ver carpeta con documentos adjuntos</a>";
+              	echo "<a href=\"out.VerArchivos.php?folderid=$folderPostulante\">Ver carpeta con documentos adjuntos</a>";
             echo '</div>';
 
          echo '</div>';
@@ -393,10 +394,10 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
             
 
               <?php 
-              $fotoUsuario=$user->getFotoPostulante($idpostulante); 
+              $fotoUsuario=$user->getFotoPostulante($idpostulante,$baseServer); 
               if($fotoUsuario==false)
               {
-              	 echo '<img class="img-circle" src="/styles/multisis-lte/dist/img/persona.png" width="50" height="50" alt="avatar postulante">';
+              	 echo '<img class="img-circle" src="../styles/multisis-lte/dist/img/persona.png" width="50" height="50" alt="avatar postulante">';
               }
               else
               {
@@ -552,7 +553,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
                         echo '</div>';
                  
                         //echo '<img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">';
-                          $fotoUsuario=$user->getFotoPostulante($idpostulante); 
+                          $fotoUsuario=$user->getFotoPostulante($idpostulante,$baseServer); 
 			              if($fotoUsuario==false)
 			              {
 			              	 echo '<img class="direct-chat-img" src="/styles/multisis-lte/dist/img/persona.png" width="128" height="128" alt="avatar postulante">';
@@ -608,7 +609,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
                   }
                   else
                   {
-                  	echo '<form action="/escribirChat.php" method="post">';
+                  	echo '<form action="../escribirChat.php" method="post">';
                     echo '<div class="input-group">';
                      
                       $idEscritor=$user->getID();
@@ -841,7 +842,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 			                  echo "<td>$nombretitulo</td>";
 			                  echo "<td>$ano</td>";
 		                  echo "<td>$institucion</td>";
-		                    echo "<td><a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
+		                    echo "<td><a href=\"out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
 		                    echo '</tr>';
 						}
 					}		
@@ -897,7 +898,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 			                  echo "<td>$nombretitulo</td>";
 			                  echo "<td>$ano</td>";
 		                  echo "<td>$institucion</td>";
-		                    echo "<td><a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
+		                    echo "<td><a href=\"out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
 		                    echo '</tr>';
 						}
 					}
@@ -952,7 +953,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 			                  echo "<td>$nombretitulo</td>";
 			                  echo "<td>$ano</td>";
 		                  echo "<td>institucion</td>";
-		                    echo "<td><a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
+		                    echo "<td><a href=\"out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
 		                    echo '</tr>';
 						}
 					}
@@ -1055,7 +1056,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 			                  echo "<td>$institucion</td>";
 			                  echo "<td>$anoInicio hasta $anoFin</td>";
 		                  echo "<td>$modalidad</td>";
-		                    echo "<td><a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
+		                    echo "<td><a href=\"out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
 		                    echo '</tr>';
 						}
 					}                	
@@ -1112,7 +1113,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
 			                  echo "<td>$fechainicio hasta $fechafin</td>";
 		                  echo "<td>$institucion</td>";
 		                  echo "<td>$modalidad</td>";
-		                    echo "<td><a href=\"/out/out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
+		                    echo "<td><a href=\"out.ViewDocument.php?documentid=$idatestado\">Ver atestado</a></td>";
 		                    echo '</tr>';
 						}
 					}                	
