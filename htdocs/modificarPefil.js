@@ -2673,7 +2673,7 @@ $('[id*="eliminar-taller-"]').click(function() //borrar de pestaña 6
 				}
 			}); //fin del ajax		
 });
-$('[id*="erase-"]').click(function() //borrar de pestaña 6
+$('[id*="erase-"]').click(function() //borrar de pestaña 4
 	{
 	var idpostulacion=document.getElementById('idpostulacion').value;
 	var estadopostulacion=document.getElementById('estadopostulacion').value;
@@ -2689,10 +2689,14 @@ $('[id*="erase-"]').click(function() //borrar de pestaña 6
 				success:function(result)
 				{
 					   //var codificar=JSON.stringify(result);
-					   alert("Eliminada correctamente la entrada seleccionada de sección de temas de la administración pública en que se especializa");	
-					   location.reload();
+
+					   
 				}
-			}); //fin del ajax		
+
+				
+			}); //fin del ajax	
+			alert("Eliminada correctamente la entrada seleccionada de sección de temas de la administración pública en que se especializa");	
+			    location.reload();	
 });
 $('[id*="delete-"]').click(function() //borrar de pestaña 7
 	{

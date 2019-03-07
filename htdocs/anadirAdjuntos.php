@@ -69,6 +69,6 @@ $manejador=new SeedDMS_Core_DatabaseAccess($driver,$host,$user,$pass,$base);
     $historico="INSERT INTO historial VALUES (NULL,$idpostulacion,'$estadopostulacion',NOW(),'Añadido un nuevo documento adjunto (motivaciones o referencias personales)')";
 		  //echo "Query historica: ".$historico;
 		  $resultado2=$manejador->getResult($historico);
-header('Location: '."/out/out.ModificarPerfil.php"); 
+header('Location: '."out/out.ModificarPerfil.php"); 
 }
 ?>
