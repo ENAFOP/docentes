@@ -89,7 +89,7 @@ for ($i=0;$i<$numgrados;$i++)
     $userFileTipo=$arrayTiposFichero[$i];
     $userFileNombre=$arrayNombresFichero[$i];
 $user->insertarPestanaGrado("titulos_grado",$idCarpetaAdjuntos,"$arrayTitulosGrados[$i]","$arrayNombreTituloGrado[$i]","$arrayAnoGrado[$i]","$arrayInstitucionGrado[$i]",$ubicacionTemporal,$fileTipo,$userFileTipo,$userFileNombre); 
-header('Location: '."out/out.ModificarPerfil.php#tab_3");
+header('Location: '."out/out.ModificarPerfil.php");
 }
 
 }
