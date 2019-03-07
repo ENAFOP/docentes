@@ -401,7 +401,7 @@ class SeedDMS_View_ModificarPerfil extends SeedDMS_Bootstrap_Style
 		?>
         
       <h1>
-        Formulario de modificación de perfil222
+        Formulario de modificación de perfil
       </h1>
       <ol class="breadcrumb">
         <?php echo "<li><a href=\"".$baseServer."out/out.ViewFolder.php?folderid=1\">"; ?>
@@ -1876,7 +1876,7 @@ $this->contentContainerStart();
               <!-- /.FIN PESTAÑA 7 -->
               <!-- ***********************************/.PESTAÑA 8 ***************************************************** -->
   <div class="tab-pane" id="tab_8">
-       <form  name="formPestana8" id="formPestana8" <?php echo "action=\"/anadirIdiomas.php"; ?>method="POST" enctype="multipart/form-data">
+       <form  name="formPestana8" id="formPestana8" <?php echo "action=\"".$baseServer."anadirIdiomas.php"; ?>method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">
@@ -2061,7 +2061,7 @@ $this->contentContainerStart();
               <!-- ************************************/.PESTAÑA 9 ***************************************************** -->
 
                 <div class="tab-pane" id="tab_9">
-                  <form  name="formPestana9" id="formPestana9" <?php echo "action=\"/anadirAdjuntos.php" ?> method="POST" enctype="multipart/form-data">
+                  <form  name="formPestana9" id="formPestana9" <?php echo "action=\"".$baseServer."anadirAdjuntos.php" ?> method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="folderid" value="<?php print $folder ?>">
                     <input type="hidden" name="estadopostulacion" value="<?php print $estadopostulacion ?>">
                     <input type="hidden" name="idpostulacion" value="<?php print $idpostulacion ?>">

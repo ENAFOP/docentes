@@ -121,7 +121,7 @@ $manejador=new SeedDMS_Core_DatabaseAccess($driver,$host,$user,$pass,$base);
     $historico="INSERT INTO historial VALUES (NULL,$idpostulacion,'$estadopostulacion',NOW(),'Añadido una nueva(s) experiencia(s) en formación y capacitación')";
 		  //echo "Query historica: ".$historico;
 		  $resultado2=$manejador->getResult($historico);
-header('Location: '."/out/out.ModificarPerfil.php"); 
+header('Location: '."out/out.ModificarPerfil.php"); 
 }
 } //fin de si hay talleres y 
 ?>
