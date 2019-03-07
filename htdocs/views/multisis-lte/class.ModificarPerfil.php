@@ -401,7 +401,7 @@ class SeedDMS_View_ModificarPerfil extends SeedDMS_Bootstrap_Style
 		?>
         
       <h1>
-        Formulario de modificación
+        Formulario de modificación de perfil
       </h1>
       <ol class="breadcrumb">
         <?php echo "<li><a href=\"".$baseServer."out/out.ViewFolder.php?folderid=1\">"; ?>
