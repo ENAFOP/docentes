@@ -605,6 +605,8 @@ $idAtestado=0;
 	      $approvers=array();
 	       $reqversion=1;
         $version_comment="";
+        echo "subiendo a ubicación temporal: ".$ubicacionTemporal;
+        echo "nombre:".basename($userFileNombre);
   $subida=$folder->addDocument(basename($userFileNombre),$comment,0,$owner,$keywords,$arrayCategorias,$ubicacionTemporal,basename($userFileNombre),$fileTipo,$userFileTipo,$sequence,$reviewers,$approvers,$reqversion,$version_comment,$atributos,NULL,NULL);
      if (is_bool($subida) && !$subida) 
      {
