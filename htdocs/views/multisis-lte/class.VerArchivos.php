@@ -635,7 +635,7 @@ $(document).ready(function(){
 			if(is_string($txt))
 				echo $txt;
 			else {
-				echo $this->folderListRow($subFolder);
+				echo $this->folderListRow2($subFolder);
 			$formFol = "formFol".$subFolder->getID();
 			?>
 				<tr id="table-move-folder-<?php echo $subFolder->getID(); ?>" class="table-row-folder odd tr-border" style="display:none;">

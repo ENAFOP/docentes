@@ -42,6 +42,6 @@ $settings = new Settings(); //acceder a parámetros de settings.xml con _antes
     $params['http_root'] = $settings->_httpRoot;
 	$emisor=$dms->getUser(1);
     $notifier->toIndividual($emisor, $receptor, $subject, $message, $params);
-	$newURL="/out/out.ViewFolder.php?folderid=1";
+	$newURL="out/out.ViewFolder.php?folderid=1";
 	header('Location: '.$newURL);
 ?>

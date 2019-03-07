@@ -65,7 +65,7 @@ $settings = new Settings(); //acceder a parámetros de settings.xml con _antes
 	}
 	
 	
-	$newURL="/out/out.VerPostulacion.php?postulante=$postulado";
+	$newURL="out/out.VerPostulacion.php?postulante=$postulado";
 	header('Location: '.$newURL);
 ?>
 

@@ -2999,6 +2999,8 @@ $(document).ready( function() {
 		return $content;
 	} /* }}} */
 
+
+
 	function documentMoveOption($document){ /* {{{ */
 		$content = '';
 		$content .= "<tr>";
@@ -3025,6 +3027,86 @@ $(document).ready( function() {
 	//	$content .= "<td><img src=\"images/folder_closed.gif\" width=18 height=18 border=0></td>";
 		$content .= "<td class=\"align-center\"><a _rel=\"folder_".$subFolder->getID()."\" draggable=\"false\" href=\"out.ViewFolder.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\"><i class=\"fa fa-folder fa-2x\"></i></a></td>\n";
 		$content .= "<td><a draggable=\"false\" _rel=\"folder_".$subFolder->getID()."\" href=\"out.ViewFolder.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\">" . htmlspecialchars($subFolder->getName()) . "</a>";
+		$content .= "<br /><span style=\"font-size: 85%; font-style: italic; color: #666;\">".getMLText('owner').": <b>".htmlspecialchars($owner->getFullName())."</b>, ".getMLText('creation_date').": <b>".date('Y-m-d', $subFolder->getDate())."</b></span>";
+		if($comment) {
+			$content .= "<br /><span style=\"font-size: 85%;\">".htmlspecialchars($comment)."</span>";
+		}
+		$content .= "</td>\n";
+//		$content .= "<td>".htmlspecialchars($owner->getFullName())."</td>";
+		$content .= "<td colspan=\"1\" nowrap><small>";
+		if($enableRecursiveCount) {
+			if($user->isAdmin()) {
+				/* No need to check for access rights in countChildren() for
+				 * admin. So pass 0 as the limit.
+				 */
+				$cc = $subFolder->countChildren($user, 0);
+				$content .= $cc['folder_count']." ".getMLText("folders")."<br />".$cc['document_count']." ".getMLText("documents");
+			} else {
+				$cc = $subFolder->countChildren($user, $maxRecursiveCount);
+				if($maxRecursiveCount > 5000)
+					$rr = 100.0;
+				else
+					$rr = 10.0;
+				$content .= (!$cc['folder_precise'] ? '~'.(round($cc['folder_count']/$rr)*$rr) : $cc['folder_count'])." ".getMLText("folders")."<br />".(!$cc['document_precise'] ? '~'.(round($cc['document_count']/$rr)*$rr) : $cc['document_count'])." ".getMLText("documents");
+			}
+		} else {
+			/* FIXME: the following is very inefficient for just getting the number of
+			 * subfolders and documents. Making it more efficient is difficult, because
+			 * the access rights need to be checked.
+			 */
+			$subsub = $subFolder->getSubFolders();
+			$subsub = SeedDMS_Core_DMS::filterAccess($subsub, $user, M_READ);
+			$subdoc = $subFolder->getDocuments();
+			$subdoc = SeedDMS_Core_DMS::filterAccess($subdoc, $user, M_READ);
+			$content .= count($subsub)." ".getMLText("folders")."<br />".count($subdoc)." ".getMLText("documents");
+		}
+		$content .= "</small></td>";
+//		$content .= "<td></td>";
+		$content .= "<td>";
+		$content .= "<div class=\"list-action\">";
+		if($subFolder->getAccessMode($user) >= M_ALL) {
+			$content .= $this->printDeleteFolderButton($subFolder, 'splash_rm_folder', true);
+		}
+
+		if($subFolder->getAccessMode($user) >= M_READWRITE) {
+			$content .= '<a type="button" href="'.$this->params['settings']->_httpRoot.'out/out.EditFolder.php?folderid='.$subFolder->getID().'" class="btn btn-success btn-sm btn-action " data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_folder_props").'"><i class="fa fa-pencil"></i></a>';
+		}
+
+		if($subFolder->getAccessMode($user) >= M_ALL) {
+			$content .= '<a type="button" class="btn btn-primary btn-sm move-folder-btn btn-action" rel="'.$subFolder->getID().'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("move_folder").'"><i class="fa fa-arrows"></i></a>';
+		}
+
+		if($subFolder->getAccessMode($user) >= M_ALL) {
+			$content .= '<a type="button" href="'.$this->params['settings']->_httpRoot.'out/out.FolderAccess.php?folderid='.$subFolder->getID().'&showtree=1" class="btn btn-warning btn-sm access-folder-btn btn-action " rel="'.$subFolder->getID().'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("edit_folder_access").'"><i class="fa fa-user-times"></i></a>';
+		}
+
+		if($enableClipboard) {
+			$content .= '<a type="button" class="btn btn-default btn-sm addtoclipboard btn-action" rel="F'.$subFolder->getID().'" msg="'.getMLText('splash_added_to_clipboard').'" data-toggle="tooltip" data-placement="bottom" title="'.getMLText("add_to_clipboard").'"><i class="fa fa-clone"></i></a>';
+		}
+		$content .= "</div>";
+		$content .= "</td>";
+		$content .= "</tr>\n";
+		return $content;
+	} /* }}} */
+
+function folderListRow2($subFolder) { /* {{{ */
+		$dms = $this->params['dms'];
+		$user = $this->params['user'];
+//		$folder = $this->params['folder'];
+		$showtree = $this->params['showtree'];
+		$enableRecursiveCount = $this->params['enableRecursiveCount'];
+		$maxRecursiveCount = $this->params['maxRecursiveCount'];
+		$enableClipboard = $this->params['enableclipboard'];
+
+		$owner = $subFolder->getOwner();
+		$comment = $subFolder->getComment();
+		if (strlen($comment) > 150) $comment = substr($comment, 0, 147) . "...";
+
+		$content = '';
+		$content .= "<tr id=\"table-row-folder-".$subFolder->getID()."\" draggable=\"true\" rel=\"folder_".$subFolder->getID()."\" class=\"folder table-row-folder\" formtoken=\"".createFormKey('movefolder')."\">";
+	//	$content .= "<td><img src=\"images/folder_closed.gif\" width=18 height=18 border=0></td>";
+		$content .= "<td class=\"align-center\"><a _rel=\"folder_".$subFolder->getID()."\" draggable=\"false\" href=\"out.ViewFolder.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\"><i class=\"fa fa-folder fa-2x\"></i></a></td>\n";
+		$content .= "<td><a draggable=\"false\" _rel=\"folder_".$subFolder->getID()."\" href=\"out.VerArchivos.php?folderid=".$subFolder->getID()."&showtree=".$showtree."\">" . htmlspecialchars($subFolder->getName()) . "</a>";
 		$content .= "<br /><span style=\"font-size: 85%; font-style: italic; color: #666;\">".getMLText('owner').": <b>".htmlspecialchars($owner->getFullName())."</b>, ".getMLText('creation_date').": <b>".date('Y-m-d', $subFolder->getDate())."</b></span>";
 		if($comment) {
 			$content .= "<br /><span style=\"font-size: 85%;\">".htmlspecialchars($comment)."</span>";

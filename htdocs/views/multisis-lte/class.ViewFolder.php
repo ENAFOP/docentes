@@ -663,7 +663,7 @@ $(document).ready(function(){
               <h5 class="widget-user-desc"> <?php echo $user->getEmail();?> </h5>
             </div>
             <div class="widget-user-image">
-              <img class="img-circle" <?php echo "src=\"".$baseServer."images/usuario.png" ?>  alt="User Avatar">
+              <img class="img-circle" <?php echo "src=\"".$baseServer."images/usuario.png\"" ?>  alt="User Avatar">
             </div>
             <div class="box-footer">
               <div class="row">
