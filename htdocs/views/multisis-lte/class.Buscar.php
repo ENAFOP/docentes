@@ -460,7 +460,7 @@ $this->contentContainerStart();
 			                  echo "<td>$nombreFull</td>";
 			                  echo "<td>$categoria</td>";
 			                   echo "<td>$estado</td>";
-			               echo "<td><a href=\"/out/out.VerPostulacion.php?postulante=$idpostulante\">Acceder al perfil </a></td>";
+			               echo "<td><a href=\"out.VerPostulacion.php?postulante=$idpostulante\">Acceder al perfil </a></td>";
 		                    echo '</tr>';
 							}//fin de si no hay filtros, hago la mera búsqueda
 							if($hayFiltros)
@@ -481,7 +481,7 @@ $this->contentContainerStart();
 			                  echo "<td>$nombreFull</td>";
 			                  echo "<td>$categoria</td>";
 			                   echo "<td>$estado</td>";
-			               echo "<td><a href=\"/out/out.VerPostulacion.php?postulante=$idpostulante\">Acceder al perfil </a></td>";
+			               echo "<td><a href=\"out.VerPostulacion.php?postulante=$idpostulante\">Acceder al perfil </a></td>";
 		                    echo '</tr>';
 								}						
 							
