@@ -171,16 +171,16 @@ $tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="/styles/multisis-lte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles/multisis-lte/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/styles/multisis-lte/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../styles/multisis-lte/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="/styles/multisis-lte/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../styles/multisis-lte/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/styles/multisis-lte/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../styles/multisis-lte/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="/styles/multisis-lte/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../styles/multisis-lte/dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -200,7 +200,7 @@ $tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="/out/out.Login.php" class="navbar-brand"><b>ENAFOP</b>  Gestión de docentes</a>
+          <a href="out.Login.php" class="navbar-brand"><b>ENAFOP</b>  Banco de datos de personas facilitadoras ENAFOP</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -210,7 +210,7 @@ $tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
            
-            <li><a href="http://www.secretariatecnica.gob.sv/tag/enafop/">Sitio web de la ENAFOP</a></li>
+            <li><a href="http://www.enafop.gob.sv">Sitio web de la ENAFOP</a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -224,7 +224,7 @@ $tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <!-- The user image in the navbar-->
-                <img src="/images/usuario.png" class="user-image" alt="User Image">
+                <img src="../images/usuario.png" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs"><?php echo $nombre; ?></span>
               </a>
@@ -256,7 +256,7 @@ $tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
         <div class="callout callout-info">
           <h4>¡Enhorabuena!</h4>
             <h4>  <?php  echo $mensajito; ?></h4>
-            <h4><a href="/out/out.Login.php">Ir a la página de inicio de sesión</a></h4>
+            <h4><a href="out.Login.php">Ir a la página de inicio de sesión</a></h4>
               
         </div>
         <!-- /.box -->
@@ -271,7 +271,7 @@ $tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
       <div class="pull-right hidden-xs">
         <b>Versión</b> 1.0.0
       </div>
-      <strong>Copyright &copy; 2018 <a href="http://www.secretariatecnica.gob.sv/tag/enafop/">ENAFOP</a>.</strong>
+      <strong>Copyright &copy; 2018 <a href="http://www.enafop.gob.sv">ENAFOP</a>.</strong>
     </div>
     <!-- /.container -->
   </footer>
@@ -279,17 +279,17 @@ $tmp = explode('.', basename($_SERVER['SCRIPT_FILENAME']));
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="/styles/multisis-lte/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../styles/multisis-lte/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="/styles/multisis-lte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../styles/multisis-lte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- SlimScroll -->
-<script src="/styles/multisis-lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../styles/multisis-lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="/styles/multisis-lte/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../styles/multisis-lte/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="/styles/multisis-lte/dist/js/adminlte.min.js"></script>
+<script src="../styles/multisis-lte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/styles/multisis-lte/dist/js/demo.js"></script>
+<script src="../styles/multisis-lte/dist/js/demo.js"></script>
 </body>
 </html>
 

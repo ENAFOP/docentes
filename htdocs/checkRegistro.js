@@ -45,11 +45,27 @@ $(document).ready(function ()
 			 form.submit();
         }
     });
-	$('#usuario').change(function() {
+	$('#nit4').change(function() {
 		//console.log("cambio en usuario");
-		var nomUsuario=$( "#usuario").val();
+
+		var nit1=$( "#nit1").val();
+		var nit2=$( "#nit2").val();
+		var nit3=$( "#nit3").val();
+		var nit4=$( "#nit4").val();
+		var nomUsuario=nit1.concat("-",nit2,"-",nit3,"-",nit4);
+		console.log("el nit completo es; "+nomUsuario);
+		//1: comprobar si el nit está escrito correctamente:
+		var re = new RegExp("^([0-9]{4}-[0-9]{6}-[0-9]{3}-[0-9]{1})$");
+		if (re.test(nomUsuario)) {
+		    console.log("Valid");
+		} else {
+		    console.log("Invalid");
+		}
+
+
+		//2: ver si ya está registrado
 		$.ajax({
-			url:"/comprobarExisteNombre.php?usuario="+nomUsuario,
+			url:"../comprobarExisteNombre.php?usuario="+nomUsuario,
 			success:function(result)
 			{
 				   var codificar=JSON.stringify(result);
