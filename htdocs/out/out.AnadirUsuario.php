@@ -122,9 +122,9 @@ $idFolderUsuario=$folderUsuario->getID();
 // addUser(string $login, string $pwd,  $fullName, string $email, string $language,  $theme, string $comment, integer $role, integer $isHidden, integer $isDisabled,  $pwdexpiration) : object
 $comment="Usuario para poder hacer uso del sistema de gestión de docentes de la ENAFOP como postulante";
 $role=0; //usuario normal
-echo "a crear usuario con NIT".$nit;
-echo "a crear usuario con pass".$pass;
-echo "a crear usuario con nombre".$nit;
+//echo "a crear usuario con NIT".$nit;
+//echo "a crear usuario con pass".$pass;
+//echo "a crear usuario con nombre".$nit;
 $creacion=$dms->addUser($nit,md5($pass),$nombre,$correo,$settings->_language, $settings->_theme,$comment,$role,0,0,'',0,1);
 if(!$creacion)
 {
