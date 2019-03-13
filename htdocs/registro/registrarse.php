@@ -237,6 +237,26 @@ include("../inc/inc.ClassUI.php");
             </div>
             <!-- /.box-body -->
           </div>
+
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <i class="fa fa-info"></i>
+
+              <h3 class="box-title">Visite la página web de la ENAFOP</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+
+              <a class="btn btn-block btn-social btn-linkedin" href="http://www.enafop.gob.sv">
+                <i class="fa fa-globe"></i> Página principal de la Escuela
+              </a>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+
           <!-- /.box -->
   </div>
 
