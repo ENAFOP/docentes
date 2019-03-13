@@ -1266,6 +1266,9 @@ s
                 	 <p style="font-size:18px;" >                   	
                    	Manejo de metodologías (agregar al menos 3 experiencias que demuestren el manejo de metodología que manifiesta)
                    </p>
+                   <p style="font-size:23px;" >                     
+                    <b>NOTA:</b> El sistema no dejará avanzar a la siguiente pestaña si selecciona una metodología y no indica al menos tres experiencias con sus atestados, por lo cual, si no tiene los 3 atestados no indique la metodología.
+                   </p>
                    <p style="font-size:12px;" >                    
                     <b>*Para aquellas categorías que usted marque, la información y el atestado son de rellenado obligatorio</b>
                    </p>

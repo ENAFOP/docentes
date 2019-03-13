@@ -793,52 +793,52 @@ function menuClipboard($clipboard) { /* {{{ */
 	$this->printTheTree($rootFolder, 0, $folder);
 
     // Non conformities
-    $viewAllActive = "";
-    $addNonConfoActive = "";
-    $addProcessActive = "";
-    $addOwnerActive = "";
-    if ($nonconfo != 0) {
-    	switch ($nonconfo) {
-    	case 1:
-    		$viewAllActive = "active";
-    		break;
-    	case 2:
-    		$addNonConfoActive = "active";
-    		break;
-    	case 3:
-    		$addProcessActive = "active";
-    		break;
-    	case 4:
-    		$addOwnerActive = "active";
-    		break;
-    	default:
-    		break;
-    	}
-    }
+   //  $viewAllActive = "";
+   //  $addNonConfoActive = "";
+   //  $addProcessActive = "";
+   //  $addOwnerActive = "";
+   //  if ($nonconfo != 0) {
+   //  	switch ($nonconfo) {
+   //  	case 1:
+   //  		$viewAllActive = "active";
+   //  		break;
+   //  	case 2:
+   //  		$addNonConfoActive = "active";
+   //  		break;
+   //  	case 3:
+   //  		$addProcessActive = "active";
+   //  		break;
+   //  	case 4:
+   //  		$addOwnerActive = "active";
+   //  		break;
+   //  	default:
+   //  		break;
+   //  	}
+   //  }
 
-    if (!$this->params['user']->isGuest()) {
-    	if ($nonconfo != 0) {
-    		echo "<li class=\"treeview active\">";
-    	} else {
-    		echo "<li class=\"treeview\">";
-    	}
-	    echo "<a href=\"#\"><i class=\"fa fa-wrench\"></i> <span>".getMLText("nonconfo")."</span>";
-	    echo "<span class=\"pull-right-container\">";
-	    echo "<i class=\"fa fa-angle-left pull-right\"></i>";
-	    echo "</span>";
-	    echo "</a>";
-	    echo "<ul class=\"treeview-menu\">";
-	    echo "<li class=\"".$viewAllActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.ViewAllNonConfo.php\">".getMLText("nonconfo_view")."</a></li>";
-	    echo "<li class=\"".$addNonConfoActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddNonConfo.php\">".getMLText("nonconfo_add_nonconfo")."</a></li>";
+   //  if (!$this->params['user']->isGuest()) {
+   //  	if ($nonconfo != 0) {
+   //  		echo "<li class=\"treeview active\">";
+   //  	} else {
+   //  		echo "<li class=\"treeview\">";
+   //  	}
+	  //   echo "<a href=\"#\"><i class=\"fa fa-wrench\"></i> <span>".getMLText("nonconfo")."</span>";
+	  //   echo "<span class=\"pull-right-container\">";
+	  //   echo "<i class=\"fa fa-angle-left pull-right\"></i>";
+	  //   echo "</span>";
+	  //   echo "</a>";
+	  //   echo "<ul class=\"treeview-menu\">";
+	  //   echo "<li class=\"".$viewAllActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.ViewAllNonConfo.php\">".getMLText("nonconfo_view")."</a></li>";
+	  //   echo "<li class=\"".$addNonConfoActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddNonConfo.php\">".getMLText("nonconfo_add_nonconfo")."</a></li>";
 
-	    if ($this->params['user']->isAdmin()) {
-	    	echo "<li class=\"".$addProcessActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddProcess.php\">".getMLText("nonconfo_add_process")."</a></li>";
-	    	echo "<li class=\"".$addOwnerActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddOwners.php\">".getMLText("nonconfo_define_owners")."</a></li>";
-	    }
+	  //   if ($this->params['user']->isAdmin()) {
+	  //   	echo "<li class=\"".$addProcessActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddProcess.php\">".getMLText("nonconfo_add_process")."</a></li>";
+	  //   	echo "<li class=\"".$addOwnerActive."\"><a href=\"".$this->params['settings']->_httpRoot."ext/nonconfo/out/out.AddOwners.php\">".getMLText("nonconfo_define_owners")."</a></li>";
+	  //   }
 
-    	echo "</ul>";
-    	echo "</li>";
-  	}
+   //  	echo "</ul>";
+   //  	echo "</li>";
+  	// }
 
   	// Calendar
   	$calendarWeekActive = "";
