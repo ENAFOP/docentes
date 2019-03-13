@@ -81,13 +81,13 @@ document.form1.email.focus();
   <p class="align-center"><?php printMLText("password_forgotten_text"); ?></p>
 
 		<div class="form-group">
-		<label><?php printMLText("login");?>:</label>
+		<label><?php echo "Ingrese el NIT con el cual se registró en la plataforma:"?>:</label>
 			<div>
 			<input class="form-control" type="text" name="login" id="login">
 			</div>
 		</div>
 		<div class="control-group">
-			<label><?php printMLText("email");?>:</label>
+			<label><?php echo "Indique un correo electrónico al cual tenga acceso:"?>:</label>
 			<div>
 				<input class="form-control" type="text" name="email" id="email">
 			</div>
@@ -100,7 +100,7 @@ document.form1.email.focus();
 
 </form>
 <?php $this->contentContainerEnd(); ?>
-<p class="align-center"><a type="button" class="btn btn-info" href="../out/out.Login.php"><?php echo getMLText("login"); ?></a></p>
+<p class="align-center"><a type="button" class="btn btn-info" href="../out/out.Login.php"><?php echo "Regresar a la página de inicio de sesión" ?></a></p>
 <?php
 
 		$this->endLoginContent();

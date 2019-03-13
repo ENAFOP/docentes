@@ -178,7 +178,7 @@ $(document).ready( function() {
 	<div class="row">
     <!-- /.col -->
     <div class="">
-      <button type="submit" class="btn btn-primary btn-block btn-flat"><?php printMLText("submit_login") ?></button>
+      <button type="submit" class="btn btn-primary btn-block btn-flat"><?php echo "Entrar al sistema" ?></button>
     </div>
     <!-- /.col -->
   </div>
@@ -189,7 +189,7 @@ $(document).ready( function() {
 		if ($enableguestlogin)
 			$tmpfoot[] = "<a href=\"\" id=\"guestlogin\">" . getMLText("guest_login") . "</a>\n";
 		if ($enablepasswordforgotten)
-			$tmpfoot[] = "<a href=\"../out/out.PasswordForgotten.php\">" . getMLText("password_forgotten") . "</a>\n";
+			$tmpfoot[] = "<a href=\"../out/out.PasswordForgotten.php\">" . "¿Ha olvidado su contraseña? Haga clic aquí" . "</a>\n";
 		if($tmpfoot) {
 			print "<div class=\"row\"><div class=\"col-md-12 guest-access\"><div class=\"\">";
 			print implode(' | ', $tmpfoot);
