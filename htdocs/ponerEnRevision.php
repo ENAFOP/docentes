@@ -26,7 +26,7 @@ $settings = new Settings(); //acceder a parámetros de settings.xml con _antes
 	$resultado=$manejador->getResult($miQuery);
 	$miQuery2="INSERT into historial values (NULL,$idPostulacion,'revisado',NOW(),'Postulante solicitó una nueva revisión, habiendo supuestamente corregido las carencias indicadas en su postulación, después de estar en evaluación')";
 	$resultado2=$manejador->getResult($miQuery2);
-	$newURL="/out/out.ViewFolder.php?folderid=1";
+	$newURL="out/out.ViewFolder.php?folderid=1";
 	header('Location: '.$newURL);
 ?>
 

@@ -277,16 +277,16 @@ class SeedDMS_View_FormularioAplicacion extends SeedDMS_Bootstrap_Style
   echo '<div class="row text-center">';
     echo '<div class="col-xs-12 col-sm-4">';
     echo '<br>';
-     echo "<img src=\"/images/logoesa2.png\" class=\"img-responsive center-block\" alt=\"Logo ESA\" height=\"200\" width=\"200\">";
+     echo "<img src=\"../images/logoesa2.png\" class=\"img-responsive center-block\" alt=\"Logo ESA\" height=\"200\" width=\"200\">";
 
       echo '</div>'; //cierre col 4
       echo '<div class="col-xs-12 col-sm-4">';
       echo '<br>';
-      echo "<img src=\"/images/logoStpp.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
+      echo "<img src=\"../images/logoStpp.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
       echo '</div>'; //cierre col 4
        echo '<div class="col-xs-12 col-sm-4">';
        echo '<br>';
-    echo "<img src=\"/images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP\" height=\"200\" width=\"200\">";
+    echo "<img src=\"../images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP\" height=\"200\" width=\"200\">";
     echo '</div>'; //cierre col 4
     echo '</div>'; //cierre de row
 		?>
@@ -294,7 +294,7 @@ class SeedDMS_View_FormularioAplicacion extends SeedDMS_Bootstrap_Style
         Formulario de aplicación
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/out/out.ViewFolder.php?folderid=1"><i class="fa fa-home"></i>Mi perfil: inicio</a></li>
+        <li><a href="out.ViewFolder.php?folderid=1"><i class="fa fa-home"></i>Mi perfil: inicio</a></li>
         <li class="active">Llenar mi formulario</li>
       </ol>
     
@@ -389,7 +389,7 @@ s
                 </div>
 
                  <div class="form-group">
-                  <label for="tipoDocumento">Tipo de documento</label>                
+                  <label for="tipoDocumento">Tipo de documento de identificación</label>                
 		                                 
 						  <?php 						
 						  		imprimirDocumentos();
@@ -401,10 +401,7 @@ s
 					<input type="text" class="form-control" name="numeroDocumento" id="numeroDocumento" placeholder="Ingrese aquí su número de documento...">						
                 </div>
 
-                <div class="form-group" id="divNit">
-                  <label for="nit">NIT (opcional)</label>                                                     
-          <input type="text" class="form-control" name="nit" id="nit" placeholder="Ingrese aquí su NIT con guión">           
-                </div>
+
 
               <div class="form-group">   <!-- *******INICIO TELEFONO****** -->
                   <label for="telefonoCompleto">Teléfono de contacto (si es un teléfono extranjero, incluya código de país)</label>                		                                 			     		        		
@@ -1716,9 +1713,9 @@ $this->endsBoxPrimary();
 		$this->mainFooter();		
 		$this->containerEnd();
 		//$this->contentContainerEnd();
-		echo "<script type='text/javascript' src='/validar1.js'></script>";
-    echo "<script type='text/javascript' src='/styles/multisis-lte/bootstrap-filestyle.js'></script>";
-    echo "<script type='text/javascript' src='/styles/multisis-lte/bootstrap-filestyle.min.js'></script>";
+		echo "<script type='text/javascript' src='../validar1.js'></script>";
+    echo "<script type='text/javascript' src='../styles/multisis-lte/bootstrap-filestyle.js'></script>";
+    echo "<script type='text/javascript' src='../styles/multisis-lte/bootstrap-filestyle.min.js'></script>";
       //echo "<script type='text/javascript' src='/styles/multisis-lte/plugins/bootstrap-slider/bootstrap-slider.js'></script>";
      // echo "<script type='text/javascript' src='/styles/multisis-lte/plugins/bootstrap-slider/hacer.js'></script>";
 		$this->htmlEndPage();

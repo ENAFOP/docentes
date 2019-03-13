@@ -119,10 +119,10 @@ if (isset($_POST["correo"]))
 {
     $correo=$_POST["correo"];
 }
-if (isset($_POST["nit"])) 
-{
-    $nit=$_POST["nit"];
-}
+// if (isset($_POST["nit"])) 
+// {
+//     $nit=$_POST["nit"];
+// }
 if (isset($_POST["departamento"])) 
 {
     $departamento=$_POST["departamento"];
@@ -239,6 +239,7 @@ if (isset($_FILES["atestadoGrado"]))
 for ($i=0;$i<$numgrados;$i++) 
 {
     $ubicacionTemporal=$arrayUbicacionesFichero[$i];;
+    //echo "PEST 3 fichero està en ubicacion tmp: ".$ubicacionTemporal;
     $fileTipo=$arrayFileTypes[$i];
     $userFileTipo=$arrayTiposFichero[$i];
     $userFileNombre=$arrayNombresFichero[$i];

@@ -40,7 +40,7 @@ include("../inc/inc.ClassUI.php");
 <script type="text/javascript" src="../styles/multisis-lte/plugins/noty/themes/default.js"></script>
 <script type="text/javascript" src="../styles/multisis-lte/plugins/jqtree/tree.jquery.js"></script>
 <script type="text/javascript" src="../styles/multisis-lte/custom/js/validate-logo.js"></script>
-<script type="text/javascript" src="../styles/multisis-lte/validation/jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>
+
 <link href="../styles/multisis-lte/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet">
 <script type="text/javascript" src="../styles/multisis-lte/plugins/datatables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../styles/multisis-lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -133,82 +133,31 @@ include("../inc/inc.ClassUI.php");
 
 
       <label for="usuario">NIT</label>
-      <p>Ingrese a continuación los dígitos de su NIT en los bloques correspondientes:</p>
+      <p>Ingrese a continuación los dígitos de su NIT, con guiones:</p>
       <div class="form-group has-feedback" id="divNomUsuario">
         
 
-         <div class="row">
-                <div class="col-xs-2">
-                  <div class="input-group">
                         <span class="input-group-addon">
-                          <input dir="ltr" type="text" title="Ingrese los primeros 4 dígitos" pattern="[\d]{4}" id="nit1" name="nit1" placeholder="4 dígitos" required="'required'" class="form-control" minlength="4" maxlength="4" autocomplete="off" />
+                          <input dir="ltr" type="text" title="Ingrese el NIT con guiones"  id="nit" name="nit" placeholder="Ingrese el NIT" required="'required'" class="form-control"  autocomplete="off" />
                         </span>
 
-                         
-   
-              
-                  </div>
+                                     
+
                   <!-- /input-group -->
-                </div>
-                <!-- /.col-lg-6 -->
-                  <div class="col-xs-1">
-                  -
-                  </div>
-
-
-                <div class="col-xs-2">
-                  <div class="input-group">
-                        <span class="input-group-addon">
-                         <input dir="ltr" type="text" title="6 dígitos" pattern="[\d]{6}" id="nit2" name="nit2" placeholder="6 dígitos" required="'required'" class="form-control" minlength="6" maxlength="6" autocomplete="off" />
-                        </span>
-                    
-                  </div>
-                  <!-- /input-group -->
-                </div>
-
-                <div class="col-xs-1">
-                  -
-                  </div>
-
-                  <div class="col-xs-2">
-                  <div class="input-group">
-                        <span class="input-group-addon">
-                           <input dir="ltr" type="text" title="3 dígitos" pattern="[\d]{3}" id="nit3" name="nit3" placeholder="3 dígitos" required="'required'" class="form-control" minlength="3" maxlength="3" autocomplete="off" />
-                        </span>
-                    
-                  </div>
-                  <!-- /input-group -->
-                </div>
-
-                <!-- /.col-lg-6 -->
-
-                 <div class="col-xs-1">
-                  -
-                  </div>
-
-                  <div class="col-xs-2">
-                  <div class="input-group">
-                        <span class="input-group-addon">
-                          <input dir="ltr" type="text" title="1 dígito1" pattern="[\d]{1}" id="nit4" name="nit4" placeholder="1 dígito" required="'required'" class="form-control" minlength="1" maxlength="1" autocomplete="off" />
-                        </span>
-                    
-                  </div>
-                  <!-- /input-group -->
-                </div>
-
-                <!-- /.col-lg-6 -->
-              </div>
-              <!-- /.row -->
-        
-
-        <span class="glyphicon glyphicon-road form-control-feedback"></span>
+                  <span class="glyphicon glyphicon-road form-control-feedback"></span>
 
          <label id="chequecito" class="control-label" for="inputSuccess" style="display: none;"><i class="fa fa-check"></i> El NIT no ha sido utilizado y por tanto puede registrarse
          </label>
 
          <label id="chequecitoMalo" class="control-label" for="inputError" style="display: none;"><i class="fa fa-times"></i> El NIT ya existe. Si ha olvidado su contraseña enviar un correo.
          </label>
-      </div>
+        </div>
+
+
+        
+
+        
+
  
 
 

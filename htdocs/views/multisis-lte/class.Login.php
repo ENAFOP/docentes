@@ -134,10 +134,13 @@ $(document).ready( function() {
 			echo "<input type='hidden' name='referuri' value='".sanitizeString($refer)."'/>";
 		}
 ?>
+			<h2>Reciba de nuevo una bienvenida al banco de docentes y facilitadores de la ENAFOP!</h2>
+		<label for="login">Ingrese el NIT con el cual se registró</label>
 		<div class="form-group has-feedback">
 			<input class="form-control" type="text" id="login" name="login" placeholder="login" autocomplete="off" required>
 			<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		</div>
+		<label for="login">Ingrese su contraseña:</label>
 		<div class="form-group has-feedback">
 			<input class="form-control" type="Password" id="pwd" name="pwd" placeholder="password" autocomplete="off" required>
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -175,7 +178,7 @@ $(document).ready( function() {
 	<div class="row">
     <!-- /.col -->
     <div class="">
-      <button type="submit" class="btn btn-primary btn-block btn-flat"><?php printMLText("submit_login") ?></button>
+      <button type="submit" class="btn btn-primary btn-block btn-flat"><?php echo "Entrar al sistema" ?></button>
     </div>
     <!-- /.col -->
   </div>
@@ -186,7 +189,7 @@ $(document).ready( function() {
 		if ($enableguestlogin)
 			$tmpfoot[] = "<a href=\"\" id=\"guestlogin\">" . getMLText("guest_login") . "</a>\n";
 		if ($enablepasswordforgotten)
-			$tmpfoot[] = "<a href=\"../out/out.PasswordForgotten.php\">" . getMLText("password_forgotten") . "</a>\n";
+			$tmpfoot[] = "<a href=\"../out/out.PasswordForgotten.php\">" . "¿Ha olvidado su contraseña? Haga clic aquí" . "</a>\n";
 		if($tmpfoot) {
 			print "<div class=\"row\"><div class=\"col-md-12 guest-access\"><div class=\"\">";
 			print implode(' | ', $tmpfoot);

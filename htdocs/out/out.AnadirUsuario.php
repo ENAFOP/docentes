@@ -74,7 +74,7 @@ if (isset($_GET["orderby"]) && strlen($_GET["orderby"])==1 )
 $nombre="";
 $correo="";
 $pass="";
-$usuario="";
+$nit="";
 if (isset($_POST["nombre"])) 
 {
 	$nombre=$_POST["nombre"];
@@ -83,9 +83,9 @@ if (isset($_POST["correo"]))
 {
 	$correo=$_POST["correo"];
 }
-if (isset($_POST["usuario"])) 
+if (isset($_POST["nit"])) 
 {
-	$usuario=$_POST["usuario"];
+	$nit=$_POST["nit"];
 }
 if (isset($_POST["password"])) 
 {
@@ -122,10 +122,13 @@ $idFolderUsuario=$folderUsuario->getID();
 // addUser(string $login, string $pwd,  $fullName, string $email, string $language,  $theme, string $comment, integer $role, integer $isHidden, integer $isDisabled,  $pwdexpiration) : object
 $comment="Usuario para poder hacer uso del sistema de gestión de docentes de la ENAFOP como postulante";
 $role=0; //usuario normal
-$creacion=$dms->addUser($usuario,md5($pass),$nombre,$correo,$settings->_language, $settings->_theme,$comment,$role,0,0,'',0,1);
+echo "a crear usuario con NIT".$nit;
+echo "a crear usuario con pass".$pass;
+echo "a crear usuario con nombre".$nit;
+$creacion=$dms->addUser($nit,md5($pass),$nombre,$correo,$settings->_language, $settings->_theme,$comment,$role,0,0,'',0,1);
 if(!$creacion)
 {
-	UI::exitError(getMLText("folder_title", array("foldername" => "Error: no se pudo crear el usuario $nombre")),getMLText("error_occured"));
+	UI::exitError(getMLText("folder_title", array("foldername" => "Error: no se pudo crear el usuario $nombre")),"Error: no se pudo crear el usuario $nombre");
 }
 //////////// seteo default folder
 $idNuevoUsuario=$creacion->getID();

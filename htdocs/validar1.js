@@ -37,7 +37,7 @@ $('#departamento').change(function()
 	console.log("cambio en departamento");
 	var depar=$("#departamento").val();
 	$.ajax({
-                        url:"/response.php?departamento="+depar,
+                        url:"../response.php?departamento="+depar,
                         success:function(result)
                         {
                                var codificar=JSON.stringify(result);
@@ -1284,11 +1284,7 @@ document.getElementById("eliminaCapacitacion").addEventListener("click", functio
 			{
                 required: true
             },
-			nit:
-			{
-				required: false
-				//regx: /^[0-9]{4}[-][0-9]{6}[-][0-9]{3}[-][0-9]{1}$/
-			}
+
         },
 		messages: 
 		{
@@ -1304,8 +1300,7 @@ document.getElementById("eliminaCapacitacion").addEventListener("click", functio
 			edad: "Debe ingresar su edad actual",
 			tipoDocumento: "Debe seleccionar el tipo de documento",
 			cartaMotivacion: "Debe adjuntar su carta de motivación",
-			referenciasPersonales: "Debe adjuntar una carta de referencias personales",
-			nit: "holi"	
+			referenciasPersonales: "Debe adjuntar una carta de referencias personales"
 		},
         submitHandler: function (form) { // for demo
             alert('Formulario llenado correctamente. Ahora será procesado.');
@@ -1332,12 +1327,12 @@ document.getElementById("eliminaCapacitacion").addEventListener("click", functio
 		var numeroDocumento=validator.element("#numeroDocumento");
 		var correo=validator.element("#correo");
 		var edad=validator.element("#edad");
-		var nit=validator.element("#nit");
-		console.log("resultado de validar nit: "+nit);
+		//var nit=validator.element("#nit");
+		//console.log("resultado de validar nit: "+nit);
 		var tipodoc=validator.element("#tipoDocumento");
 		var genero=validator.element("#genero");
 		//alert("resultado de validar nombre: "+nombre);
-		if(nombre==true && paisResidencia==true && telefonoCompleto==true && numeroDocumento==true && correo==true && tipodoc==true && genero==true && edad==true && nit==true)
+		if(nombre==true && paisResidencia==true && telefonoCompleto==true && numeroDocumento==true && correo==true && tipodoc==true && genero==true && edad==true)
 		{
 			goNextTab('tab_1','tab_2',1,2);
 		}

@@ -826,7 +826,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
@@ -863,7 +863,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
@@ -902,7 +902,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
@@ -938,7 +938,7 @@ $(document).ready(function(){
              echo '<div class="inner">';
                echo '<h3>Ver mi perfil</h3>';
                $id=$user->getID();
-               $rutaPerfil=$baseServer."/out/out.VerPostulacion.php?postulante=".$id;
+               $rutaPerfil=$baseServer."out/out.VerPostulacion.php?postulante=".$id;
               echo '<p>En el siguiente enlace puede ver un consolidado de su perfil</p>';
              echo '</div>';
              echo '<div class="icon">';
