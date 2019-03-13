@@ -94,7 +94,7 @@ $this->contentContainerStart();
                     <li>Nombre del postulante: <?php echo $nombrePostulante  ?> </li>
                     <li>Fecha de postulación: <?php echo $fechaPostulacion  ?> </li>
                   </ul>
-                  <a href="/out/out.ViewFolder.php?folderid=1&showtree=1"> Volver a mi página principal </a>
+                  <a href="out.ViewFolder.php?folderid=1&showtree=1"> Volver a mi página principal </a>
     </div>
 <?php
  //////FIN MI CODIGO                 

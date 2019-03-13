@@ -326,7 +326,7 @@ class SeedDMS_View_VerPostulacion extends SeedDMS_Bootstrap_Style
   		if($esEl==true && !$estaVacio && !$haPedidoRevision)
   		{
   			$idPostulacion=getIdPostulacion($idpostulante,$db);
-  			echo '<form name="formAprueba" id="formAprueba" action="/ponerEnRevision.php" method="POST">';
+  			echo '<form name="formAprueba" id="formAprueba" action="../ponerEnRevision.php" method="POST">';
 		          ////////////////////////////// ESTANDO RECHAZADO, NO ME PUEDEN VOLER A RECHAZAR, PERO SI APROBAR
 		       echo "<input type=\"hidden\" name=\"idPostulante\" id=\"idPostulante\" value=\"$idpostulante\"></input>";
 		        echo "<input type=\"hidden\" name=\"idPostulacion\" id=\"idPostulacion\" value=\"$idPostulacion\"></input>";
