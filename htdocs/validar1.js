@@ -2146,6 +2146,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okProgramas=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Diseño de programas y/o proyectos de formación y/o capacitación (curricular)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2188,6 +2189,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okdisenocartas=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Diseño de cartas didácticas (diseños instruccionales)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2230,6 +2232,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okevaluacion=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Evaluación de procesos de formación (en cuales procesos, metodología)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2272,6 +2275,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okfacilitacion=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Facilitación de talleres o cursos de formación o capacitación (cuáles)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2314,6 +2318,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okparticipativa=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Metodologías participativas (cuáles)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if participativa
 			var elaboracion=document.getElementById('elaboracionMaterial').checked;
@@ -2355,6 +2360,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okelaboracion=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \" Elaboración de material de apoyo (manuales, guías, lecturas. Cuáles)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if elaboracion
 		var linea=document.getElementById('disenador').checked;
@@ -2396,6 +2402,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				oklinea=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \" Metodologías en línea (si es diseñador instruccional, contenidista o solo tutor)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if elaboracion
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////

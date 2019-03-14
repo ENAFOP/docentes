@@ -275,18 +275,15 @@ class SeedDMS_View_FormularioAplicacion extends SeedDMS_Bootstrap_Style
 		echo $this->callHook('preContent');
 		$this->contentStart(); 
   echo '<div class="row text-center">';
-    echo '<div class="col-xs-12 col-sm-4">';
+    echo '<div class="col-xs-6 col-sm-4">';
     echo '<br>';
-     echo "<img src=\"../images/logoesa2.png\" class=\"img-responsive center-block\" alt=\"Logo ESA\" height=\"200\" width=\"200\">";
+     echo "<img src=\"../images/escudoarmas.png\" class=\"img-responsive center-block \" alt=\"Logo ESA\" height=\"100\" width=\"100\">";
 
       echo '</div>'; //cierre col 4
-      echo '<div class="col-xs-12 col-sm-4">';
-      echo '<br>';
-      echo "<img src=\"../images/logoStpp.png\" class=\"center-block\" alt=\"Logo STPP\" height=\"95\" width=\"200\">";
-      echo '</div>'; //cierre col 4
-       echo '<div class="col-xs-12 col-sm-4">';
+
+       echo '<div class="col-xs-2 col-sm-5">';
        echo '<br>';
-    echo "<img src=\"../images/logo_transparente.png\" class=\"img-responsive center-block\" alt=\"Logo ENAFOP\" height=\"200\" width=\"200\">";
+    echo "<img src=\"../images/logo_transparente.png\" class=\"img-responsive\" alt=\"Logo ENAFOP\" height=\"300\" width=\"300\">";
     echo '</div>'; //cierre col 4
     echo '</div>'; //cierre de row
 		?>
@@ -435,6 +432,10 @@ s
                     <b>*Si añade al menos una experiencia laboral, todos los campos serán de rellenado obligatorio.</b>
                    </p>
 
+                   <p style="font-size:14px;color:blue;">                    
+                    <b>Utilice el botón "Añadir una nueva experiencia" si tiene más de una experiencia laboral, esto hará que aparezca una fila nueva en la tabla.<br>Para eliminar la última fila añadida de la tabla, utilice el botón "Eliminar la última experiencia añadida."</b>
+                   </p>
+
               	   <p> 
             			  <input type="button" class="btn btn-default btn-sm" id="anadeExperiencia" value="Añadir una nueva experiencia">
             			   <input type="button" class="btn btn-danger btn-sm" id="eliminaExperiencia" value="Eliminar la última experiencia añadida">
@@ -528,6 +529,11 @@ s
                    </p>
                    <p style="font-size:12px;" >                    
                     <b>*Si añade al menos una experiencia académica, todos los campos serán de rellenado obligatorio para esa tabla determinada.</b>
+                   </p>
+
+
+                   <p style="font-size:14px;color:blue;">                    
+                    <b>Utilice el botón "Añadir un nuevo estudio" si tiene más de un título en cada una de las 3 categorías, esto hará que aparezca una fila nueva en la tabla.<br>Para eliminar la última fila añadida de la tabla, utilice el botón "Eliminar el último grado añadido."</b>
                    </p>
            
            
@@ -1054,6 +1060,9 @@ s
                    <p style="font-size:12px;" >                    
                     <b>*Si añade al menos una materia impartida, todos los campos serán de rellenado obligatorio.</b>
                    </p>
+                   <p style="font-size:14px;color:blue;">                    
+                    <b>Utilice el botón "Añadir una nueva materia" si tiene más de un título en cada una de las 3 categorías, esto hará que aparezca una fila nueva en la tabla.<br>Para eliminar la última fila añadida de la tabla, utilice el botón "Eliminar la última materia añadida."</b>
+                   </p>
 				<p> 
 			  <input type="button" class="btn btn-default btn-sm" id="anadeMateria" value="Añadir una nueva materia">
 			   <input type="button" class="btn btn-danger btn-sm" id="eliminaMateria" value="Eliminar la última materia añadida">
@@ -1163,6 +1172,10 @@ s
                     <b>*Si añade al menos una experiencia, todos los campos serán de rellenado obligatorio.</b>
                    </p>
 
+                   <p style="font-size:14px;color:blue;">                    
+                    <b>Utilice el botón "Añadir una nueva experiencia en formación/capacitación" si tiene más de un título en cada una de las 3 categorías, esto hará que aparezca una fila nueva en la tabla.<br>Para eliminar la última fila añadida de la tabla, utilice el botón "Eliminar la última experiencia añadida."</b>
+                   </p>
+
                     
             </br>
                  <input type="button" class="btn btn-default btn-sm" id="anadeCapacitacion" value="Añadir una nueva experiencia en formación/capacitación">
@@ -1269,6 +1282,9 @@ s
                    <p style="font-size:23px;" >                     
                     <b>NOTA:</b> El sistema no dejará avanzar a la siguiente pestaña si selecciona una metodología y no indica al menos tres experiencias con sus atestados, por lo cual, si no tiene los 3 atestados no indique la metodología.
                    </p>
+                   <p style="font-size:14px;color:blue;">                    
+                    <b>Utilice el botón "Añadir una nueva experiencia de esta metodología" hará que aparezca una fila nueva en la metodología seleccionada, para completar el mínimo de 3.<br>Para eliminar la última fila añadida de la tabla, utilice el botón "Eliminar la última entrada añadida."</b>
+                   </p>
                    <p style="font-size:12px;" >                    
                     <b>*Para aquellas categorías que usted marque, la información y el atestado son de rellenado obligatorio</b>
                    </p>
@@ -1284,7 +1300,7 @@ s
                   </div>   <!-- fin de form group -->
 
                 <div id="siete1" style="display: none;">
-                	<input type="button" class="btn btn-default btn-xs" id="anade71" value="Añadir una nueva experiencia esta metodología">
+                	<input type="button" class="btn btn-default btn-xs" id="anade71" value="Añadir una nueva experiencia de esta metodología">
 				    <input type="button" class="btn btn-danger btn-xs" id="elimina71" value="Eliminar la última entrada añadida">
                 	<table id="tabla71" class="table table-condensed">
                 			 <tr>                 
@@ -1317,7 +1333,7 @@ s
                   </div>   <!-- fin de form group -->
 
                 <div id="siete2" style="display: none;">
-                	<input type="button" class="btn btn-default btn-xs" id="anade72" value="Añadir una nueva experiencia esta metodología">
+                	<input type="button" class="btn btn-default btn-xs" id="anade72" value="Añadir una nueva experiencia de esta metodología">
 				    <input type="button" class="btn btn-danger btn-xs" id="elimina72" value="Eliminar la última entrada añadida">
                 	<table id="tabla72" class="table table-condensed">
                 			 <tr>                 
@@ -1350,7 +1366,7 @@ s
                   </div>   <!-- fin de form group -->
 
                 <div id="siete3" style="display: none;">
-                	<input type="button" class="btn btn-default btn-xs" id="anade73" value="Añadir una nueva experiencia esta metodología">
+                	<input type="button" class="btn btn-default btn-xs" id="anade73" value="Añadir una nueva experiencia de esta metodología">
 				    <input type="button" class="btn btn-danger btn-xs" id="elimina73" value="Eliminar la última entrada añadida">
                 	<table id="tabla73" class="table table-condensed">
                 			 <tr>                 
@@ -1384,7 +1400,7 @@ s
                   </div>   <!-- fin de form group -->
 
                 <div id="siete4" style="display: none;">
-                	<input type="button" class="btn btn-default btn-xs" id="anade74" value="Añadir una nueva experiencia esta metodología">
+                	<input type="button" class="btn btn-default btn-xs" id="anade74" value="Añadir una nueva experiencia de esta metodología">
 				    <input type="button" class="btn btn-danger btn-xs" id="elimina74" value="Eliminar la última entrada añadida">
                 	<table id="tabla74" class="table table-condensed">
                 			 <tr>                 
@@ -1417,7 +1433,7 @@ s
                   </div>   <!-- fin de form group -->
 
                 <div id="siete5" style="display: none;">
-                	<input type="button" class="btn btn-default btn-xs" id="anade75" value="Añadir una nueva experiencia esta metodología">
+                	<input type="button" class="btn btn-default btn-xs" id="anade75" value="Añadir una nueva experiencia de esta metodología">
 				    <input type="button" class="btn btn-danger btn-xs" id="elimina75" value="Eliminar la última entrada añadida">
                 	<table id="tabla75" class="table table-condensed">
                 			 <tr>                 
@@ -1450,7 +1466,7 @@ s
                   </div>   <!-- fin de form group -->
 
                 <div id="siete6" style="display: none;">
-                	<input type="button" class="btn btn-default btn-xs" id="anade76" value="Añadir una nueva experiencia esta metodología">
+                	<input type="button" class="btn btn-default btn-xs" id="anade76" value="Añadir una nueva experiencia de esta metodología">
 				    <input type="button" class="btn btn-danger btn-xs" id="elimina76" value="Eliminar la última entrada añadida">
                 	<table id="tabla76" class="table table-condensed">
                 			 <tr>                 
@@ -1483,7 +1499,7 @@ s
                   </div>   <!-- fin de form group -->
 
                 <div id="siete7" style="display: none;">
-                	<input type="button" class="btn btn-default btn-xs" id="anade77" value="Añadir una nueva experiencia esta metodología">
+                	<input type="button" class="btn btn-default btn-xs" id="anade77" value="Añadir una nueva experiencia de esta metodología">
 				    <input type="button" class="btn btn-danger btn-xs" id="elimina77" value="Eliminar la última entrada añadida">
                 	<table id="tabla77" class="table table-condensed">
                 			 <tr>                 
@@ -1687,7 +1703,7 @@ s
 
                 <div class="box-footer">
 	                 <a id="btn-prev-9"  href="#tab_8" data-toggle="tab" type="button" class="btn btn-default pull-left">
-	                <i class="fa fa-arrow-left"></i>Volver al paso 8: experiencia laboral</a>
+	                <i class="fa fa-arrow-left"></i>Volver al paso 8: Otros</a>
 
 
                <button  id="form_reset9" type="button" class="btn bg-default pull-center"><i class="icon-search"></i> <?php echo "Limpiar estos campos del formulario" ?>
