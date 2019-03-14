@@ -936,13 +936,13 @@ if (is_uploaded_file($_FILES['referenciasPersonales']['tmp_name']))
     {
         UI::exitError(getMLText("folder_title", array("foldername" => "No se pudo notificar")),"No se pudo notificar de la postulación al procesarla");
     }
-    //se notifica del mensaje tanto a postulante como admin 1
+    //se notifica del mensaje tanto a postulante como A TODOS LOS ADMIN
     $nombreInteresado=$user->getFullName();
     $receptor=$dms->getUser(1);
     $idPostulado=$user->getID();
     $rutilla = "http".((isset($_SERVER['HTTPS']) && (strcmp($_SERVER['HTTPS'],'off')!=0)) ? "s" : "")."://".$_SERVER['HTTP_HOST'].$settings->_httpRoot."out/out.VerPostulacion.php?postulante=$idPostulado";
-    $subject = htmlspecialchars("Nueva postulación en el sistema");
-    $message = htmlspecialchars("\n $nombreInteresado ha colocado su postulación en el sistema. \n Puede acceder al perfil del postulante desde el siguiente enlace: \n $rutilla \n");
+    $subject = htmlspecialchars("Nueva postulación para la base de datos de personas facilitadoras ENAFOP");
+    $message = htmlspecialchars("\n $nombreInteresado ha colocado su postulación en el sistema. \n Puede acceder al perfil del postulante desde el siguiente enlace: \n $rutilla \n Posteriormente podrá ingresar con el usuario y contraseña asignadas.");
     $params = array();
     $params['sitename'] = $settings->_siteName;
     $params['http_root'] = $settings->_httpRoot;

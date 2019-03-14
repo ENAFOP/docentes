@@ -715,10 +715,11 @@ $('input[name=gerenciaPublica]').click(function()
 			$(x).show('slow');
 		} 		
 	}	
-	else
+	else //si el valor es no: escondo y borro selecciones
 	{		
 	
-		$(x).hide('slow');				
+		$(x).hide('slow');	
+		//document.getElementById("temasGerencia").options.length = 0;			
 	}
 });
 ///////////////////////////////////////
@@ -934,7 +935,7 @@ $('#metodologiaDiseño').change(function()
 			$(x).show('slow');
 		}
 	}
-	else
+	else //si ya está chequeado y se deschequea, escondo y borro todo
 	{			
 			$(x).hide('slow');
 			 var a = document.getElementsByName("metodologiaProgramas[]");
@@ -948,7 +949,19 @@ $('#metodologiaDiseño').change(function()
 				   b[i].value="";	
 				   
 				} 
-	}			              
+				//nuevo marzo 2019: borro de hecho las filas de la tabla no solo las dejo en blanco; si no, dará error
+				// var table = document.getElementById("tabla71"); //tabla 71 es Diseño de programas y/o proyectos de formación y/o capacitación (curricular)
+			 //    var rowCount = table.rows.length;
+			 //    console.log("row count: "+rowCount);
+			 //    for(var i=0; i<=rowCount;i++)
+			 //    {
+			 //    	console.log("borrando tabla: indice "+i);
+			 //    	table.deleteRow(i);
+			 //    }
+			 $('#tabla71').empty()
+
+	}//fin del else
+
     });
                
 //72
@@ -976,6 +989,7 @@ $('#disenoCartas').change(function()
 				   b[i].value="";	
 				   
 				} 
+				$('#tabla72').empty()
 		
 	}  
                
@@ -1008,6 +1022,7 @@ $('#evaluacionProcesos').change(function()
 				   b[i].value="";	
 				   
 				} 
+				$('#tabla73').empty()
 			
 		}
                
@@ -1034,6 +1049,7 @@ $('#facilitacionTalleres').change(function()
 				   a[i].value="";
 				   b[i].value="";					   
 				} 
+				$('#tabla74').empty()
 		
 	}               
     });
@@ -1059,6 +1075,7 @@ $('#metodologiasParticipativas').change(function()
 				   a[i].value="";
 				   b[i].value="";					   
 				} 
+				$('#tabla75').empty()
 		
 	}               
     });
@@ -1084,6 +1101,8 @@ $('#elaboracionMaterial').change(function()
 				   a[i].value="";
 				   b[i].value="";					   
 				} 
+
+				$('#tabla76').empty()
 		
 	}               
     });
@@ -1109,6 +1128,7 @@ $('#disenador').change(function()
 				   a[i].value="";
 				   b[i].value="";					   
 				} 
+				$('#tabla77').empty()
 		
 	}               
     });
@@ -1693,7 +1713,11 @@ $('#btn-next-3').on('click', function ()
 			{
 					puedoPasar=false;
 			}
-		}
+		}//fin de si
+		else 
+		{//inicio de no
+			$( "[name^=temasGerencia]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//2: planificacion para el desarrollo
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=planificacionDesarrollo]:checked').val());
@@ -1714,6 +1738,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasPlanificacion]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//3: gestión del talento humano
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=gestionTalento]:checked').val());
@@ -1734,6 +1762,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasTalento]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//4: Gobierno y territorio
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=gobiernoTerritorio]:checked').val());
@@ -1754,6 +1786,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasGobierno]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		
 		//5: Ética y transparencia en la gestión pública
 	    var validator = $("#formularioAplicacion").validate();
@@ -1775,6 +1811,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasEtica]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		
 		//6: Gobierno electrónico
 	    var validator = $("#formularioAplicacion").validate();
@@ -1796,6 +1836,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasElectronico]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//7: Gobierno abierto y participación ciudadana
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=gobiernoAbierto]:checked').val());
@@ -1816,6 +1860,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasAbierto]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//8: Gestión de Calidad en el sector público
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=gestionCalidad]:checked').val());
@@ -1836,6 +1884,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasCalidad]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//9: Enfoque de derechos en la gestión pública
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=enfoque]:checked').val());
@@ -1856,6 +1908,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasEnfoque]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//10:Relaciones laborales en el sector público
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=relaciones]:checked').val());
@@ -1876,6 +1932,10 @@ $('#btn-next-3').on('click', function ()
 					puedoPasar=false;
 			}
 		}
+		else 
+		{//inicio de no
+			$( "[name^=temasRelaciones]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no
 		//11:R Gestión de capacitación en el sector público
 	    var validator = $("#formularioAplicacion").validate();
 	     valor=($('input[name=capacitacion]:checked').val());
@@ -1895,7 +1955,11 @@ $('#btn-next-3').on('click', function ()
 			{
 					puedoPasar=false;
 			}
-		}		
+		}
+		else 
+		{//inicio de no
+			$( "[name^=temasCapacitacion]").rules( "remove" );//console.log("Valor no en temas gerencia, reglas borradas");
+		}//fin de no		
 		/////al final si puedo pasar hago el cambio de tabs
 		if(puedoPasar)
 		{
@@ -2146,6 +2210,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okProgramas=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Diseño de programas y/o proyectos de formación y/o capacitación (curricular)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2188,6 +2253,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okdisenocartas=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Diseño de cartas didácticas (diseños instruccionales)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2230,6 +2296,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okevaluacion=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Evaluación de procesos de formación (en cuales procesos, metodología)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2272,6 +2339,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okfacilitacion=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Facilitación de talleres o cursos de formación o capacitación (cuáles)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if programas
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2314,6 +2382,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okparticipativa=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \"Metodologías participativas (cuáles)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if participativa
 			var elaboracion=document.getElementById('elaboracionMaterial').checked;
@@ -2355,6 +2424,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				okelaboracion=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \" Elaboración de material de apoyo (manuales, guías, lecturas. Cuáles)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if elaboracion
 		var linea=document.getElementById('disenador').checked;
@@ -2396,6 +2466,7 @@ $('#btn-next-3').on('click', function ()
 			else 
 			{
 				oklinea=false;
+				alert("No se puede avanzar: debe agregar al menos 3 atestados y descripciones para la metodología \" Metodologías en línea (si es diseñador instruccional, contenidista o solo tutor)\" \n Utilice el botón \"Añadir una nueva experiencia en esta metodología\" para que aparezcan nuevas filas donde podrá añadir la descripción y atestado.");
 			}							
 		} //fin de if elaboracion
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
